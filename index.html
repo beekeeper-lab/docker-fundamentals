@@ -99,6 +99,25 @@ h2 {
   cursor: pointer;
 }
 .controls button:hover { background: rgba(255,255,255,0.3); }
+.quiz-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+.quiz-badge.not-taken { background: #e5e7eb; color: #6b7280; }
+.quiz-badge.passed { background: #dcfce7; color: #166534; }
+.quiz-badge.failed { background: #fce7f3; color: #9d174d; }
+[data-theme="dark"] .quiz-badge.not-taken { background: #374151; color: #9ca3af; }
+[data-theme="dark"] .quiz-badge.passed { background: #14532d; color: #86efac; }
+[data-theme="dark"] .quiz-badge.failed { background: #500724; color: #f9a8d4; }
+.quiz-score-line {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 0.25rem;
+}
 </style>
 </head>
 <body>
@@ -115,64 +134,84 @@ h2 {
 <div class="container">
   <h2 style="margin-top: 2rem;">Start Here</h2>
 <div class="module-grid">
-<a href="html/module-00-what-is-docker.html" class="module-card">
+<a href="html/module-00-what-is-docker.html" class="module-card" data-module-slug="module-00-what-is-docker">
   <div class="card-badge" style="background:#dcfce7;color:#166534">Start Here</div>
   <h3>Module 1</h3>
   <p>What Is Docker</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>
-<a href="html/module-01-images-and-containers.html" class="module-card">
+<a href="html/module-01-images-and-containers.html" class="module-card" data-module-slug="module-01-images-and-containers">
   <div class="card-badge" style="background:#dcfce7;color:#166534">Start Here</div>
   <h3>Module 2</h3>
   <p>Images and Containers</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>
-<a href="html/module-02-container-management.html" class="module-card">
+<a href="html/module-02-container-management.html" class="module-card" data-module-slug="module-02-container-management">
   <div class="card-badge" style="background:#dcfce7;color:#166534">Start Here</div>
   <h3>Module 3</h3>
   <p>Container Management</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>
 </div>
 <h2 style="margin-top: 2rem;">Useful Soon</h2>
 <div class="module-grid">
-<a href="html/module-03-dockerfiles-part-1.html" class="module-card">
+<a href="html/module-03-dockerfiles-part-1.html" class="module-card" data-module-slug="module-03-dockerfiles-part-1">
   <div class="card-badge" style="background:#dbeafe;color:#1e40af">Useful Soon</div>
   <h3>Module 4</h3>
   <p>Dockerfiles Part 1</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>
-<a href="html/module-04-dockerfiles-part-2.html" class="module-card">
+<a href="html/module-04-dockerfiles-part-2.html" class="module-card" data-module-slug="module-04-dockerfiles-part-2">
   <div class="card-badge" style="background:#dbeafe;color:#1e40af">Useful Soon</div>
   <h3>Module 5</h3>
   <p>Dockerfiles Part 2</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>
-<a href="html/module-05-volumes-and-persistence.html" class="module-card">
+<a href="html/module-05-volumes-and-persistence.html" class="module-card" data-module-slug="module-05-volumes-and-persistence">
   <div class="card-badge" style="background:#dbeafe;color:#1e40af">Useful Soon</div>
   <h3>Module 6</h3>
   <p>Volumes and Persistence</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>
 </div>
 <h2 style="margin-top: 2rem;">When You're Ready</h2>
 <div class="module-grid">
-<a href="html/module-06-networking.html" class="module-card">
+<a href="html/module-06-networking.html" class="module-card" data-module-slug="module-06-networking">
   <div class="card-badge" style="background:#fef3c7;color:#92400e">When You're Ready</div>
   <h3>Module 7</h3>
   <p>Networking</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>
-<a href="html/module-07-docker-compose-part-1.html" class="module-card">
+<a href="html/module-07-docker-compose-part-1.html" class="module-card" data-module-slug="module-07-docker-compose-part-1">
   <div class="card-badge" style="background:#fef3c7;color:#92400e">When You're Ready</div>
   <h3>Module 8</h3>
   <p>Docker Compose Part 1</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>
-<a href="html/module-08-docker-compose-part-2.html" class="module-card">
+<a href="html/module-08-docker-compose-part-2.html" class="module-card" data-module-slug="module-08-docker-compose-part-2">
   <div class="card-badge" style="background:#fef3c7;color:#92400e">When You're Ready</div>
   <h3>Module 9</h3>
   <p>Docker Compose Part 2</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>
 </div>
 <h2 style="margin-top: 2rem;">Advanced</h2>
 <div class="module-grid">
-<a href="html/module-09-docker-hub-and-registries.html" class="module-card">
+<a href="html/module-09-docker-hub-and-registries.html" class="module-card" data-module-slug="module-09-docker-hub-and-registries">
   <div class="card-badge" style="background:#fce7f3;color:#9d174d">Advanced</div>
   <h3>Module 10</h3>
   <p>Docker Hub and Registries</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>
 </div>
 
@@ -192,6 +231,29 @@ function toggleTheme() {
       document.documentElement.dataset.theme = 'dark';
       document.getElementById('theme-btn').textContent = '☀️ Light';
     }
+  } catch(e) {}
+
+  // Update quiz badges from localStorage
+  try {
+    var results = JSON.parse(localStorage.getItem('docker-fund-quiz-results') || '{}');
+    document.querySelectorAll('.module-card[data-module-slug]').forEach(function(card) {
+      var slug = card.dataset.moduleSlug;
+      var badge = card.querySelector('[data-quiz-badge]');
+      var scoreLine = card.querySelector('[data-quiz-score]');
+      if (results[slug] && badge) {
+        var r = results[slug];
+        if (r.passed) {
+          badge.className = 'quiz-badge passed';
+          badge.textContent = 'Passed';
+        } else {
+          badge.className = 'quiz-badge failed';
+          badge.textContent = 'Retry';
+        }
+        if (scoreLine) {
+          scoreLine.textContent = r.score + '/' + r.total + ' (' + Math.round(r.score/r.total*100) + '%)';
+        }
+      }
+    });
   } catch(e) {}
 })();
 </script>

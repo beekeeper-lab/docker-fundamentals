@@ -98,17 +98,14 @@ body {
 .sidebar ul { list-style: none; }
 
 .sidebar li {
-  margin: 0.25rem 0;
+  margin: 0;
 }
 
 .sidebar a {
   display: block;
-  padding: 0.4rem 0.75rem;
   color: var(--text);
   text-decoration: none;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  transition: background 0.2s;
+  transition: background 0.2s, opacity 0.2s;
 }
 
 .sidebar a:hover {
@@ -116,16 +113,50 @@ body {
   color: var(--accent);
 }
 
-.sidebar a.active {
-  background: var(--accent);
-  color: white;
-  font-weight: 600;
+/* Page-grouped TOC */
+.toc-page-group {
+  margin: 0.25rem 0.5rem;
+  border-radius: 6px;
+  border-left: 3px solid var(--sidebar-border);
+  transition: border-color 0.2s, background 0.2s;
 }
 
-.sidebar .toc-h3 {
-  padding-left: 1.5rem;
+.toc-page-group.active-group {
+  border-left-color: var(--accent);
+  background: rgba(0, 119, 182, 0.05);
+}
+
+[data-theme="dark"] .toc-page-group.active-group {
+  background: rgba(79, 195, 247, 0.08);
+}
+
+.toc-h2-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.toc-subsections {
+  list-style: none;
+  padding: 0 0 0.35rem 0;
+}
+
+.toc-subsections li a {
+  padding: 0.2rem 0.75rem 0.2rem 1.5rem;
   font-size: 0.82rem;
-  opacity: 0.8;
+  opacity: 0.7;
+}
+
+.toc-page-group.active-group .toc-subsections li a {
+  opacity: 0.85;
+}
+
+.toc-page-group a.active {
+  color: var(--accent);
+  opacity: 1;
+  font-weight: 600;
 }
 
 /* Main content */
@@ -420,6 +451,186 @@ body {
 
 .controls button:hover { background: var(--accent-light); }
 
+/* Quiz styles */
+.quiz-container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.quiz-question {
+  border: 1px solid var(--sidebar-border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.quiz-question.correct {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.06);
+}
+
+.quiz-question.incorrect {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.06);
+}
+
+[data-theme="dark"] .quiz-question.correct {
+  background: rgba(34, 197, 94, 0.1);
+}
+
+[data-theme="dark"] .quiz-question.incorrect {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.quiz-question-number {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.quiz-question-text {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.quiz-options {
+  list-style: none;
+  padding: 0;
+}
+
+.quiz-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.quiz-options label:hover {
+  background: var(--accent-light);
+}
+
+.quiz-options input[type="radio"] {
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.quiz-options label.selected-correct {
+  background: rgba(34, 197, 94, 0.15);
+  font-weight: 600;
+}
+
+.quiz-options label.selected-incorrect {
+  background: rgba(239, 68, 68, 0.15);
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.quiz-options label.show-correct {
+  background: rgba(34, 197, 94, 0.1);
+  font-weight: 600;
+}
+
+.quiz-feedback {
+  display: none;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+}
+
+.quiz-feedback.correct {
+  display: block;
+  color: #166534;
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.quiz-feedback.incorrect {
+  display: block;
+  color: #991b1b;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+[data-theme="dark"] .quiz-feedback.correct { color: #86efac; }
+[data-theme="dark"] .quiz-feedback.incorrect { color: #fca5a5; }
+
+.quiz-submit-btn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 1.5rem auto;
+  padding: 0.75rem 2rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.quiz-submit-btn:hover { opacity: 0.85; }
+.quiz-submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.quiz-results {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+  margin: 1.5rem auto;
+  max-width: 400px;
+  border-radius: 12px;
+  border: 2px solid var(--sidebar-border);
+}
+
+.quiz-results.visible { display: block; }
+.quiz-results.passed { border-color: #22c55e; }
+.quiz-results.failed { border-color: #ef4444; }
+
+.quiz-score {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.quiz-results.passed .quiz-score { color: #22c55e; }
+.quiz-results.failed .quiz-score { color: #ef4444; }
+
+.quiz-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.25rem 0;
+}
+
+.quiz-detail {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.quiz-retry-btn {
+  padding: 0.6rem 1.5rem;
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.quiz-retry-btn:hover {
+  background: var(--accent);
+  color: white;
+}
+
 /* Mobile toggle */
 .sidebar-toggle {
   display: none;
@@ -546,19 +757,41 @@ function playNarration(btn) {
 
 // Pagination
 const pages = document.querySelectorAll('.page-section');
-let currentPage = 0;
+let currentPage = -1;
+
+function stopAllAudio() {
+  document.querySelectorAll('.narration-block audio').forEach(a => {
+    a.pause();
+    a.currentTime = 0;
+  });
+  document.querySelectorAll('.narration-play.playing').forEach(btn => {
+    btn.classList.remove('playing');
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+  });
+  currentlyPlaying = null;
+}
+
+function autoPlayNarration(pageNum) {
+  if (isMuted) return;
+  var firstAudio = pages[pageNum].querySelector('.narration-block audio');
+  if (firstAudio) {
+    setTimeout(function() {
+      firstAudio.play().catch(function() {});
+    }, 300);
+  }
+}
 
 function showPage(n) {
+  var isNewPage = (n !== currentPage);
   pages.forEach((p, i) => p.classList.toggle('active', i === n));
   currentPage = n;
   updateNav();
   updateTOC();
-  window.scrollTo(0, 0);
 
-  // Auto-play first narration on new page if not muted
-  if (!isMuted) {
-    const firstAudio = pages[n].querySelector('audio');
-    if (firstAudio) setTimeout(() => firstAudio.play().catch(() => {}), 300);
+  if (isNewPage) {
+    stopAllAudio();
+    window.scrollTo(0, 0);
+    autoPlayNarration(n);
   }
 
   // Track visit
@@ -575,8 +808,14 @@ function updateNav() {
 }
 
 function updateTOC() {
+  document.querySelectorAll('.toc-page-group').forEach(g => g.classList.remove('active-group'));
   document.querySelectorAll('#toc a').forEach(a => {
-    a.classList.toggle('active', parseInt(a.dataset.page) === currentPage);
+    var isActive = parseInt(a.dataset.page) === currentPage;
+    a.classList.toggle('active', isActive);
+    if (isActive) {
+      var group = a.closest('.toc-page-group');
+      if (group) group.classList.add('active-group');
+    }
   });
 }
 
@@ -584,7 +823,21 @@ function updateTOC() {
 document.querySelectorAll('#toc a').forEach(a => {
   a.addEventListener('click', (e) => {
     e.preventDefault();
-    showPage(parseInt(a.dataset.page));
+    var pageNum = parseInt(a.dataset.page);
+    var isSamePage = (pageNum === currentPage);
+
+    if (isSamePage) {
+      // Same page — just scroll to the heading without touching audio
+      var headings = pages[currentPage].querySelectorAll('h2, h3');
+      var tocLinks = document.querySelectorAll('#toc a');
+      var linkIndex = Array.from(tocLinks).indexOf(a);
+      if (headings[linkIndex]) {
+        headings[linkIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      showPage(pageNum);
+    }
+
     // Close sidebar on mobile
     if (window.innerWidth <= 900) document.getElementById('sidebar').classList.remove('open');
   });
@@ -632,6 +885,116 @@ document.querySelectorAll('audio').forEach((audio, i, all) => {
   });
 });
 
+// Quiz functionality
+function initQuiz() {
+  var quizForm = document.getElementById('quizForm');
+  if (!quizForm) return;
+
+  var submitBtn = document.getElementById('quizSubmitBtn');
+  var resultsDiv = document.getElementById('quizResults');
+  var scoreEl = document.getElementById('quizScore');
+  var labelEl = document.getElementById('quizLabel');
+  var detailEl = document.getElementById('quizDetail');
+  var retryBtn = document.getElementById('quizRetryBtn');
+  var quizDataEl = document.getElementById('quizData');
+
+  if (!quizDataEl || !submitBtn) return;
+
+  var quizMeta = JSON.parse(quizDataEl.textContent);
+  var moduleSlug = quizMeta.moduleSlug;
+  var passingScore = quizMeta.passingScore;
+  var totalQuestions = quizMeta.totalQuestions;
+
+  submitBtn.addEventListener('click', function() {
+    var questions = quizForm.querySelectorAll('.quiz-question');
+    var score = 0;
+
+    questions.forEach(function(qDiv) {
+      var correctAnswer = qDiv.dataset.answer;
+      var selected = qDiv.querySelector('input[type="radio"]:checked');
+      var feedback = qDiv.querySelector('.quiz-feedback');
+      var labels = qDiv.querySelectorAll('.quiz-options label');
+
+      // Disable all radios
+      qDiv.querySelectorAll('input[type="radio"]').forEach(function(r) { r.disabled = true; });
+
+      if (!selected) {
+        qDiv.classList.add('incorrect');
+        feedback.textContent = 'Not answered. Correct: ' + correctAnswer;
+        feedback.className = 'quiz-feedback incorrect';
+        // Highlight correct answer
+        labels.forEach(function(lbl) {
+          var inp = lbl.querySelector('input');
+          if (inp && inp.value === correctAnswer) lbl.classList.add('show-correct');
+        });
+        return;
+      }
+
+      var selectedValue = selected.value;
+      var selectedLabel = selected.closest('label');
+
+      if (selectedValue === correctAnswer) {
+        score++;
+        qDiv.classList.add('correct');
+        if (selectedLabel) selectedLabel.classList.add('selected-correct');
+        feedback.textContent = 'Correct!';
+        feedback.className = 'quiz-feedback correct';
+      } else {
+        qDiv.classList.add('incorrect');
+        if (selectedLabel) selectedLabel.classList.add('selected-incorrect');
+        feedback.textContent = 'Incorrect. Correct answer: ' + correctAnswer;
+        feedback.className = 'quiz-feedback incorrect';
+        // Highlight correct answer
+        labels.forEach(function(lbl) {
+          var inp = lbl.querySelector('input');
+          if (inp && inp.value === correctAnswer) lbl.classList.add('show-correct');
+        });
+      }
+    });
+
+    var passed = score >= passingScore;
+    scoreEl.textContent = score + ' / ' + totalQuestions;
+    labelEl.textContent = passed ? 'Passed!' : 'Not Yet';
+    detailEl.textContent = 'Passing score: ' + passingScore + '/' + totalQuestions + ' (' + Math.round(passingScore/totalQuestions*100) + '%)';
+    resultsDiv.className = 'quiz-results visible ' + (passed ? 'passed' : 'failed');
+    submitBtn.disabled = true;
+
+    // Save best score to localStorage
+    try {
+      var allResults = JSON.parse(localStorage.getItem('docker-fund-quiz-results') || '{}');
+      var existing = allResults[moduleSlug];
+      if (!existing || score > existing.score) {
+        allResults[moduleSlug] = {
+          score: score,
+          total: totalQuestions,
+          passing: passingScore,
+          passed: passed,
+          date: new Date().toISOString()
+        };
+        localStorage.setItem('docker-fund-quiz-results', JSON.stringify(allResults));
+      }
+    } catch(e) {}
+  });
+
+  retryBtn.addEventListener('click', function() {
+    var questions = quizForm.querySelectorAll('.quiz-question');
+    questions.forEach(function(qDiv) {
+      qDiv.classList.remove('correct', 'incorrect');
+      qDiv.querySelectorAll('input[type="radio"]').forEach(function(r) {
+        r.disabled = false;
+        r.checked = false;
+      });
+      qDiv.querySelectorAll('.quiz-options label').forEach(function(lbl) {
+        lbl.classList.remove('selected-correct', 'selected-incorrect', 'show-correct');
+      });
+      var feedback = qDiv.querySelector('.quiz-feedback');
+      feedback.className = 'quiz-feedback';
+    });
+    resultsDiv.className = 'quiz-results';
+    submitBtn.disabled = false;
+  });
+}
+
 // Init
 (function() {
   try {
@@ -647,6 +1010,7 @@ document.querySelectorAll('audio').forEach((audio, i, all) => {
     }
   } catch(e) {}
   if (pages.length > 0) showPage(0);
+  initQuiz();
 })();
 </script>
 </body>

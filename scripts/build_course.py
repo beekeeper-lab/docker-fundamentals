@@ -24,6 +24,7 @@ SOURCE = ROOT / "source"
 IMAGES = ROOT / "images"
 AUDIO = ROOT / "audio"
 HTML_OUT = ROOT / "html"
+QUIZ_DIR = ROOT / "Quiz"
 TEMPLATE_PATH = Path(__file__).resolve().parent / "module_template.html"
 
 # ── Module registry ────────────────────────────────────────────────────
@@ -279,8 +280,52 @@ def process_narration_blocks(html_text, module_stem):
     return html_text
 
 
+MARKER_EMOJI_RE = re.compile(r'[\U0001F3F7]\uFE0F|[\U0001F3AF]|[\U0001F399]\uFE0F|[\U0001F504]|[\U0001F4A1]')
+
+
+def split_merged_blockquotes(html_text):
+    """Split merged blockquotes that contain multiple emoji-marked paragraphs.
+
+    Python-Markdown merges adjacent > blockquotes into a single <blockquote>
+    with multiple <p> children. This breaks the per-block emoji processors,
+    so we split them back out into individual <blockquote> elements.
+    """
+
+    def splitter(m):
+        inner = m.group(1)
+        # Split on paragraph boundaries
+        paragraphs = re.split(r'</p>\s*<p>', inner)
+        if len(paragraphs) <= 1:
+            return m.group(0)
+
+        # Check if any paragraph contains a marker emoji
+        has_marker = any(MARKER_EMOJI_RE.search(p) for p in paragraphs)
+        if not has_marker:
+            return m.group(0)
+
+        # Rewrap each paragraph in its own blockquote
+        result = []
+        for p in paragraphs:
+            p = p.strip()
+            # Ensure proper <p> wrapping
+            if not p.startswith('<p>'):
+                p = '<p>' + p
+            if not p.endswith('</p>'):
+                p = p + '</p>'
+            result.append(f'<blockquote>\n{p}\n</blockquote>')
+        return '\n'.join(result)
+
+    return re.sub(
+        r'<blockquote>\s*(.*?)\s*</blockquote>',
+        splitter,
+        html_text,
+        flags=re.DOTALL,
+    )
+
+
 def process_special_blocks(html_text, module_stem=""):
     """Transform emoji-prefixed blockquotes into styled components."""
+    html_text = split_merged_blockquotes(html_text)
     html_text = process_tier_badges(html_text)
     html_text = process_cycle_blocks(html_text)
     html_text = process_callout_blocks(html_text)
@@ -390,8 +435,8 @@ def paginate(html_text):
 
 
 def build_toc(html_text, num_pages):
-    """Build sidebar TOC from H2 and H3 headings."""
-    toc_items = []
+    """Build sidebar TOC from H2 and H3 headings, grouped by page."""
+    groups = []  # list of (page_idx, h2_title, [h3_titles])
     page_idx = -1
 
     for line in html_text.split("\n"):
@@ -401,12 +446,23 @@ def build_toc(html_text, num_pages):
         if h2_match:
             page_idx += 1
             title = re.sub(r'<[^>]+>', '', h2_match.group(1))
-            toc_items.append(f'<li><a href="#" data-page="{page_idx}">{title}</a></li>')
-        elif h3_match and page_idx >= 0:
+            groups.append((page_idx, title, []))
+        elif h3_match and page_idx >= 0 and groups:
             title = re.sub(r'<[^>]+>', '', h3_match.group(1))
-            toc_items.append(f'<li><a href="#" data-page="{page_idx}" class="toc-h3">{title}</a></li>')
+            groups[-1][2].append(title)
 
-    return "\n".join(toc_items)
+    toc_html = []
+    for page_num, h2_title, h3_titles in groups:
+        toc_html.append(f'<li class="toc-page-group" data-toc-page="{page_num}">')
+        toc_html.append(f'  <a href="#" data-page="{page_num}" class="toc-h2-link">{h2_title}</a>')
+        if h3_titles:
+            toc_html.append('  <ul class="toc-subsections">')
+            for h3 in h3_titles:
+                toc_html.append(f'    <li><a href="#" data-page="{page_num}" class="toc-h3-link">{h3}</a></li>')
+            toc_html.append('  </ul>')
+        toc_html.append('</li>')
+
+    return "\n".join(toc_html)
 
 
 def build_module_nav(module_idx):
@@ -429,6 +485,63 @@ def build_module_nav(module_idx):
         parts.append('<a href="../index.html">Course Home →</a>')
 
     return "\n".join(parts)
+
+
+def generate_quiz_html(module_num, module_slug):
+    """Generate interactive quiz HTML from quiz JSON file."""
+    import json as json_mod
+    quiz_dir = QUIZ_DIR / f"Day_{module_num + 1:02d}_Quiz_File"
+    quiz_file = quiz_dir / f"day_{module_num + 1:02d}_quiz.json"
+
+    if not quiz_file.exists():
+        return ""
+
+    quiz_data = json_mod.loads(quiz_file.read_text())
+    title = quiz_data.get("quiz_title", f"Module {module_num + 1} Quiz")
+    passing = quiz_data.get("passing_score", 20)
+    total = quiz_data.get("total_questions", 25)
+    questions = quiz_data.get("questions", [])
+
+    if not questions:
+        return ""
+
+    quiz_json = json_mod.dumps({
+        "moduleSlug": module_slug,
+        "passingScore": passing,
+        "totalQuestions": total,
+    })
+
+    questions_html = []
+    for q in questions:
+        qid = q["id"]
+        opts = ""
+        for opt in q["options"]:
+            opts += f'''<label>
+              <input type="radio" name="q{qid}" value="{html_mod.escape(opt)}">
+              <span>{html_mod.escape(opt)}</span>
+            </label>\n'''
+
+        questions_html.append(f'''<div class="quiz-question" data-answer="{html_mod.escape(q['answer'])}">
+          <div class="quiz-question-number">Question {qid}</div>
+          <div class="quiz-question-text">{html_mod.escape(q['question'])}</div>
+          <div class="quiz-options">{opts}</div>
+          <div class="quiz-feedback"></div>
+        </div>''')
+
+    return f'''<h2 id="quiz">Knowledge Check: {html_mod.escape(title)}</h2>
+<div class="quiz-container">
+  <script type="application/json" id="quizData">{quiz_json}</script>
+  <form id="quizForm" onsubmit="return false;">
+    {''.join(questions_html)}
+    <button type="button" id="quizSubmitBtn" class="quiz-submit-btn">Submit Answers</button>
+  </form>
+  <div id="quizResults" class="quiz-results">
+    <div id="quizScore" class="quiz-score"></div>
+    <div id="quizLabel" class="quiz-label"></div>
+    <div id="quizDetail" class="quiz-detail"></div>
+    <button type="button" id="quizRetryBtn" class="quiz-retry-btn">Try Again</button>
+  </div>
+</div>'''
 
 
 def build_module(module_info, module_idx, template, embed=True):
@@ -454,6 +567,14 @@ def build_module(module_info, module_idx, template, embed=True):
     if embed:
         module_name = module_info["file"]
         body_html = embed_images(body_html, module_name)
+
+    # Append quiz if available
+    module_num_match = re.search(r'module-(\d+)', module_stem)
+    if module_num_match:
+        module_num = int(module_num_match.group(1))
+        quiz_html = generate_quiz_html(module_num, module_stem)
+        if quiz_html:
+            body_html += quiz_html
 
     # Paginate at H2 boundaries
     paginated_html, num_pages = paginate(body_html)
@@ -514,10 +635,13 @@ def build_index(template_unused=None):
 
         for mod in tiers[tier_name]:
             html_file = f"html/{mod['file'].replace('.md', '.html')}"
-            cards_html += f'''<a href="{html_file}" class="module-card">
+            slug = mod['file'].replace('.md', '')
+            cards_html += f'''<a href="{html_file}" class="module-card" data-module-slug="{slug}">
   <div class="card-badge" style="background:{bg};color:{fg}">{tier_name}</div>
   <h3>{mod["short"]}</h3>
   <p>{mod["title"]}</p>
+  <span class="quiz-badge not-taken" data-quiz-badge>Quiz</span>
+  <div class="quiz-score-line" data-quiz-score></div>
 </a>\n'''
 
         cards_html += "</div>\n"
@@ -636,6 +760,25 @@ h2 {{
   cursor: pointer;
 }}
 .controls button:hover {{ background: rgba(255,255,255,0.3); }}
+.quiz-badge {{
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}}
+.quiz-badge.not-taken {{ background: #e5e7eb; color: #6b7280; }}
+.quiz-badge.passed {{ background: #dcfce7; color: #166534; }}
+.quiz-badge.failed {{ background: #fce7f3; color: #9d174d; }}
+[data-theme="dark"] .quiz-badge.not-taken {{ background: #374151; color: #9ca3af; }}
+[data-theme="dark"] .quiz-badge.passed {{ background: #14532d; color: #86efac; }}
+[data-theme="dark"] .quiz-badge.failed {{ background: #500724; color: #f9a8d4; }}
+.quiz-score-line {{
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-top: 0.25rem;
+}}
 </style>
 </head>
 <body>
@@ -667,6 +810,29 @@ function toggleTheme() {{
       document.documentElement.dataset.theme = 'dark';
       document.getElementById('theme-btn').textContent = '☀️ Light';
     }}
+  }} catch(e) {{}}
+
+  // Update quiz badges from localStorage
+  try {{
+    var results = JSON.parse(localStorage.getItem('docker-fund-quiz-results') || '{{}}');
+    document.querySelectorAll('.module-card[data-module-slug]').forEach(function(card) {{
+      var slug = card.dataset.moduleSlug;
+      var badge = card.querySelector('[data-quiz-badge]');
+      var scoreLine = card.querySelector('[data-quiz-score]');
+      if (results[slug] && badge) {{
+        var r = results[slug];
+        if (r.passed) {{
+          badge.className = 'quiz-badge passed';
+          badge.textContent = 'Passed';
+        }} else {{
+          badge.className = 'quiz-badge failed';
+          badge.textContent = 'Retry';
+        }}
+        if (scoreLine) {{
+          scoreLine.textContent = r.score + '/' + r.total + ' (' + Math.round(r.score/r.total*100) + '%)';
+        }}
+      }}
+    }});
   }} catch(e) {{}}
 }})();
 </script>
