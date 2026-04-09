@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 9: Docker Compose Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which of the following is NOT a way to set environment variables in a Docker Compose file?",
+      "options": [
+        "Using the 'environment' key with inline values",
+        "Using the 'env_file' key to load from a file",
+        "Using variable substitution with ${VAR} syntax",
+        "Using the 'env_vars' key with a list of values"
+      ],
+      "answer": "Using the 'env_vars' key with a list of values"
+    },
+    {
+      "id": 2,
+      "question": "What file does Docker Compose automatically read for variable substitution?",
+      "options": [
+        ".env",
+        ".docker-env",
+        "compose.env",
+        "docker-compose.env"
+      ],
+      "answer": ".env"
+    },
+    {
+      "id": 3,
+      "question": "In the syntax '${DB_HOST:-localhost}', what does ':-localhost' mean?",
+      "options": [
+        "DB_HOST must always equal localhost",
+        "Use 'localhost' as the default if DB_HOST is not set",
+        "Assign 'localhost' to DB_HOST permanently",
+        "Raise an error if DB_HOST is not localhost"
+      ],
+      "answer": "Use 'localhost' as the default if DB_HOST is not set"
+    },
+    {
+      "id": 4,
+      "question": "How do you specify an alternate .env file when running docker compose?",
+      "options": [
+        "docker compose --env .env.production up",
+        "docker compose --env-file .env.production up",
+        "docker compose -e .env.production up",
+        "docker compose --environment .env.production up"
+      ],
+      "answer": "docker compose --env-file .env.production up"
+    },
+    {
+      "id": 5,
+      "question": "In a Compose file, what does the 'env_file' key do?",
+      "options": [
+        "Specifies which Dockerfile to use",
+        "Loads environment variables from the specified file into the container",
+        "Sets the name of the .env file for variable substitution",
+        "Exports container environment variables to a file"
+      ],
+      "answer": "Loads environment variables from the specified file into the container"
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of a health check in Docker Compose?",
+      "options": [
+        "To monitor CPU usage of the container",
+        "To determine if a container's application is running correctly",
+        "To restart Docker daemon when it crashes",
+        "To check network connectivity between the host and Docker Hub"
+      ],
+      "answer": "To determine if a container's application is running correctly"
+    },
+    {
+      "id": 7,
+      "question": "Which health check parameter specifies how often Docker runs the health check command?",
+      "options": [
+        "timeout",
+        "retries",
+        "interval",
+        "start_period"
+      ],
+      "answer": "interval"
+    },
+    {
+      "id": 8,
+      "question": "What does the 'start_period' parameter in a health check control?",
+      "options": [
+        "How long to wait before starting the container",
+        "The grace period during which health check failures are not counted",
+        "The delay between container start and the first log entry",
+        "How long the container takes to initialize its network"
+      ],
+      "answer": "The grace period during which health check failures are not counted"
+    },
+    {
+      "id": 9,
+      "question": "What does the 'retries' parameter in a health check specify?",
+      "options": [
+        "How many times to restart the container on failure",
+        "How many consecutive failures before the container is marked unhealthy",
+        "How many health check commands to run in parallel",
+        "How many times to retry pulling the image"
+      ],
+      "answer": "How many consecutive failures before the container is marked unhealthy"
+    },
+    {
+      "id": 10,
+      "question": "What health check command is used to verify a PostgreSQL container is ready?",
+      "options": [
+        "pg_check -U postgres",
+        "psql --ping",
+        "pg_isready -U postgres",
+        "postgres --health-check"
+      ],
+      "answer": "pg_isready -U postgres"
+    },
+    {
+      "id": 11,
+      "question": "What does 'condition: service_healthy' in a depends_on block do?",
+      "options": [
+        "Ensures the dependent service is removed if the dependency becomes unhealthy",
+        "Waits until the dependency passes its health check before starting the dependent service",
+        "Monitors the dependency and sends alerts if it becomes unhealthy",
+        "Restarts the dependency if it becomes unhealthy"
+      ],
+      "answer": "Waits until the dependency passes its health check before starting the dependent service"
+    },
+    {
+      "id": 12,
+      "question": "What are Docker Compose profiles used for?",
+      "options": [
+        "Setting user permissions on containers",
+        "Grouping services so you can selectively start subsets of services",
+        "Creating different Docker networks for isolation",
+        "Defining CPU and memory profiles for containers"
+      ],
+      "answer": "Grouping services so you can selectively start subsets of services"
+    },
+    {
+      "id": 13,
+      "question": "How do you start services that belong to the 'debug' profile?",
+      "options": [
+        "docker compose up --profile debug",
+        "docker compose --profile debug up",
+        "docker compose up debug",
+        "docker compose start --group debug"
+      ],
+      "answer": "docker compose --profile debug up"
+    },
+    {
+      "id": 14,
+      "question": "What happens to a service with a profile assigned when you run 'docker compose up' without specifying any profile?",
+      "options": [
+        "It starts normally like any other service",
+        "It starts but in a limited mode",
+        "It is not started",
+        "Docker Compose returns an error"
+      ],
+      "answer": "It is not started"
+    },
+    {
+      "id": 15,
+      "question": "A service without any profile assigned will behave in which way?",
+      "options": [
+        "It will never start unless a profile is specified",
+        "It always starts regardless of which profiles are activated",
+        "It only starts if all profiles are activated",
+        "It is treated as a debug-only service"
+      ],
+      "answer": "It always starts regardless of which profiles are activated"
+    },
+    {
+      "id": 16,
+      "question": "How do you activate multiple profiles at once?",
+      "options": [
+        "docker compose --profile debug,cache up",
+        "docker compose --profiles debug cache up",
+        "docker compose --profile debug --profile cache up",
+        "docker compose up --multi-profile debug cache"
+      ],
+      "answer": "docker compose --profile debug --profile cache up"
+    },
+    {
+      "id": 17,
+      "question": "What is the default restart policy for a Docker Compose service?",
+      "options": [
+        "always",
+        "unless-stopped",
+        "on-failure",
+        "no"
+      ],
+      "answer": "no"
+    },
+    {
+      "id": 18,
+      "question": "What does the 'unless-stopped' restart policy do?",
+      "options": [
+        "Restarts the container only on non-zero exit codes",
+        "Never restarts the container under any circumstances",
+        "Restarts the container always except when it was manually stopped",
+        "Restarts the container only during Docker daemon startup"
+      ],
+      "answer": "Restarts the container always except when it was manually stopped"
+    },
+    {
+      "id": 19,
+      "question": "Which restart policy restarts a container only when it exits with a non-zero exit code?",
+      "options": [
+        "always",
+        "unless-stopped",
+        "on-failure",
+        "no"
+      ],
+      "answer": "on-failure"
+    },
+    {
+      "id": 20,
+      "question": "Under which Compose key do you set resource limits such as memory and CPU?",
+      "options": [
+        "resources",
+        "limits",
+        "deploy.resources.limits",
+        "container.resources"
+      ],
+      "answer": "deploy.resources.limits"
+    },
+    {
+      "id": 21,
+      "question": "In the Compose file, how is a memory limit of 256 megabytes specified under deploy resources?",
+      "options": [
+        "memory: 256",
+        "memory: 256M",
+        "mem_limit: 256mb",
+        "memory_limit: 256MB"
+      ],
+      "answer": "memory: 256M"
+    },
+    {
+      "id": 22,
+      "question": "How is a CPU limit of half a core specified in a Compose file under deploy resources?",
+      "options": [
+        "cpus: 0.5",
+        "cpus: \"0.5\"",
+        "cpu_limit: 50%",
+        "cpu_shares: 512"
+      ],
+      "answer": "cpus: \"0.5\""
+    },
+    {
+      "id": 23,
+      "question": "What does 'docker compose kill api' do?",
+      "options": [
+        "Deletes the api service from the Compose file",
+        "Sends a SIGKILL signal to forcefully stop the api container",
+        "Removes the api container and its volumes",
+        "Stops the api container gracefully with SIGTERM"
+      ],
+      "answer": "Sends a SIGKILL signal to forcefully stop the api container"
+    },
+    {
+      "id": 24,
+      "question": "What does the 'timeout' parameter in a health check specify?",
+      "options": [
+        "How long to wait before the first health check",
+        "The maximum time a single health check command can take before being considered failed",
+        "How long to wait between retries",
+        "The total time before the container is marked unhealthy"
+      ],
+      "answer": "The maximum time a single health check command can take before being considered failed"
+    },
+    {
+      "id": 25,
+      "question": "What is the correct format for a health check test using CMD-SHELL in a Compose file?",
+      "options": [
+        "test: CMD-SHELL pg_isready",
+        "test: [\"CMD-SHELL\", \"pg_isready -U postgres\"]",
+        "test: {cmd: \"pg_isready\", shell: true}",
+        "healthcheck_cmd: \"pg_isready -U postgres\""
+      ],
+      "answer": "test: [\"CMD-SHELL\", \"pg_isready -U postgres\"]"
+    }
+  ]
+}

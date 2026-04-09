@@ -1,0 +1,72 @@
+[
+  {
+    "index": 1,
+    "module": "module-07-docker-compose-part-1",
+    "audio_file": "01_module-07-docker-compose-part-1.mp3",
+    "text": "Docker Compose lets you define and run multi-container applications with a single YAML file. Instead of running multiple docker run commands with networks and volumes and environment variables, you describe everything declaratively in a docker-compose.yml file. One command \u2014 docker compose up \u2014 brings the entire stack to life. One command \u2014 docker compose down \u2014 tears it all down cleanly.",
+    "size_bytes": 445588
+  },
+  {
+    "index": 2,
+    "module": "module-07-docker-compose-part-1",
+    "audio_file": "02_module-07-docker-compose-part-1.mp3",
+    "text": "Here are the commands you'll use every day with Docker Compose. You don't need to memorize all of them right now \u2014 just know that \"up\" starts everything, \"down\" stops everything, and \"ps\" shows you what's running. Those three will get you through most situations.",
+    "size_bytes": 268373
+  },
+  {
+    "index": 3,
+    "module": "module-07-docker-compose-part-1",
+    "audio_file": "03_module-07-docker-compose-part-1.mp3",
+    "text": "Let's start simple. You'll create a docker-compose.yml with a single Nginx service, a bind mount for live editing, and a port mapping. Then you'll learn the four essential Compose commands: up, ps, logs, and down. These four commands cover 90 percent of your daily Compose workflow.",
+    "size_bytes": 321454
+  },
+  {
+    "index": 4,
+    "module": "module-07-docker-compose-part-1",
+    "audio_file": "04_module-07-docker-compose-part-1.mp3",
+    "text": "Now bring it to life. The \"docker compose up dash d\" command starts all your services in the background. Then you'll check that everything is running and test it with curl. This three-step pattern \u2014 up, ps, test \u2014 is your standard workflow for launching any Compose project.",
+    "size_bytes": 321872
+  },
+  {
+    "index": 5,
+    "module": "module-07-docker-compose-part-1",
+    "audio_file": "05_module-07-docker-compose-part-1.mp3",
+    "text": "Now let's build something more realistic \u2014 a frontend served by Nginx that proxies API requests to a Flask backend. This is a very common pattern in web development. Nginx serves static files and reverse-proxies API calls to the backend service. The two services find each other by name because Compose creates a shared network automatically.",
+    "size_bytes": 385402
+  },
+  {
+    "index": 6,
+    "module": "module-07-docker-compose-part-1",
+    "audio_file": "06_module-07-docker-compose-part-1.mp3",
+    "text": "Time to start the stack and verify that everything is wired together. You'll hit the frontend directly and also test the API proxy route. If the proxy works, it means Nginx is forwarding requests to the Flask container using the service name \"api\" \u2014 exactly how service discovery works in Compose.",
+    "size_bytes": 307244
+  },
+  {
+    "index": 7,
+    "module": "module-07-docker-compose-part-1",
+    "audio_file": "07_module-07-docker-compose-part-1.mp3",
+    "text": "Logs are your best friend when debugging multi-container applications. Docker Compose lets you view logs from all services at once, or filter to just one service. When something goes wrong, this is the first place you should look.",
+    "size_bytes": 238698
+  },
+  {
+    "index": 8,
+    "module": "module-07-docker-compose-part-1",
+    "audio_file": "08_module-07-docker-compose-part-1.mp3",
+    "text": "Let's add PostgreSQL to our stack. This is where you see the real power of Compose \u2014 adding a service is just a few lines of YAML. You'll add the database, give it a named volume for persistence, pass credentials through environment variables, and connect it to the API. The API can reach the database at hostname \"db\" because Compose handles the networking.",
+    "size_bytes": 379968
+  },
+  {
+    "index": 9,
+    "module": "module-07-docker-compose-part-1",
+    "audio_file": "09_module-07-docker-compose-part-1.mp3",
+    "text": "When you change your docker-compose.yml, you need to bring the stack down and back up for changes to take effect. Compose is smart about this \u2014 it only recreates containers whose configuration has changed. The database container will start fresh, and the API now has database connection details in its environment.",
+    "size_bytes": 333993
+  },
+  {
+    "index": 10,
+    "module": "module-07-docker-compose-part-1",
+    "audio_file": "10_module-07-docker-compose-part-1.mp3",
+    "text": "Docker compose exec lets you run commands inside a running service container. Here you'll use it to connect to PostgreSQL and run SQL queries. This is exactly how you'd interact with your database during development \u2014 no need to install PostgreSQL on your host machine.",
+    "size_bytes": 293033
+  }
+]

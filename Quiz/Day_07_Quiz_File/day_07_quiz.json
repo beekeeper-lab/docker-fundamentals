@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 7: Networking",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the default network type that Docker assigns to a container if no network is specified?",
+      "options": [
+        "host",
+        "bridge",
+        "none",
+        "overlay"
+      ],
+      "answer": "bridge"
+    },
+    {
+      "id": 2,
+      "question": "What does the 'host' network type do?",
+      "options": [
+        "Creates a completely isolated network for the container",
+        "Shares the host's network stack with the container, removing network isolation",
+        "Disables all networking for the container",
+        "Creates a private DNS server for the container"
+      ],
+      "answer": "Shares the host's network stack with the container, removing network isolation"
+    },
+    {
+      "id": 3,
+      "question": "What does the 'none' network type do?",
+      "options": [
+        "Assigns a random network to the container",
+        "Connects the container to all available networks",
+        "Disables all networking for the container",
+        "Uses the host's network without isolation"
+      ],
+      "answer": "Disables all networking for the container"
+    },
+    {
+      "id": 4,
+      "question": "In the command 'docker run -p 8080:80 nginx', what does '8080' represent?",
+      "options": [
+        "The container port",
+        "The host port",
+        "The process ID",
+        "The network subnet"
+      ],
+      "answer": "The host port"
+    },
+    {
+      "id": 5,
+      "question": "In the command 'docker run -p 8080:80 nginx', what does '80' represent?",
+      "options": [
+        "The host port",
+        "The container port",
+        "The maximum number of connections",
+        "The network gateway"
+      ],
+      "answer": "The container port"
+    },
+    {
+      "id": 6,
+      "question": "What does the '-P' (capital P) flag do in 'docker run -P nginx'?",
+      "options": [
+        "Maps all exposed ports to the same port numbers on the host",
+        "Maps all exposed ports to random available host ports",
+        "Opens all ports on the container without mapping",
+        "Disables port mapping entirely"
+      ],
+      "answer": "Maps all exposed ports to random available host ports"
+    },
+    {
+      "id": 7,
+      "question": "Which command shows the port mappings for a running container?",
+      "options": [
+        "docker inspect ports",
+        "docker port <container-name>",
+        "docker network ports <container-name>",
+        "docker show-ports <container-name>"
+      ],
+      "answer": "docker port <container-name>"
+    },
+    {
+      "id": 8,
+      "question": "Which command lists all Docker networks on the system?",
+      "options": [
+        "docker network show",
+        "docker network ls",
+        "docker networks",
+        "docker list networks"
+      ],
+      "answer": "docker network ls"
+    },
+    {
+      "id": 9,
+      "question": "Which command displays detailed information about a specific Docker network?",
+      "options": [
+        "docker network show bridge",
+        "docker network info bridge",
+        "docker network inspect bridge",
+        "docker network details bridge"
+      ],
+      "answer": "docker network inspect bridge"
+    },
+    {
+      "id": 10,
+      "question": "On the default bridge network, how can containers communicate with each other?",
+      "options": [
+        "By container name only",
+        "By IP address only",
+        "By both container name and IP address",
+        "They cannot communicate at all"
+      ],
+      "answer": "By IP address only"
+    },
+    {
+      "id": 11,
+      "question": "Why does DNS resolution (resolving container names) NOT work on the default bridge network?",
+      "options": [
+        "DNS is disabled system-wide in Docker",
+        "The default bridge does not include Docker's built-in DNS service",
+        "Container names are not assigned on the default bridge",
+        "DNS only works with the 'host' network type"
+      ],
+      "answer": "The default bridge does not include Docker's built-in DNS service"
+    },
+    {
+      "id": 12,
+      "question": "Which command creates a user-defined (custom) bridge network called 'app-network'?",
+      "options": [
+        "docker bridge create app-network",
+        "docker network add app-network",
+        "docker network create app-network",
+        "docker create network app-network"
+      ],
+      "answer": "docker network create app-network"
+    },
+    {
+      "id": 13,
+      "question": "What key advantage does a custom bridge network have over the default bridge network?",
+      "options": [
+        "Custom bridges are faster than the default bridge",
+        "Custom bridges provide automatic DNS resolution between containers by name",
+        "Custom bridges allow unlimited port mappings",
+        "Custom bridges automatically expose all ports to the host"
+      ],
+      "answer": "Custom bridges provide automatic DNS resolution between containers by name"
+    },
+    {
+      "id": 14,
+      "question": "How do you attach a container to a specific network at launch time?",
+      "options": [
+        "docker run --bridge my-net my-image",
+        "docker run --net-alias my-net my-image",
+        "docker run --network my-net my-image",
+        "docker run --connect my-net my-image"
+      ],
+      "answer": "docker run --network my-net my-image"
+    },
+    {
+      "id": 15,
+      "question": "If 'api' and 'web' containers are both on a custom bridge network called 'my-net', how can 'web' reach 'api' on port 5000?",
+      "options": [
+        "http://localhost:5000",
+        "http://my-net:5000",
+        "http://api:5000",
+        "http://container-api:5000"
+      ],
+      "answer": "http://api:5000"
+    },
+    {
+      "id": 16,
+      "question": "Can a container on 'network-a' communicate with a container on 'network-b' by default?",
+      "options": [
+        "Yes, all Docker containers can communicate regardless of network",
+        "Yes, but only if they share the same IP range",
+        "No, containers on different networks are isolated from each other",
+        "No, unless they both use the host network"
+      ],
+      "answer": "No, containers on different networks are isolated from each other"
+    },
+    {
+      "id": 17,
+      "question": "Which command retrieves the IP address of a container named 'server1'?",
+      "options": [
+        "docker ip server1",
+        "docker network ip server1",
+        "docker inspect --format='{{.NetworkSettings.IPAddress}}' server1",
+        "docker info --ip server1"
+      ],
+      "answer": "docker inspect --format='{{.NetworkSettings.IPAddress}}' server1"
+    },
+    {
+      "id": 18,
+      "question": "What does the '--name' flag do in 'docker run --name api my-image'?",
+      "options": [
+        "Sets the hostname of the host machine",
+        "Assigns a name to the container that can also be used for DNS resolution on custom networks",
+        "Creates a DNS record in the system's /etc/hosts file",
+        "Tags the image with a new name"
+      ],
+      "answer": "Assigns a name to the container that can also be used for DNS resolution on custom networks"
+    },
+    {
+      "id": 19,
+      "question": "Which command removes a Docker network called 'app-network'?",
+      "options": [
+        "docker network delete app-network",
+        "docker network rm app-network",
+        "docker rm network app-network",
+        "docker network destroy app-network"
+      ],
+      "answer": "docker network rm app-network"
+    },
+    {
+      "id": 20,
+      "question": "What must you do before removing a Docker network that has running containers?",
+      "options": [
+        "Nothing, Docker removes containers automatically",
+        "Run docker network disconnect for each container",
+        "Stop and remove the containers connected to the network",
+        "Restart the Docker daemon"
+      ],
+      "answer": "Stop and remove the containers connected to the network"
+    },
+    {
+      "id": 21,
+      "question": "In the multi-container demo, why is 'host=\"0.0.0.0\"' used in the Flask app's app.run() call?",
+      "options": [
+        "It limits access to localhost only",
+        "It binds the server to all network interfaces, making it reachable from outside the container",
+        "It assigns a static IP address to the container",
+        "It disables the firewall inside the container"
+      ],
+      "answer": "It binds the server to all network interfaces, making it reachable from outside the container"
+    },
+    {
+      "id": 22,
+      "question": "What does the EXPOSE instruction do in a Dockerfile?",
+      "options": [
+        "Automatically publishes the port to the host",
+        "Opens a firewall rule on the host machine",
+        "Documents which port the containerized application listens on",
+        "Creates a port mapping between host and container"
+      ],
+      "answer": "Documents which port the containerized application listens on"
+    },
+    {
+      "id": 23,
+      "question": "In the assignment, what is used to test communication between containers on a custom network?",
+      "options": [
+        "ping from the host machine",
+        "docker exec to run curl from one container to another by name",
+        "docker network test command",
+        "Opening a browser on the host"
+      ],
+      "answer": "docker exec to run curl from one container to another by name"
+    },
+    {
+      "id": 24,
+      "question": "What flag builds a Docker image using a non-default Dockerfile name like 'Dockerfile.api'?",
+      "options": [
+        "-d Dockerfile.api",
+        "-f Dockerfile.api",
+        "--dockerfile Dockerfile.api",
+        "--name Dockerfile.api"
+      ],
+      "answer": "-f Dockerfile.api"
+    },
+    {
+      "id": 25,
+      "question": "When running 'docker run --rm --network app-network python:3.12-slim ...', what does the '--rm' flag do?",
+      "options": [
+        "Removes the network after the container stops",
+        "Removes the image after the container stops",
+        "Automatically removes the container when it exits",
+        "Runs the container in read-only mode"
+      ],
+      "answer": "Automatically removes the container when it exits"
+    }
+  ]
+}

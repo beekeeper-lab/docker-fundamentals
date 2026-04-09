@@ -1,0 +1,79 @@
+[
+  {
+    "index": 1,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "01_module-04-dockerfiles-part-2.mp3",
+    "text": "Every RUN, COPY, and ADD instruction creates a new layer in your image. More layers mean larger images and slower builds. The solution is to combine related commands into single RUN instructions. Instead of three separate RUN lines for apt-get update, install, and clean, combine them into one. This can dramatically reduce your image size because intermediate files don't get stored in separate layers.",
+    "size_bytes": 452693
+  },
+  {
+    "index": 2,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "02_module-04-dockerfiles-part-2.mp3",
+    "text": "Let's see this in practice. You're going to build two versions of the same image: one with separate RUN instructions for each pip install, and one that combines them using a requirements file. Then you'll use docker history to compare the layers side by side.",
+    "size_bytes": 241624
+  },
+  {
+    "index": 3,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "03_module-04-dockerfiles-part-2.mp3",
+    "text": "Multi-stage builds are a game-changer. The idea is simple: use one stage to build your application, and a second stage to run it. Only the final stage goes into your image. So the compiler, build tools, and source code are all left behind. For compiled languages like Java or Go, this can reduce your image size by 90 percent or more.",
+    "size_bytes": 391253
+  },
+  {
+    "index": 4,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "04_module-04-dockerfiles-part-2.mp3",
+    "text": "Now let's see multi-stage builds in action with Java. You'll use the full JDK to compile your code in the first stage, then copy just the compiled class file into a lightweight JRE image. Compare the sizes afterward and you'll see a massive difference.",
+    "size_bytes": 254999
+  },
+  {
+    "index": 5,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "05_module-04-dockerfiles-part-2.mp3",
+    "text": "Multi-stage builds work for Python too, though the size savings are less dramatic than with compiled languages. The key benefit here is separating your build environment from your runtime environment, keeping your final image clean and free of build artifacts.",
+    "size_bytes": 244132
+  },
+  {
+    "index": 6,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "06_module-04-dockerfiles-part-2.mp3",
+    "text": "A .dockerignore file tells Docker which files to exclude from the build context. Without one, Docker sends everything in your project directory to the daemon, including your git history, virtual environments, node modules, and secrets. A good dockerignore file makes your builds faster and your images more secure.",
+    "size_bytes": 348622
+  },
+  {
+    "index": 7,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "07_module-04-dockerfiles-part-2.mp3",
+    "text": "Creating a dockerignore file is quick and you should do it for every project. List the files and directories that have no business being in your image. At a minimum, always exclude your git directory, Python cache files, virtual environments, and any environment files with secrets.",
+    "size_bytes": 319782
+  },
+  {
+    "index": 8,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "08_module-04-dockerfiles-part-2.mp3",
+    "text": "Now let's prove that the dockerignore file actually works. You'll create some files that should be excluded, like a dot env file with secrets, then build the image and verify those files are not inside it.",
+    "size_bytes": 224070
+  },
+  {
+    "index": 9,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "09_module-04-dockerfiles-part-2.mp3",
+    "text": "Let's put everything together. A production-ready Dockerfile should use a specific base image tag, run as a non-root user, optimize layer caching, suppress Python bytecode generation, and document the port with EXPOSE. This is the template you should use for every Python application you containerize.",
+    "size_bytes": 326470
+  },
+  {
+    "index": 10,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "10_module-04-dockerfiles-part-2.mp3",
+    "text": "Build this image and then check who the process is running as. When you run the whoami command inside the container, it should print appuser, not root. This confirms that even if someone exploits your application, they won't have root access inside the container.",
+    "size_bytes": 265030
+  },
+  {
+    "index": 11,
+    "module": "module-04-dockerfiles-part-2",
+    "audio_file": "11_module-04-dockerfiles-part-2.mp3",
+    "text": "You've covered a lot of ground in this module. You know how to optimize layers, use multi-stage builds to shrink your images, exclude unnecessary files with dockerignore, and apply security best practices like non-root users. These techniques are what separate a quick prototype from a production-ready image.",
+    "size_bytes": 318946
+  }
+]

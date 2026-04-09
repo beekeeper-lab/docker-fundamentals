@@ -1,0 +1,79 @@
+[
+  {
+    "index": 1,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "01_module-05-volumes-and-persistence.mp3",
+    "text": "Containers are ephemeral \u2014 when you remove a container, its data is gone. This is great for stateless applications, but terrible for databases, file uploads, or anything that needs to survive a restart. Docker provides two solutions: named volumes, which Docker manages for you, and bind mounts, which map a specific directory from your host into the container.",
+    "size_bytes": 388328
+  },
+  {
+    "index": 2,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "02_module-05-volumes-and-persistence.mp3",
+    "text": "Here's a quick comparison to help you decide which to use. Named volumes are managed by Docker and are best for production data like databases. Bind mounts point to a specific directory on your host and are best for development where you want to edit files live.",
+    "size_bytes": 260432
+  },
+  {
+    "index": 3,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "03_module-05-volumes-and-persistence.mp3",
+    "text": "Named volumes are Docker-managed storage that exists independently of any container. You create a volume, mount it into a container, write data, destroy the container, and the data is still there. You can even mount the same volume into multiple containers to share data between them.",
+    "size_bytes": 287182
+  },
+  {
+    "index": 4,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "04_module-05-volumes-and-persistence.mp3",
+    "text": "Let's start by creating a named volume. The docker volume create command creates a volume that Docker manages for you. You can then list all volumes and inspect one to see where Docker actually stores the data on your host filesystem.",
+    "size_bytes": 241624
+  },
+  {
+    "index": 5,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "05_module-05-volumes-and-persistence.mp3",
+    "text": "Bind mounts are the developer's best friend. Instead of Docker managing the storage, you map a directory from your host machine directly into the container. Edit a file on your host, and the change is instantly visible inside the container. This means you can use your favorite editor and tools while the application runs inside Docker \u2014 no rebuild needed.",
+    "size_bytes": 399195
+  },
+  {
+    "index": 6,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "06_module-05-volumes-and-persistence.mp3",
+    "text": "Now for the magic. Edit the HTML file on your host machine and then curl the page again. You'll see the change immediately without restarting or rebuilding anything. This is the development workflow that makes bind mounts so valuable.",
+    "size_bytes": 255835
+  },
+  {
+    "index": 7,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "07_module-05-volumes-and-persistence.mp3",
+    "text": "This is the most important demonstration in this module. You're going to run a PostgreSQL database without a volume, insert data, destroy the container, recreate it, and watch your data vanish. Then you'll do the same thing with a volume and see that the data survives. This is why you must always use volumes with databases.",
+    "size_bytes": 344442
+  },
+  {
+    "index": 8,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "08_module-05-volumes-and-persistence.mp3",
+    "text": "First you'll run Postgres without a volume and see what happens when the container is destroyed. Pay close attention to the error you get when you try to query the table after recreating the container. That error is the whole reason volumes exist.",
+    "size_bytes": 238280
+  },
+  {
+    "index": 9,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "09_module-05-volumes-and-persistence.mp3",
+    "text": "Like images and containers, volumes need housekeeping. Docker provides commands to list, inspect, and remove volumes. Orphaned volumes from deleted containers can accumulate over time, so periodically running docker volume prune keeps your system clean.",
+    "size_bytes": 270045
+  },
+  {
+    "index": 10,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "10_module-05-volumes-and-persistence.mp3",
+    "text": "Let's do some housekeeping. You can list all volumes on your system, inspect individual ones to see their details, and remove ones you no longer need. Getting in the habit of cleaning up unused volumes will keep your Docker environment tidy.",
+    "size_bytes": 253745
+  },
+  {
+    "index": 11,
+    "module": "module-05-volumes-and-persistence",
+    "audio_file": "11_module-05-volumes-and-persistence.mp3",
+    "text": "You now understand the two main ways to persist data in Docker. Named volumes are your go-to for databases and production data, while bind mounts are essential for development workflows. The database demonstration showed you exactly why running a database without a volume is a recipe for data loss. Keep these patterns in mind as you move into Docker Compose.",
+    "size_bytes": 351129
+  }
+]

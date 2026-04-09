@@ -1,0 +1,72 @@
+[
+  {
+    "index": 1,
+    "module": "module-06-networking",
+    "audio_file": "01_module-06-networking.mp3",
+    "text": "Docker provides several network types. The default bridge network connects all containers but doesn't support DNS, so containers can only find each other by IP address. Custom bridge networks add DNS resolution, so containers can find each other by name. The host network removes isolation entirely, and the none network disables networking. For almost all use cases, you want a custom bridge network.",
+    "size_bytes": 441826
+  },
+  {
+    "index": 2,
+    "module": "module-06-networking",
+    "audio_file": "02_module-06-networking.mp3",
+    "text": "Port mapping is how you make a container's service accessible from outside Docker. Think of it like forwarding a port on your router \u2014 you pick a port on your host machine and connect it to a port inside the container. Without port mapping, your container's service is invisible to the outside world.",
+    "size_bytes": 278822
+  },
+  {
+    "index": 3,
+    "module": "module-06-networking",
+    "audio_file": "03_module-06-networking.mp3",
+    "text": "Port mapping lets you expose container services to your host machine. You can map any host port to any container port. This means you can run three Nginx containers on ports 8080, 8081, and 8082, all serving port 80 internally. Capital P maps all exposed ports to random host ports, which is useful for avoiding conflicts.",
+    "size_bytes": 381640
+  },
+  {
+    "index": 4,
+    "module": "module-06-networking",
+    "audio_file": "04_module-06-networking.mp3",
+    "text": "In this first task, you'll run three separate Nginx containers, each mapped to a different host port. This shows how multiple containers can all listen on the same internal port without any conflict, because each one gets its own isolated network namespace.",
+    "size_bytes": 266284
+  },
+  {
+    "index": 5,
+    "module": "module-06-networking",
+    "audio_file": "05_module-06-networking.mp3",
+    "text": "Sometimes you don't care which host port is used \u2014 you just need the container to be reachable. Capital P lets Docker pick a random available port for you. This is handy when running multiple instances where you don't want to manually track port numbers.",
+    "size_bytes": 247057
+  },
+  {
+    "index": 6,
+    "module": "module-06-networking",
+    "audio_file": "06_module-06-networking.mp3",
+    "text": "Let's explore the default bridge network and see its limitations. Containers on the default bridge can communicate by IP address, but DNS resolution \u2014 looking up a container by its name \u2014 does not work. This is a major limitation that custom networks solve.",
+    "size_bytes": 270045
+  },
+  {
+    "index": 7,
+    "module": "module-06-networking",
+    "audio_file": "07_module-06-networking.mp3",
+    "text": "Custom bridge networks are how you should always connect containers. When you create a custom network and attach containers to it, Docker runs an embedded DNS server that lets containers find each other by name. This is the foundation of service discovery \u2014 and it's exactly what Docker Compose does automatically under the hood.",
+    "size_bytes": 330231
+  },
+  {
+    "index": 8,
+    "module": "module-06-networking",
+    "audio_file": "08_module-06-networking.mp3",
+    "text": "Network isolation is just as important as connectivity. By placing containers on separate custom networks, you can ensure they cannot communicate with each other at all. This is a key security feature \u2014 your frontend network doesn't need to talk directly to your database network, for example.",
+    "size_bytes": 297631
+  },
+  {
+    "index": 9,
+    "module": "module-06-networking",
+    "audio_file": "09_module-06-networking.mp3",
+    "text": "Let's put networking into practice by building a two-service application. You'll create a Python Flask API, containerize it, put it on a custom network, and call it from another container using its service name. This is the exact pattern that Docker Compose automates for you.",
+    "size_bytes": 290943
+  },
+  {
+    "index": 10,
+    "module": "module-06-networking",
+    "audio_file": "10_module-06-networking.mp3",
+    "text": "Great work connecting containers across networks. Before you finish, make sure to clean up all the containers and networks you created. Leaving unused resources around wastes memory and can cause port conflicts in future exercises.",
+    "size_bytes": 234519
+  }
+]

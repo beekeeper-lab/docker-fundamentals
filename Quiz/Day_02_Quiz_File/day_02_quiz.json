@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 2: Images and Containers",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the full format for identifying a Docker image?",
+      "options": [
+        "registry/repository:tag",
+        "repository:version:tag",
+        "name/image/version",
+        "registry:repository/tag"
+      ],
+      "answer": "registry/repository:tag"
+    },
+    {
+      "id": 2,
+      "question": "What does the 'latest' tag mean in Docker?",
+      "options": [
+        "It always points to the most recently built image",
+        "It is the default tag, but not always the newest",
+        "It refers to the last stable release",
+        "It is automatically updated every day"
+      ],
+      "answer": "It is the default tag, but not always the newest"
+    },
+    {
+      "id": 3,
+      "question": "Which Python image variant is the smallest?",
+      "options": [
+        "python:3.12",
+        "python:3.12-slim",
+        "python:3.12-alpine",
+        "python:3.12-bookworm"
+      ],
+      "answer": "python:3.12-alpine"
+    },
+    {
+      "id": 4,
+      "question": "Approximately how large is the full python:3.12 image?",
+      "options": [
+        "~50 MB",
+        "~150 MB",
+        "~500 MB",
+        "~1 GB"
+      ],
+      "answer": "~1 GB"
+    },
+    {
+      "id": 5,
+      "question": "What does the '-slim' suffix indicate in a Docker image tag?",
+      "options": [
+        "The image uses Alpine Linux",
+        "The image is a minimal variant without extras",
+        "The image has no operating system",
+        "The image only supports 32-bit systems"
+      ],
+      "answer": "The image is a minimal variant without extras"
+    },
+    {
+      "id": 6,
+      "question": "What base operating system does the 'alpine' tag variant use?",
+      "options": [
+        "Ubuntu",
+        "Debian Bookworm",
+        "Alpine Linux",
+        "CentOS"
+      ],
+      "answer": "Alpine Linux"
+    },
+    {
+      "id": 7,
+      "question": "What does the 'bookworm' tag refer to in Docker image tags?",
+      "options": [
+        "A Python library version",
+        "A Debian release codename",
+        "An Alpine Linux version",
+        "A Docker Engine release"
+      ],
+      "answer": "A Debian release codename"
+    },
+    {
+      "id": 8,
+      "question": "What are Docker image layers?",
+      "options": [
+        "Separate containers stacked on top of each other",
+        "Each instruction in a Dockerfile creates a layer that is cached and shared",
+        "Virtual network interfaces inside the container",
+        "Different versions of the same image"
+      ],
+      "answer": "Each instruction in a Dockerfile creates a layer that is cached and shared"
+    },
+    {
+      "id": 9,
+      "question": "Which command pulls an image from Docker Hub?",
+      "options": [
+        "docker get",
+        "docker download",
+        "docker pull",
+        "docker fetch"
+      ],
+      "answer": "docker pull"
+    },
+    {
+      "id": 10,
+      "question": "Which command lists all locally available Docker images and their sizes?",
+      "options": [
+        "docker list",
+        "docker images",
+        "docker show",
+        "docker catalog"
+      ],
+      "answer": "docker images"
+    },
+    {
+      "id": 11,
+      "question": "What does the 'docker inspect' command do?",
+      "options": [
+        "Deletes an image after inspection",
+        "Shows detailed metadata about an image or container",
+        "Scans an image for security vulnerabilities",
+        "Lists all running containers"
+      ],
+      "answer": "Shows detailed metadata about an image or container"
+    },
+    {
+      "id": 12,
+      "question": "Which command runs a container interactively with a terminal?",
+      "options": [
+        "docker run -d",
+        "docker run -it",
+        "docker run --rm",
+        "docker run -e"
+      ],
+      "answer": "docker run -it"
+    },
+    {
+      "id": 13,
+      "question": "What does the '-d' flag do when running a container?",
+      "options": [
+        "Deletes the container after it stops",
+        "Runs the container in detached (background) mode",
+        "Enables debug mode",
+        "Sets the working directory"
+      ],
+      "answer": "Runs the container in detached (background) mode"
+    },
+    {
+      "id": 14,
+      "question": "What flag is used to assign a custom name to a container?",
+      "options": [
+        "--label",
+        "--tag",
+        "--name",
+        "--alias"
+      ],
+      "answer": "--name"
+    },
+    {
+      "id": 15,
+      "question": "Which command shows only the currently running containers?",
+      "options": [
+        "docker ps -a",
+        "docker ps",
+        "docker list --running",
+        "docker containers"
+      ],
+      "answer": "docker ps"
+    },
+    {
+      "id": 16,
+      "question": "What does 'docker ps -a' show that 'docker ps' does not?",
+      "options": [
+        "Image layer details",
+        "All containers, including stopped ones",
+        "All images on the system",
+        "Network configuration details"
+      ],
+      "answer": "All containers, including stopped ones"
+    },
+    {
+      "id": 17,
+      "question": "Which command displays the logs of a running container named 'web-server'?",
+      "options": [
+        "docker output web-server",
+        "docker logs web-server",
+        "docker print web-server",
+        "docker show web-server"
+      ],
+      "answer": "docker logs web-server"
+    },
+    {
+      "id": 18,
+      "question": "What does the 'docker stats' command display?",
+      "options": [
+        "The number of images on disk",
+        "Real-time CPU, memory, and network usage for running containers",
+        "A history of all pulled images",
+        "The Docker daemon configuration"
+      ],
+      "answer": "Real-time CPU, memory, and network usage for running containers"
+    },
+    {
+      "id": 19,
+      "question": "Which flag passes an environment variable into a container?",
+      "options": [
+        "-v",
+        "-p",
+        "-e",
+        "-w"
+      ],
+      "answer": "-e"
+    },
+    {
+      "id": 20,
+      "question": "What does the '--rm' flag do when running a container?",
+      "options": [
+        "Restarts the container on failure",
+        "Removes the container image after use",
+        "Automatically deletes the container when it exits",
+        "Runs the container in read-only mode"
+      ],
+      "answer": "Automatically deletes the container when it exits"
+    },
+    {
+      "id": 21,
+      "question": "What does the '-w' flag set when running a container?",
+      "options": [
+        "The network to connect to",
+        "The container's working directory",
+        "The maximum wait time before timeout",
+        "The volume mount point"
+      ],
+      "answer": "The container's working directory"
+    },
+    {
+      "id": 22,
+      "question": "Which command stops a running container named 'api-server'?",
+      "options": [
+        "docker kill api-server",
+        "docker halt api-server",
+        "docker stop api-server",
+        "docker end api-server"
+      ],
+      "answer": "docker stop api-server"
+    },
+    {
+      "id": 23,
+      "question": "Which command removes a stopped container named 'web-server'?",
+      "options": [
+        "docker delete web-server",
+        "docker rm web-server",
+        "docker remove web-server",
+        "docker destroy web-server"
+      ],
+      "answer": "docker rm web-server"
+    },
+    {
+      "id": 24,
+      "question": "What is a key superpower of Docker demonstrated by running multiple Python versions simultaneously?",
+      "options": [
+        "It compiles code faster than native installations",
+        "It runs different versions side by side with no conflicts and nothing installed on the host",
+        "It automatically merges code from different Python versions",
+        "It converts Python code to machine code"
+      ],
+      "answer": "It runs different versions side by side with no conflicts and nothing installed on the host"
+    },
+    {
+      "id": 25,
+      "question": "What does the '--format' flag do with 'docker inspect'?",
+      "options": [
+        "Changes the output file format to CSV",
+        "Applies a Go template to extract specific fields from the output",
+        "Formats the container's filesystem",
+        "Sets the image format to a compressed archive"
+      ],
+      "answer": "Applies a Go template to extract specific fields from the output"
+    }
+  ]
+}

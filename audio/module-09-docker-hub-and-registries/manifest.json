@@ -1,0 +1,72 @@
+[
+  {
+    "index": 1,
+    "module": "module-09-docker-hub-and-registries",
+    "audio_file": "01_module-09-docker-hub-and-registries.mp3",
+    "text": "Docker Hub is the default public registry for Docker images. Every time you've run docker pull nginx or docker run python, you've been downloading from Docker Hub. Now it's your turn to push images there. You'll create an account, tag your images with your username, and push them so anyone in the world can pull and run your applications.",
+    "size_bytes": 361996
+  },
+  {
+    "index": 2,
+    "module": "module-09-docker-hub-and-registries",
+    "audio_file": "02_module-09-docker-hub-and-registries.mp3",
+    "text": "Understanding the image naming convention is essential. The full name includes the registry, your username, the repository name, and a tag. When you omit the registry, Docker assumes Docker Hub. When you omit the username, Docker assumes it's an official image. Tags let you version your images so users can pin to exactly the release they need.",
+    "size_bytes": 326470
+  },
+  {
+    "index": 3,
+    "module": "module-09-docker-hub-and-registries",
+    "audio_file": "03_module-09-docker-hub-and-registries.mp3",
+    "text": "First, you need a Docker Hub account. It's free for public repositories. Once you've signed up, you log in from the command line with docker login. This authenticates you so you can push images. Your username becomes part of every image you publish.",
+    "size_bytes": 264194
+  },
+  {
+    "index": 4,
+    "module": "module-09-docker-hub-and-registries",
+    "audio_file": "04_module-09-docker-hub-and-registries.mp3",
+    "text": "The publish workflow has three steps: build the image, tag it with your Docker Hub username and version numbers, and push it. You'll create multiple tags for the same image \u2014 a specific version like 1.0.0, a minor version like 1.0, and latest. This gives users flexibility in how they pin their dependencies.",
+    "size_bytes": 348622
+  },
+  {
+    "index": 5,
+    "module": "module-09-docker-hub-and-registries",
+    "audio_file": "05_module-09-docker-hub-and-registries.mp3",
+    "text": "Now you'll build your image and create multiple tags pointing to it. This is a key concept \u2014 tags are just labels, not separate copies. One image can have many tags, and they all share the same layers. You'll create a specific version tag, a minor version tag, and the latest tag.",
+    "size_bytes": 345278
+  },
+  {
+    "index": 6,
+    "module": "module-09-docker-hub-and-registries",
+    "audio_file": "06_module-09-docker-hub-and-registries.mp3",
+    "text": "Now simulate what someone else would experience when using your image. Remove all local copies, then pull and run from Docker Hub. This proves that your image is fully self-contained and anyone can use it with a single docker run command.",
+    "size_bytes": 275897
+  },
+  {
+    "index": 7,
+    "module": "module-09-docker-hub-and-registries",
+    "audio_file": "07_module-09-docker-hub-and-registries.mp3",
+    "text": "Software evolves, and your images should evolve with proper versioning. When you release a new version, build the image, tag it with the new version number, update the latest tag to point to it, and push all the tags. Users pinned to 1.0.0 keep getting 1.0.0. Users on latest get your newest code. This is semantic versioning in action.",
+    "size_bytes": 414241
+  },
+  {
+    "index": 8,
+    "module": "module-09-docker-hub-and-registries",
+    "audio_file": "08_module-09-docker-hub-and-registries.mp3",
+    "text": "Here's where versioning really pays off. You'll run both version 1.0.0 and version 1.1.0 side by side on different ports. This is how you can test a new release against the old one, or gradually roll out updates in production.",
+    "size_bytes": 260432
+  },
+  {
+    "index": 9,
+    "module": "module-09-docker-hub-and-registries",
+    "audio_file": "09_module-09-docker-hub-and-registries.mp3",
+    "text": "Publishing images comes with responsibility. You should scan your images for known vulnerabilities, run as a non-root user, avoid including secrets, and follow the best practices you've learned throughout this course. Think of this checklist as your pre-flight inspection before publishing.",
+    "size_bytes": 300556
+  },
+  {
+    "index": 10,
+    "module": "module-09-docker-hub-and-registries",
+    "audio_file": "10_module-09-docker-hub-and-registries.mp3",
+    "text": "You've completed the full Docker image lifecycle \u2014 from building and tagging to pushing, pulling, updating, and scanning. Before wrapping up, clean everything off your local machine. The docker system prune command with the dash a flag removes all unused images, containers, and networks in one shot.",
+    "size_bytes": 308497
+  }
+]

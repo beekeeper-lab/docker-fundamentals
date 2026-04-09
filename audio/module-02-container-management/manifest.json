@@ -1,0 +1,79 @@
+[
+  {
+    "index": 1,
+    "module": "module-02-container-management",
+    "audio_file": "01_module-02-container-management.mp3",
+    "text": "A container moves through a series of states: created, running, paused, stopped, and removed. Understanding this lifecycle is essential because you'll use different commands at each stage. A stopped container can be restarted. A paused container freezes all processes but keeps them in memory. And a removed container is gone for good.",
+    "size_bytes": 374953
+  },
+  {
+    "index": 2,
+    "module": "module-02-container-management",
+    "audio_file": "02_module-02-container-management.mp3",
+    "text": "Let's start by creating a long-running container that stays up so you can practice managing it. You'll use Nginx again since it runs as a background service and won't exit immediately. This container will be your playground for the next several tasks.",
+    "size_bytes": 254999
+  },
+  {
+    "index": 3,
+    "module": "module-02-container-management",
+    "audio_file": "03_module-02-container-management.mp3",
+    "text": "Pausing is different from stopping. When you pause a container, all its processes are frozen in place using Linux cgroups, but they stay in memory. When you unpause, everything resumes exactly where it left off. This is useful when you need to temporarily free up CPU without losing the container's current state.",
+    "size_bytes": 339844
+  },
+  {
+    "index": 4,
+    "module": "module-02-container-management",
+    "audio_file": "04_module-02-container-management.mp3",
+    "text": "Container logs are your primary debugging tool. Every container captures standard output and standard error, and you can view it anytime with docker logs. The tail flag shows the last N lines, the since flag shows recent logs, and the dash-f flag follows the log stream in real-time, just like tail dash-f on a regular log file.",
+    "size_bytes": 359071
+  },
+  {
+    "index": 5,
+    "module": "module-02-container-management",
+    "audio_file": "05_module-02-container-management.mp3",
+    "text": "Logs are only useful if there's something in them. Let's generate some log entries by making requests to your Nginx container, and then try a busybox container that produces a steady stream of heartbeat messages. This will give you real data to practice filtering with tail, since, and follow.",
+    "size_bytes": 291779
+  },
+  {
+    "index": 6,
+    "module": "module-02-container-management",
+    "audio_file": "06_module-02-container-management.mp3",
+    "text": "Docker exec is one of your most powerful tools. It lets you run any command inside a running container without stopping it. You can check configuration files, run diagnostics, or open a full interactive shell. Think of it as SSH-ing into your container, except it's built right into Docker.",
+    "size_bytes": 322708
+  },
+  {
+    "index": 7,
+    "module": "module-02-container-management",
+    "audio_file": "07_module-02-container-management.mp3",
+    "text": "Running individual commands with exec is great, but sometimes you need to poke around interactively. By adding the dash-i and dash-t flags, you can open a full bash shell inside the container and explore it just like you would any Linux system.",
+    "size_bytes": 257506
+  },
+  {
+    "index": 8,
+    "module": "module-02-container-management",
+    "audio_file": "08_module-02-container-management.mp3",
+    "text": "Docker cp lets you copy files between your host machine and a container in both directions. This is useful for pulling configuration files out of a container to inspect them, or pushing custom files into a running container without rebuilding the image.",
+    "size_bytes": 243296
+  },
+  {
+    "index": 9,
+    "module": "module-02-container-management",
+    "audio_file": "09_module-02-container-management.mp3",
+    "text": "In the real world, you'll often have many containers running at once. Docker provides commands for managing them in bulk \u2014 stopping multiple containers at once, pruning all stopped containers, and checking how much disk space Docker is using. These housekeeping commands keep your system clean and your resources under control.",
+    "size_bytes": 318946
+  },
+  {
+    "index": 10,
+    "module": "module-02-container-management",
+    "audio_file": "10_module-02-container-management.mp3",
+    "text": "Docker system df is like the du command for Docker. It shows you exactly how much disk space your images, containers, and volumes are consuming. If things are getting out of hand, docker system prune is your nuclear option \u2014 it removes all stopped containers, unused networks, and dangling images in one shot.",
+    "size_bytes": 330231
+  },
+  {
+    "index": 11,
+    "module": "module-02-container-management",
+    "audio_file": "11_module-02-container-management.mp3",
+    "text": "You've now mastered the full container lifecycle \u2014 starting, stopping, pausing, logging, exec-ing, and copying files. These operational skills are what separate someone who can run Docker from someone who can actually manage and debug containers in a real environment.",
+    "size_bytes": 311005
+  }
+]

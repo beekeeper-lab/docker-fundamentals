@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{MODULE_TITLE}} — Docker Fundamentals</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --text: #1a1a2e;
+  --sidebar-bg: #f4f4f8;
+  --sidebar-border: #e0e0e6;
+  --accent: #0077b6;
+  --accent-light: #e8f4fd;
+  --code-bg: #f5f5f5;
+  --code-border: #e0e0e0;
+  --narration-bg: #f0f7ff;
+  --narration-border: #0077b6;
+  --callout-bg: #fffbeb;
+  --callout-border: #f59e0b;
+  --cycle-bg: #f0fdf4;
+  --cycle-border: #22c55e;
+  --teach-bg: #fdf4ff;
+  --teach-border: #a855f7;
+  --nav-bg: #f9fafb;
+  --nav-border: #e5e7eb;
+  --table-stripe: #f9f9f9;
+  --shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+  --bg: #1a1a2e;
+  --text: #e0e0e6;
+  --sidebar-bg: #16213e;
+  --sidebar-border: #2a2a4a;
+  --accent: #4fc3f7;
+  --accent-light: #1a2a3e;
+  --code-bg: #2a2a4a;
+  --code-border: #3a3a5a;
+  --narration-bg: #1a2a3e;
+  --narration-border: #4fc3f7;
+  --callout-bg: #2a2a1e;
+  --callout-border: #f59e0b;
+  --cycle-bg: #1a2e1e;
+  --cycle-border: #22c55e;
+  --teach-bg: #2a1a2e;
+  --teach-border: #a855f7;
+  --nav-bg: #16213e;
+  --nav-border: #2a2a4a;
+  --table-stripe: #1e1e3a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  padding: 1.5rem;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.sidebar h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.sidebar .course-title {
+  font-size: 0.8rem;
+  color: var(--text);
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar ul { list-style: none; }
+
+.sidebar li {
+  margin: 0.25rem 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 0.4rem 0.75rem;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.sidebar a:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.sidebar a.active {
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+
+.sidebar .toc-h3 {
+  padding-left: 1.5rem;
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+/* Main content */
+.main {
+  margin-left: 280px;
+  flex: 1;
+  max-width: 900px;
+  padding: 2rem 3rem;
+}
+
+.main h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.main h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--sidebar-border);
+}
+
+.main h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.main p { margin: 0.75rem 0; }
+
+.main ul, .main ol {
+  margin: 0.75rem 0;
+  padding-left: 1.5rem;
+}
+
+.main li { margin: 0.3rem 0; }
+
+.main a { color: var(--accent); }
+
+/* Code blocks */
+.main pre {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.main code {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.88em;
+}
+
+.main p code, .main li code, .main td code {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+/* Tables */
+.main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.main th, .main td {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--sidebar-border);
+  text-align: left;
+}
+
+.main th {
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+
+.main tr:nth-child(even) { background: var(--table-stripe); }
+
+/* Images */
+.main img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: var(--shadow);
+}
+
+/* Tier badges */
+.tier-badge {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.5rem 0 1rem;
+}
+.tier-start-here { background: #dcfce7; color: #166534; }
+.tier-useful-soon { background: #dbeafe; color: #1e40af; }
+.tier-when-youre-ready { background: #fef3c7; color: #92400e; }
+.tier-advanced { background: #fce7f3; color: #9d174d; }
+
+[data-theme="dark"] .tier-start-here { background: #14532d; color: #86efac; }
+[data-theme="dark"] .tier-useful-soon { background: #1e3a5f; color: #93c5fd; }
+[data-theme="dark"] .tier-when-youre-ready { background: #451a03; color: #fcd34d; }
+[data-theme="dark"] .tier-advanced { background: #500724; color: #f9a8d4; }
+
+/* Narration blocks */
+.narration-block {
+  background: var(--narration-bg);
+  border-left: 4px solid var(--narration-border);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.narration-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.narration-content {
+  flex: 1;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.narration-content p { margin: 0; }
+
+.narration-play {
+  flex-shrink: 0;
+  background: var(--accent);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s, transform 0.2s;
+  margin-top: 0.1rem;
+}
+
+.narration-play:hover { opacity: 0.85; transform: scale(1.1); }
+.narration-play.playing { background: #e74c3c; }
+
+.narration-block audio {
+  display: none;
+}
+
+/* Callout blocks */
+.callout-block {
+  background: var(--callout-bg);
+  border-left: 4px solid var(--callout-border);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.callout-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.callout-block p { margin: 0; }
+
+/* Cycle blocks */
+.cycle-block {
+  background: var(--cycle-bg);
+  border-left: 4px solid var(--cycle-border);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.cycle-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.cycle-block p { margin: 0; }
+
+/* Teaching intent blocks */
+.teach-block {
+  background: var(--teach-bg);
+  border-left: 4px solid var(--teach-border);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  border-radius: 0 8px 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.teach-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.teach-block p { margin: 0; }
+
+/* Navigation */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid var(--nav-border);
+}
+
+.page-nav button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.page-nav button:hover { opacity: 0.85; }
+.page-nav button:disabled { opacity: 0.3; cursor: not-allowed; }
+
+.page-nav .page-info {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* Module navigation */
+.module-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--nav-border);
+  font-size: 0.9rem;
+}
+
+.module-nav a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.module-nav a:hover { text-decoration: underline; }
+
+/* Controls bar */
+.controls {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  z-index: 200;
+}
+
+.controls button {
+  background: var(--sidebar-bg);
+  border: 1px solid var(--sidebar-border);
+  color: var(--text);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.controls button:hover { background: var(--accent-light); }
+
+/* Mobile toggle */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 300;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Page sections */
+.page-section { display: none; }
+.page-section.active { display: block; }
+
+/* Print */
+@media print {
+  .sidebar, .controls, .page-nav, .module-nav, .sidebar-toggle, .narration-block audio { display: none !important; }
+  .main { margin-left: 0; max-width: 100%; }
+  .page-section { display: block !important; }
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .main { margin-left: 0; padding: 1.5rem; }
+  .sidebar-toggle { display: block; }
+}
+
+/* Checkbox list styling */
+.main li input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+</style>
+</head>
+<body>
+
+<button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle sidebar">☰</button>
+
+<nav class="sidebar" id="sidebar">
+  <div class="course-title">Docker Fundamentals</div>
+  <h2>{{MODULE_SHORT}}</h2>
+  <ul id="toc">
+    {{TOC}}
+  </ul>
+</nav>
+
+<div class="controls">
+  <button onclick="toggleTheme()" id="theme-btn">🌙 Dark</button>
+  <button onclick="toggleMute()" id="mute-btn">🔊 Sound</button>
+</div>
+
+<main class="main" id="content">
+  {{CONTENT}}
+
+  <div class="page-nav">
+    <button id="prev-btn" onclick="prevPage()">← Previous</button>
+    <span class="page-info" id="page-info"></span>
+    <button id="next-btn" onclick="nextPage()">Next →</button>
+  </div>
+
+  <div class="module-nav">
+    {{MODULE_NAV}}
+  </div>
+</main>
+
+<script>
+// Narration playback
+let currentlyPlaying = null;
+
+function playNarration(btn) {
+  const audio = btn.parentElement.querySelector('audio');
+  if (!audio) return;
+
+  if (currentlyPlaying && currentlyPlaying !== audio) {
+    currentlyPlaying.pause();
+    currentlyPlaying.currentTime = 0;
+    const oldBtn = currentlyPlaying.parentElement.querySelector('.narration-play');
+    if (oldBtn) {
+      oldBtn.classList.remove('playing');
+      oldBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    }
+  }
+
+  if (audio.paused) {
+    audio.play().catch(() => {});
+    btn.classList.add('playing');
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+    currentlyPlaying = audio;
+  } else {
+    audio.pause();
+    btn.classList.remove('playing');
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    currentlyPlaying = null;
+  }
+
+  audio.onended = () => {
+    btn.classList.remove('playing');
+    btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    currentlyPlaying = null;
+
+    // Auto-chain to next narration on the same page if not muted
+    if (!isMuted) {
+      const page = btn.closest('.page-section');
+      const allPlayBtns = page.querySelectorAll('.narration-play');
+      const idx = Array.from(allPlayBtns).indexOf(btn);
+      if (idx < allPlayBtns.length - 1) {
+        setTimeout(() => playNarration(allPlayBtns[idx + 1]), 500);
+      }
+    }
+  };
+}
+
+// Pagination
+const pages = document.querySelectorAll('.page-section');
+let currentPage = 0;
+
+function showPage(n) {
+  pages.forEach((p, i) => p.classList.toggle('active', i === n));
+  currentPage = n;
+  updateNav();
+  updateTOC();
+  window.scrollTo(0, 0);
+
+  // Auto-play first narration on new page if not muted
+  if (!isMuted) {
+    const firstAudio = pages[n].querySelector('audio');
+    if (firstAudio) setTimeout(() => firstAudio.play().catch(() => {}), 300);
+  }
+
+  // Track visit
+  try { localStorage.setItem('docker-fund-visited-{{MODULE_FILE}}', 'true'); } catch(e) {}
+}
+
+function nextPage() { if (currentPage < pages.length - 1) showPage(currentPage + 1); }
+function prevPage() { if (currentPage > 0) showPage(currentPage - 1); }
+
+function updateNav() {
+  document.getElementById('prev-btn').disabled = currentPage === 0;
+  document.getElementById('next-btn').disabled = currentPage === pages.length - 1;
+  document.getElementById('page-info').textContent = `Page ${currentPage + 1} of ${pages.length}`;
+}
+
+function updateTOC() {
+  document.querySelectorAll('#toc a').forEach(a => {
+    a.classList.toggle('active', parseInt(a.dataset.page) === currentPage);
+  });
+}
+
+// TOC click
+document.querySelectorAll('#toc a').forEach(a => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    showPage(parseInt(a.dataset.page));
+    // Close sidebar on mobile
+    if (window.innerWidth <= 900) document.getElementById('sidebar').classList.remove('open');
+  });
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') nextPage();
+  if (e.key === 'ArrowLeft') prevPage();
+});
+
+// Theme toggle
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.dataset.theme === 'dark';
+  html.dataset.theme = isDark ? 'light' : 'dark';
+  document.getElementById('theme-btn').textContent = isDark ? '🌙 Dark' : '☀️ Light';
+  try { localStorage.setItem('docker-fund-theme', html.dataset.theme); } catch(e) {}
+}
+
+// Mute toggle
+let isMuted = false;
+function toggleMute() {
+  isMuted = !isMuted;
+  document.getElementById('mute-btn').textContent = isMuted ? '🔇 Muted' : '🔊 Sound';
+  document.querySelectorAll('audio').forEach(a => a.muted = isMuted);
+  try { localStorage.setItem('docker-fund-muted', isMuted); } catch(e) {}
+}
+
+// Sidebar toggle (mobile)
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// Audio chaining
+document.querySelectorAll('audio').forEach((audio, i, all) => {
+  audio.addEventListener('ended', () => {
+    // Find next audio on the same page
+    const page = audio.closest('.page-section');
+    const pageAudios = page.querySelectorAll('audio');
+    const idx = Array.from(pageAudios).indexOf(audio);
+    if (idx < pageAudios.length - 1 && !isMuted) {
+      pageAudios[idx + 1].play().catch(() => {});
+    }
+  });
+});
+
+// Init
+(function() {
+  try {
+    const savedTheme = localStorage.getItem('docker-fund-theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.dataset.theme = 'dark';
+      document.getElementById('theme-btn').textContent = '☀️ Light';
+    }
+    const savedMute = localStorage.getItem('docker-fund-muted');
+    if (savedMute === 'true') {
+      isMuted = true;
+      document.getElementById('mute-btn').textContent = '🔇 Muted';
+    }
+  } catch(e) {}
+  if (pages.length > 0) showPage(0);
+})();
+</script>
+</body>
+</html>

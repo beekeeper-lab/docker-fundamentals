@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 8: Docker Compose Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the primary purpose of Docker Compose?",
+      "options": [
+        "To build Docker images faster",
+        "To define and run multi-container applications with a single YAML file",
+        "To replace the Docker daemon with a lightweight alternative",
+        "To manage Docker Hub repositories"
+      ],
+      "answer": "To define and run multi-container applications with a single YAML file"
+    },
+    {
+      "id": 2,
+      "question": "What is the default filename Docker Compose looks for when starting services?",
+      "options": [
+        "compose.yaml",
+        "docker-compose.yml",
+        "services.yml",
+        "docker.yml"
+      ],
+      "answer": "docker-compose.yml"
+    },
+    {
+      "id": 3,
+      "question": "What command starts all services defined in a Compose file in the background?",
+      "options": [
+        "docker compose start -d",
+        "docker compose run --detach",
+        "docker compose up -d",
+        "docker compose launch -d"
+      ],
+      "answer": "docker compose up -d"
+    },
+    {
+      "id": 4,
+      "question": "What does the 'docker compose down' command do?",
+      "options": [
+        "Pauses all running containers",
+        "Stops containers, removes them, and removes the network",
+        "Only stops the containers without removing them",
+        "Deletes the docker-compose.yml file"
+      ],
+      "answer": "Stops containers, removes them, and removes the network"
+    },
+    {
+      "id": 5,
+      "question": "Which command lists the running services in a Compose project?",
+      "options": [
+        "docker compose list",
+        "docker compose status",
+        "docker compose ps",
+        "docker compose services"
+      ],
+      "answer": "docker compose ps"
+    },
+    {
+      "id": 6,
+      "question": "How do containers in a Compose file communicate with each other by default?",
+      "options": [
+        "By IP address only",
+        "Through shared volumes",
+        "By using the service name as the hostname",
+        "They cannot communicate without explicit network configuration"
+      ],
+      "answer": "By using the service name as the hostname"
+    },
+    {
+      "id": 7,
+      "question": "What is the difference between 'docker compose' (space) and 'docker-compose' (hyphen)?",
+      "options": [
+        "They are completely different tools with different features",
+        "'docker compose' is the modern integrated plugin; 'docker-compose' is the older standalone version",
+        "'docker-compose' is the newer version",
+        "There is no difference; they are identical commands"
+      ],
+      "answer": "'docker compose' is the modern integrated plugin; 'docker-compose' is the older standalone version"
+    },
+    {
+      "id": 8,
+      "question": "What does the 'ports' key do in a Compose service definition?",
+      "options": [
+        "Exposes ports only to other containers in the Compose network",
+        "Maps host ports to container ports, making the service accessible from the host",
+        "Blocks incoming traffic on the specified ports",
+        "Opens ports on the Docker daemon"
+      ],
+      "answer": "Maps host ports to container ports, making the service accessible from the host"
+    },
+    {
+      "id": 9,
+      "question": "In the port mapping '8080:80', what does the left number represent?",
+      "options": [
+        "The container port",
+        "The host port",
+        "The internal network port",
+        "The protocol number"
+      ],
+      "answer": "The host port"
+    },
+    {
+      "id": 10,
+      "question": "What does the 'depends_on' key do in a Compose file?",
+      "options": [
+        "Shares environment variables between services",
+        "Links the filesystem of two containers",
+        "Controls the startup order of services",
+        "Ensures one service uses the same image as another"
+      ],
+      "answer": "Controls the startup order of services"
+    },
+    {
+      "id": 11,
+      "question": "What is the difference between 'ports' and 'expose' in a Compose file?",
+      "options": [
+        "There is no difference; they are aliases",
+        "'ports' maps to the host; 'expose' only makes ports accessible to other Compose services",
+        "'expose' maps to the host; 'ports' is for internal use only",
+        "'ports' is for TCP and 'expose' is for UDP"
+      ],
+      "answer": "'ports' maps to the host; 'expose' only makes ports accessible to other Compose services"
+    },
+    {
+      "id": 12,
+      "question": "How do you view logs from a specific service named 'api' in a Compose project?",
+      "options": [
+        "docker compose logs --service api",
+        "docker compose logs api",
+        "docker logs compose-api",
+        "docker compose show-logs api"
+      ],
+      "answer": "docker compose logs api"
+    },
+    {
+      "id": 13,
+      "question": "What does the '-f' flag do when used with 'docker compose logs'?",
+      "options": [
+        "Filters logs by severity level",
+        "Formats logs as JSON",
+        "Follows the log output in real time",
+        "Writes logs to a file"
+      ],
+      "answer": "Follows the log output in real time"
+    },
+    {
+      "id": 14,
+      "question": "How do you specify a named volume in a Compose file?",
+      "options": [
+        "By listing it under a top-level 'volumes' key and referencing it in the service",
+        "By using the 'docker volume create' command before running Compose",
+        "By adding a VOLUME instruction to the Dockerfile only",
+        "Named volumes are not supported in Docker Compose"
+      ],
+      "answer": "By listing it under a top-level 'volumes' key and referencing it in the service"
+    },
+    {
+      "id": 15,
+      "question": "What does the 'build' key do in a Compose service definition?",
+      "options": [
+        "Downloads a pre-built image from Docker Hub",
+        "Specifies the path to a Dockerfile to build a custom image for the service",
+        "Compiles the source code inside the container",
+        "Creates a backup of the service configuration"
+      ],
+      "answer": "Specifies the path to a Dockerfile to build a custom image for the service"
+    },
+    {
+      "id": 16,
+      "question": "What command rebuilds images defined with 'build' in a Compose file?",
+      "options": [
+        "docker compose rebuild",
+        "docker compose build",
+        "docker compose up --rebuild",
+        "docker compose create"
+      ],
+      "answer": "docker compose build"
+    },
+    {
+      "id": 17,
+      "question": "How do you set environment variables for a service in a Compose file?",
+      "options": [
+        "Using the 'env' key with key=value pairs",
+        "Using the 'environment' key with a list of KEY=VALUE entries",
+        "Using the 'variables' key with a mapping",
+        "Environment variables cannot be set in Compose files"
+      ],
+      "answer": "Using the 'environment' key with a list of KEY=VALUE entries"
+    },
+    {
+      "id": 18,
+      "question": "What does 'docker compose down -v' do that 'docker compose down' does not?",
+      "options": [
+        "Removes the docker-compose.yml file",
+        "Also removes named volumes defined in the Compose file",
+        "Forces removal of running containers",
+        "Deletes the Docker images used by the services"
+      ],
+      "answer": "Also removes named volumes defined in the Compose file"
+    },
+    {
+      "id": 19,
+      "question": "Which command runs a one-off command inside a running Compose service?",
+      "options": [
+        "docker compose run <service> <command>",
+        "docker compose exec <service> <command>",
+        "docker compose shell <service> <command>",
+        "docker compose attach <service> <command>"
+      ],
+      "answer": "docker compose exec <service> <command>"
+    },
+    {
+      "id": 20,
+      "question": "In the Compose file, what does 'image: nginx:alpine' specify?",
+      "options": [
+        "A custom-built image named nginx with an alpine tag",
+        "The official Nginx image using the Alpine Linux variant from a registry",
+        "A local Dockerfile named nginx.alpine",
+        "An alias for the service container"
+      ],
+      "answer": "The official Nginx image using the Alpine Linux variant from a registry"
+    },
+    {
+      "id": 21,
+      "question": "What does the 'volumes' key under a service do when mapping './html:/usr/share/nginx/html'?",
+      "options": [
+        "Creates a named volume called 'html'",
+        "Bind-mounts the local ./html directory into the container at the specified path",
+        "Copies the html directory into the container image permanently",
+        "Creates a symbolic link inside the container"
+      ],
+      "answer": "Bind-mounts the local ./html directory into the container at the specified path"
+    },
+    {
+      "id": 22,
+      "question": "What top-level keys are commonly found in a docker-compose.yml file?",
+      "options": [
+        "containers, networks, storage",
+        "services, volumes, networks",
+        "images, ports, environment",
+        "build, deploy, run"
+      ],
+      "answer": "services, volumes, networks"
+    },
+    {
+      "id": 23,
+      "question": "In the Nginx reverse proxy configuration, what does 'proxy_pass http://api:5000' do?",
+      "options": [
+        "Redirects the browser to port 5000 on the host machine",
+        "Forwards requests to the Compose service named 'api' on port 5000",
+        "Opens port 5000 on the Nginx container",
+        "Creates a new network route to port 5000"
+      ],
+      "answer": "Forwards requests to the Compose service named 'api' on port 5000"
+    },
+    {
+      "id": 24,
+      "question": "Why is a named volume used for the PostgreSQL data directory instead of a bind mount?",
+      "options": [
+        "Named volumes are faster than bind mounts for all workloads",
+        "Bind mounts cannot store database files",
+        "Named volumes are managed by Docker and persist across container restarts without host path dependencies",
+        "Named volumes are the only option supported by PostgreSQL"
+      ],
+      "answer": "Named volumes are managed by Docker and persist across container restarts without host path dependencies"
+    },
+    {
+      "id": 25,
+      "question": "What happens to named volumes when you run 'docker compose down' without the '-v' flag?",
+      "options": [
+        "They are deleted along with the containers",
+        "They are preserved and can be reused when services start again",
+        "They are moved to a backup directory",
+        "They become orphaned and must be manually reconnected"
+      ],
+      "answer": "They are preserved and can be reused when services start again"
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 3: Container Management",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the correct order of the basic container lifecycle?",
+      "options": [
+        "Running → Created → Stopped → Removed",
+        "Created → Running → Stopped → Removed",
+        "Stopped → Created → Running → Removed",
+        "Removed → Created → Running → Stopped"
+      ],
+      "answer": "Created → Running → Stopped → Removed"
+    },
+    {
+      "id": 2,
+      "question": "What signal does 'docker stop' send first to a container?",
+      "options": [
+        "SIGKILL",
+        "SIGTERM",
+        "SIGINT",
+        "SIGHUP"
+      ],
+      "answer": "SIGTERM"
+    },
+    {
+      "id": 3,
+      "question": "How long does 'docker stop' wait before sending SIGKILL by default?",
+      "options": [
+        "5 seconds",
+        "10 seconds",
+        "30 seconds",
+        "60 seconds"
+      ],
+      "answer": "10 seconds"
+    },
+    {
+      "id": 4,
+      "question": "What does 'docker kill' do to a container?",
+      "options": [
+        "Sends SIGTERM and waits for a graceful shutdown",
+        "Removes the container and its image",
+        "Force stops the container immediately with SIGKILL",
+        "Pauses all processes in the container"
+      ],
+      "answer": "Force stops the container immediately with SIGKILL"
+    },
+    {
+      "id": 5,
+      "question": "What command is used to start a previously stopped container?",
+      "options": [
+        "docker run",
+        "docker start",
+        "docker restart",
+        "docker resume"
+      ],
+      "answer": "docker start"
+    },
+    {
+      "id": 6,
+      "question": "What status does a container show in 'docker ps' when it has been paused?",
+      "options": [
+        "Exited",
+        "Stopped",
+        "Paused",
+        "Frozen"
+      ],
+      "answer": "Paused"
+    },
+    {
+      "id": 7,
+      "question": "Which command resumes a paused container?",
+      "options": [
+        "docker resume",
+        "docker start",
+        "docker unpause",
+        "docker continue"
+      ],
+      "answer": "docker unpause"
+    },
+    {
+      "id": 8,
+      "question": "What happens to a container's uptime when you run 'docker restart'?",
+      "options": [
+        "The uptime continues from where it was",
+        "The uptime resets because the container is fully stopped and restarted",
+        "The uptime doubles",
+        "The uptime is not tracked after a restart"
+      ],
+      "answer": "The uptime resets because the container is fully stopped and restarted"
+    },
+    {
+      "id": 9,
+      "question": "Which command shows only stopped containers?",
+      "options": [
+        "docker ps",
+        "docker ps -a",
+        "docker ps --stopped",
+        "docker list -s"
+      ],
+      "answer": "docker ps -a"
+    },
+    {
+      "id": 10,
+      "question": "What does 'docker logs my-app' display?",
+      "options": [
+        "The Dockerfile used to build the image",
+        "All output from the container since it started",
+        "Only error messages from the container",
+        "The container's resource usage statistics"
+      ],
+      "answer": "All output from the container since it started"
+    },
+    {
+      "id": 11,
+      "question": "Which flag shows only the last 5 lines of container logs?",
+      "options": [
+        "docker logs --last 5",
+        "docker logs --tail 5",
+        "docker logs --limit 5",
+        "docker logs --lines 5"
+      ],
+      "answer": "docker logs --tail 5"
+    },
+    {
+      "id": 12,
+      "question": "What does the '-f' flag do when used with 'docker logs'?",
+      "options": [
+        "Filters logs by severity level",
+        "Formats logs as JSON",
+        "Follows the log output in real time (live stream)",
+        "Finds a specific string in the logs"
+      ],
+      "answer": "Follows the log output in real time (live stream)"
+    },
+    {
+      "id": 13,
+      "question": "Which flag shows logs from the last 1 minute?",
+      "options": [
+        "docker logs --tail 1m",
+        "docker logs --since 1m",
+        "docker logs --time 1m",
+        "docker logs --last 1m"
+      ],
+      "answer": "docker logs --since 1m"
+    },
+    {
+      "id": 14,
+      "question": "What does 'docker exec' do?",
+      "options": [
+        "Executes a Dockerfile to build an image",
+        "Runs a command inside a running container",
+        "Starts a new container from an image",
+        "Exports a container's filesystem"
+      ],
+      "answer": "Runs a command inside a running container"
+    },
+    {
+      "id": 15,
+      "question": "What flags are needed to open an interactive shell inside a running container?",
+      "options": [
+        "-d",
+        "-it",
+        "-p",
+        "-v"
+      ],
+      "answer": "-it"
+    },
+    {
+      "id": 16,
+      "question": "What happens to a running container when you exit an 'exec' session?",
+      "options": [
+        "The container stops",
+        "The container is removed",
+        "The container continues running",
+        "The container restarts"
+      ],
+      "answer": "The container continues running"
+    },
+    {
+      "id": 17,
+      "question": "Which command copies a file from a container to the host?",
+      "options": [
+        "docker copy container:/path ./local",
+        "docker cp container:/path ./local",
+        "docker export container:/path ./local",
+        "docker mv container:/path ./local"
+      ],
+      "answer": "docker cp container:/path ./local"
+    },
+    {
+      "id": 18,
+      "question": "What happens to changes made inside a container if the container is removed and recreated?",
+      "options": [
+        "The changes persist automatically",
+        "The changes are saved to the image",
+        "The changes are lost because they are ephemeral",
+        "The changes are backed up to the host"
+      ],
+      "answer": "The changes are lost because they are ephemeral"
+    },
+    {
+      "id": 19,
+      "question": "What does 'docker container prune' do?",
+      "options": [
+        "Removes all running containers",
+        "Removes all stopped containers",
+        "Removes all container images",
+        "Removes all container volumes"
+      ],
+      "answer": "Removes all stopped containers"
+    },
+    {
+      "id": 20,
+      "question": "What does 'docker system df' show?",
+      "options": [
+        "The Dockerfile for the current directory",
+        "Disk usage by images, containers, and volumes",
+        "The default configuration for Docker",
+        "A list of all Docker commands"
+      ],
+      "answer": "Disk usage by images, containers, and volumes"
+    },
+    {
+      "id": 21,
+      "question": "What does 'docker system prune' do?",
+      "options": [
+        "Removes only stopped containers",
+        "Removes only unused images",
+        "Removes all unused containers, networks, and dangling images",
+        "Removes all Docker data including running containers"
+      ],
+      "answer": "Removes all unused containers, networks, and dangling images"
+    },
+    {
+      "id": 22,
+      "question": "Can you stop multiple containers in a single command?",
+      "options": [
+        "No, you must stop them one at a time",
+        "Yes, by listing their names: docker stop app1 app2 app3",
+        "Yes, but only with docker kill",
+        "Yes, but only with docker container prune"
+      ],
+      "answer": "Yes, by listing their names: docker stop app1 app2 app3"
+    },
+    {
+      "id": 23,
+      "question": "Which command can you use to remove a stopped container?",
+      "options": [
+        "docker delete",
+        "docker rm",
+        "docker remove",
+        "docker destroy"
+      ],
+      "answer": "docker rm"
+    },
+    {
+      "id": 24,
+      "question": "What does the '-d' flag do in 'docker run -d --name my-app nginx'?",
+      "options": [
+        "Deletes the container after it stops",
+        "Runs the container in detached mode (background)",
+        "Enables debug mode",
+        "Sets the container's DNS server"
+      ],
+      "answer": "Runs the container in detached mode (background)"
+    },
+    {
+      "id": 25,
+      "question": "Which command copies a file from the host to a running container?",
+      "options": [
+        "docker push file.txt container:/path",
+        "docker upload file.txt container:/path",
+        "docker cp file.txt container:/path",
+        "docker send file.txt container:/path"
+      ],
+      "answer": "docker cp file.txt container:/path"
+    }
+  ]
+}

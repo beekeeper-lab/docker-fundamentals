@@ -1,0 +1,72 @@
+[
+  {
+    "index": 1,
+    "module": "module-08-docker-compose-part-2",
+    "audio_file": "01_module-08-docker-compose-part-2.mp3",
+    "text": "Managing configuration is one of the most important parts of any deployment. Docker Compose gives you three ways to set environment variables: inline in the YAML file, from an external env file, and through shell variable substitution. The .env file approach is the most common because it keeps secrets out of your docker-compose.yml, which you can safely commit to version control.",
+    "size_bytes": 409644
+  },
+  {
+    "index": 2,
+    "module": "module-08-docker-compose-part-2",
+    "audio_file": "02_module-08-docker-compose-part-2.mp3",
+    "text": "Let's set up a project that demonstrates all three approaches to environment variables. You'll create a dot-env file with your configuration, a Flask app that reads those variables, and a Compose file that wires everything together. Pay attention to how the variable values flow from the dot-env file into the running containers.",
+    "size_bytes": 310169
+  },
+  {
+    "index": 3,
+    "module": "module-08-docker-compose-part-2",
+    "audio_file": "03_module-08-docker-compose-part-2.mp3",
+    "text": "One of the best things about using dot-env files is that you can swap configurations without changing your docker-compose.yml at all. You'll create a separate production env file and launch the same stack with completely different settings. This is how teams manage different environments \u2014 development, staging, and production \u2014 with the same Compose file.",
+    "size_bytes": 377879
+  },
+  {
+    "index": 4,
+    "module": "module-08-docker-compose-part-2",
+    "audio_file": "04_module-08-docker-compose-part-2.mp3",
+    "text": "Health checks let Docker monitor whether a service is actually ready, not just running. A database container might be running but still initializing. With a health check, Docker can tell the difference. And with condition service_healthy in depends_on, your API won't start until the database is truly ready to accept connections. This eliminates the fragile \"sleep 5 and hope\" pattern.",
+    "size_bytes": 426780
+  },
+  {
+    "index": 5,
+    "module": "module-08-docker-compose-part-2",
+    "audio_file": "05_module-08-docker-compose-part-2.mp3",
+    "text": "Now let's see health checks in action. Start the stack and watch the database service transition from \"starting\" to \"healthy.\" The API service will wait patiently until the database reports healthy before it starts up. This is reliable, deterministic startup ordering.",
+    "size_bytes": 285092
+  },
+  {
+    "index": 6,
+    "module": "module-08-docker-compose-part-2",
+    "audio_file": "06_module-08-docker-compose-part-2.mp3",
+    "text": "Profiles let you define optional services that only start when you ask for them. This is perfect for development tools, debug utilities, or cache services that you don't always need. A service without a profile always starts. A service with a profile only starts when you pass the dash-dash-profile flag. This keeps your default stack lean while making extra tools available on demand.",
+    "size_bytes": 435557
+  },
+  {
+    "index": 7,
+    "module": "module-08-docker-compose-part-2",
+    "audio_file": "07_module-08-docker-compose-part-2.mp3",
+    "text": "Let's add two optional services \u2014 Adminer for database administration and Redis for caching. By putting them behind profiles, they won't start by default. Your core stack stays lean, and you only bring in extra tools when you need them.",
+    "size_bytes": 240370
+  },
+  {
+    "index": 8,
+    "module": "module-08-docker-compose-part-2",
+    "audio_file": "08_module-08-docker-compose-part-2.mp3",
+    "text": "In production, you want services that recover automatically from crashes. Restart policies tell Docker what to do when a container exits. The \"unless-stopped\" policy restarts containers on failure and on system reboot, but respects a manual stop. Resource limits prevent a single service from consuming all available memory or CPU on the host.",
+    "size_bytes": 387492
+  },
+  {
+    "index": 9,
+    "module": "module-08-docker-compose-part-2",
+    "audio_file": "09_module-08-docker-compose-part-2.mp3",
+    "text": "Now you'll add a restart policy and resource limits to your API service. The restart policy tells Docker to automatically restart the container if it crashes. Resource limits prevent a runaway process from consuming all available CPU or memory on your host machine. Together, these two settings make your services much more resilient.",
+    "size_bytes": 345278
+  },
+  {
+    "index": 10,
+    "module": "module-08-docker-compose-part-2",
+    "audio_file": "10_module-08-docker-compose-part-2.mp3",
+    "text": "You've now covered the advanced features that make Docker Compose production-ready \u2014 environment management, health checks, profiles, restart policies, and resource limits. These are the tools that separate a quick demo from a robust deployment. Make sure to clean up with \"docker compose down dash v\" before submitting your work.",
+    "size_bytes": 340680
+  }
+]

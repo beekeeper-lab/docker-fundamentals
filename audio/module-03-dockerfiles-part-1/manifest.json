@@ -1,0 +1,79 @@
+[
+  {
+    "index": 1,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "01_module-03-dockerfiles-part-1.mp3",
+    "text": "A Dockerfile is a text file with instructions for building a Docker image. Think of it as a recipe: each instruction adds a layer to the image. FROM sets the base image, WORKDIR sets your working directory, COPY brings files in from your host, RUN executes commands during the build, and CMD sets what runs when the container starts. These five instructions cover ninety percent of what you'll need.",
+    "size_bytes": 423018
+  },
+  {
+    "index": 2,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "02_module-03-dockerfiles-part-1.mp3",
+    "text": "Take a look at the table above. These seven instructions are your Dockerfile vocabulary. You won't need all of them in every Dockerfile, but FROM, WORKDIR, COPY, RUN, and CMD will appear in almost every one you write.",
+    "size_bytes": 249983
+  },
+  {
+    "index": 3,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "03_module-03-dockerfiles-part-1.mp3",
+    "text": "Let's build your first custom Docker image. You'll create a simple Python script, write a Dockerfile for it, build the image, and run it. This is the core Docker workflow you'll use hundreds of times.",
+    "size_bytes": 234937
+  },
+  {
+    "index": 4,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "04_module-03-dockerfiles-part-1.mp3",
+    "text": "Now it's time to build and run your image. The docker build command reads your Dockerfile and creates an image. The dash t flag gives it a name and version tag. Then docker run creates a container from that image and runs it.",
+    "size_bytes": 242460
+  },
+  {
+    "index": 5,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "05_module-03-dockerfiles-part-1.mp3",
+    "text": "Now let's build something more real \u2014 a Flask web application. This is where you'll see an important optimization pattern: copy and install your requirements file first, then copy your application code. Docker caches each layer, so if you only change your app code, it skips the dependency installation step entirely. This saves huge amounts of time during development.",
+    "size_bytes": 423854
+  },
+  {
+    "index": 6,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "06_module-03-dockerfiles-part-1.mp3",
+    "text": "Time to build and run your Flask app. Notice the dash d flag, which runs the container in detached mode so it stays running in the background. The dash p flag maps port 5000 on your host to port 5000 inside the container, so you can access the web app from your browser or curl.",
+    "size_bytes": 304318
+  },
+  {
+    "index": 7,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "07_module-03-dockerfiles-part-1.mp3",
+    "text": "Not every containerized app needs a programming language runtime. Here you'll build a simple static website served by Nginx. The Dockerfile is just two lines: start from the Nginx Alpine image, and copy your HTML file into the right directory. Alpine-based images are tiny \u2014 your entire web server will be under 50 megabytes.",
+    "size_bytes": 374117
+  },
+  {
+    "index": 8,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "08_module-03-dockerfiles-part-1.mp3",
+    "text": "Build this image and run it on port 8080. Since Nginx listens on port 80 inside the container, you'll map 8080 on your host to 80 in the container. After verifying it works with curl, clean up the container.",
+    "size_bytes": 240370
+  },
+  {
+    "index": 9,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "09_module-03-dockerfiles-part-1.mp3",
+    "text": "One of Docker's most important features is layer caching. When you rebuild an image, Docker checks each instruction against its cache. If nothing changed, it reuses the cached layer. But the moment one layer changes, every layer after it must be rebuilt. That's why instruction order matters so much in your Dockerfiles.",
+    "size_bytes": 346532
+  },
+  {
+    "index": 10,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "10_module-03-dockerfiles-part-1.mp3",
+    "text": "Let's take a moment to see all the custom images you've built in this module. The docker images command lists everything, and you can filter it with grep to see just your work.",
+    "size_bytes": 150509
+  },
+  {
+    "index": 11,
+    "module": "module-03-dockerfiles-part-1",
+    "audio_file": "11_module-03-dockerfiles-part-1.mp3",
+    "text": "Great work. You've gone from writing your first Dockerfile to building three different types of applications: a simple Python script, a Flask web server, and a static Nginx site. You also saw how layer caching can speed up your builds dramatically. Save your output and Dockerfiles for submission.",
+    "size_bytes": 328142
+  }
+]

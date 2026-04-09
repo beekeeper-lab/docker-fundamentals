@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 5: Dockerfiles Part 2",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Dockerfile instructions create new image layers?",
+      "options": [
+        "RUN, COPY, and ADD",
+        "ENV, LABEL, and EXPOSE",
+        "CMD, ENTRYPOINT, and WORKDIR",
+        "ARG, USER, and VOLUME"
+      ],
+      "answer": "RUN, COPY, and ADD"
+    },
+    {
+      "id": 2,
+      "question": "What is the main benefit of combining multiple RUN commands into a single RUN instruction?",
+      "options": [
+        "It makes the Dockerfile easier to read",
+        "It reduces the number of layers and the overall image size",
+        "It ensures commands run in parallel",
+        "It prevents caching from being used"
+      ],
+      "answer": "It reduces the number of layers and the overall image size"
+    },
+    {
+      "id": 3,
+      "question": "Which of the following is the optimized way to install packages in a Dockerfile?",
+      "options": [
+        "Three separate RUN instructions for update, install, and clean",
+        "A single RUN instruction chaining update, install, and clean with &&",
+        "Using COPY to bring in pre-built binaries",
+        "Using ADD to download packages from the internet"
+      ],
+      "answer": "A single RUN instruction chaining update, install, and clean with &&"
+    },
+    {
+      "id": 4,
+      "question": "What command shows the layers of a Docker image and their sizes?",
+      "options": [
+        "docker inspect",
+        "docker layers",
+        "docker history",
+        "docker info"
+      ],
+      "answer": "docker history"
+    },
+    {
+      "id": 5,
+      "question": "What is the purpose of a multi-stage build in Docker?",
+      "options": [
+        "To run multiple containers simultaneously",
+        "To use one stage for building and another for running, producing a smaller final image",
+        "To build images for multiple architectures",
+        "To deploy to multiple registries at once"
+      ],
+      "answer": "To use one stage for building and another for running, producing a smaller final image"
+    },
+    {
+      "id": 6,
+      "question": "In a multi-stage Dockerfile, what does the AS keyword do?",
+      "options": [
+        "Sets an environment variable for the stage",
+        "Names a build stage so it can be referenced later",
+        "Creates an alias for the base image",
+        "Specifies the architecture for the stage"
+      ],
+      "answer": "Names a build stage so it can be referenced later"
+    },
+    {
+      "id": 7,
+      "question": "How do you copy a file from a previous build stage named 'builder'?",
+      "options": [
+        "COPY --stage=builder /app/myapp /usr/local/bin/",
+        "COPY --from=builder /app/myapp /usr/local/bin/",
+        "COPY builder:/app/myapp /usr/local/bin/",
+        "ADD --from=builder /app/myapp /usr/local/bin/"
+      ],
+      "answer": "COPY --from=builder /app/myapp /usr/local/bin/"
+    },
+    {
+      "id": 8,
+      "question": "In a multi-stage build, what ends up in the final Docker image?",
+      "options": [
+        "All layers from all stages",
+        "Only the layers from the last stage",
+        "Only the RUN instructions from all stages",
+        "Only the COPY instructions from all stages"
+      ],
+      "answer": "Only the layers from the last stage"
+    },
+    {
+      "id": 9,
+      "question": "What is the .dockerignore file used for?",
+      "options": [
+        "Listing images that should not be pulled",
+        "Specifying containers to ignore during cleanup",
+        "Excluding files and directories from the Docker build context",
+        "Defining environment variables to ignore at runtime"
+      ],
+      "answer": "Excluding files and directories from the Docker build context"
+    },
+    {
+      "id": 10,
+      "question": "Which file is .dockerignore most similar to in function?",
+      "options": [
+        ".gitignore",
+        ".env",
+        "Dockerfile",
+        "docker-compose.yml"
+      ],
+      "answer": ".gitignore"
+    },
+    {
+      "id": 11,
+      "question": "Which of the following should typically be included in a .dockerignore file?",
+      "options": [
+        "app.py and requirements.txt",
+        ".git, node_modules, and .env",
+        "Dockerfile and CMD instructions",
+        "The base image name and tag"
+      ],
+      "answer": ".git, node_modules, and .env"
+    },
+    {
+      "id": 12,
+      "question": "Why should you copy requirements.txt before copying the rest of your application code?",
+      "options": [
+        "Because requirements.txt must be in the image root directory",
+        "To take advantage of Docker's layer caching so dependencies are not reinstalled on every code change",
+        "Because COPY can only handle one file at a time",
+        "To ensure the application code is not overwritten"
+      ],
+      "answer": "To take advantage of Docker's layer caching so dependencies are not reinstalled on every code change"
+    },
+    {
+      "id": 13,
+      "question": "What does the --no-cache-dir flag do when used with pip install?",
+      "options": [
+        "Prevents Docker from caching the layer",
+        "Forces pip to download packages every time",
+        "Prevents pip from storing downloaded packages in its cache, reducing image size",
+        "Disables the Docker build cache entirely"
+      ],
+      "answer": "Prevents pip from storing downloaded packages in its cache, reducing image size"
+    },
+    {
+      "id": 14,
+      "question": "In a multi-stage Java build, why is the final image much smaller than using the full JDK image?",
+      "options": [
+        "Because Java bytecode is compressed automatically",
+        "Because the final stage uses only the JRE, excluding the compiler and dev tools",
+        "Because multi-stage builds compress all layers into one",
+        "Because the AS keyword reduces the image size"
+      ],
+      "answer": "Because the final stage uses only the JRE, excluding the compiler and dev tools"
+    },
+    {
+      "id": 15,
+      "question": "What does the USER instruction do in a Dockerfile?",
+      "options": [
+        "Creates a new Docker Hub account",
+        "Sets the username for logging into the container registry",
+        "Specifies which user the container process runs as",
+        "Grants sudo access to the container"
+      ],
+      "answer": "Specifies which user the container process runs as"
+    },
+    {
+      "id": 16,
+      "question": "Why is it a best practice to run containers as a non-root user?",
+      "options": [
+        "It makes the container start faster",
+        "It reduces the image size",
+        "It improves security by limiting what the process can do if compromised",
+        "It is required by Docker Hub for publishing images"
+      ],
+      "answer": "It improves security by limiting what the process can do if compromised"
+    },
+    {
+      "id": 17,
+      "question": "What does setting PYTHONDONTWRITEBYTECODE=1 accomplish in a Dockerfile?",
+      "options": [
+        "Prevents Python from running in interactive mode",
+        "Prevents Python from creating .pyc bytecode files",
+        "Disables Python's garbage collector",
+        "Forces Python to use Python 2 syntax"
+      ],
+      "answer": "Prevents Python from creating .pyc bytecode files"
+    },
+    {
+      "id": 18,
+      "question": "What does setting PYTHONUNBUFFERED=1 accomplish in a Dockerfile?",
+      "options": [
+        "Disables Python's import system",
+        "Prevents Python from using virtual environments",
+        "Ensures Python output is sent directly to the terminal without buffering",
+        "Forces Python to write all output to a log file"
+      ],
+      "answer": "Ensures Python output is sent directly to the terminal without buffering"
+    },
+    {
+      "id": 19,
+      "question": "What does the --prefix flag do when used with pip install?",
+      "options": [
+        "Adds a prefix to all installed package names",
+        "Installs packages into a specified directory instead of the default location",
+        "Specifies a version prefix for all packages",
+        "Sets the Python path prefix for import resolution"
+      ],
+      "answer": "Installs packages into a specified directory instead of the default location"
+    },
+    {
+      "id": 20,
+      "question": "Why is it recommended to use a specific image tag (e.g., python:3.12-slim) instead of 'latest'?",
+      "options": [
+        "The 'latest' tag is slower to download",
+        "Specific tags ensure reproducible builds since 'latest' can change unpredictably",
+        "The 'latest' tag is deprecated in Docker",
+        "Specific tags are smaller in size"
+      ],
+      "answer": "Specific tags ensure reproducible builds since 'latest' can change unpredictably"
+    },
+    {
+      "id": 21,
+      "question": "What does 'rm -rf /var/lib/apt/lists/*' accomplish when added to a RUN instruction?",
+      "options": [
+        "Removes all installed packages",
+        "Removes the apt package manager",
+        "Removes cached package lists to reduce the layer size",
+        "Removes the system's root filesystem"
+      ],
+      "answer": "Removes cached package lists to reduce the layer size"
+    },
+    {
+      "id": 22,
+      "question": "In the Dockerfile instruction 'COPY --from=builder /install /usr/local', what is being copied?",
+      "options": [
+        "The builder stage's Dockerfile",
+        "The /install directory from the builder stage into /usr/local in the current stage",
+        "The Docker installation files",
+        "The builder stage's environment variables"
+      ],
+      "answer": "The /install directory from the builder stage into /usr/local in the current stage"
+    },
+    {
+      "id": 23,
+      "question": "What happens if a file listed in .dockerignore is referenced by a COPY instruction in the Dockerfile?",
+      "options": [
+        "Docker automatically creates an empty file in its place",
+        "The build fails because the file is not in the build context",
+        "Docker ignores the .dockerignore rule and copies the file anyway",
+        "Docker logs a warning but continues the build"
+      ],
+      "answer": "The build fails because the file is not in the build context"
+    },
+    {
+      "id": 24,
+      "question": "Which command creates a non-root user named 'appuser' in a Debian-based Dockerfile?",
+      "options": [
+        "RUN useradd appuser --no-login",
+        "RUN adduser --disabled-password --gecos '' appuser",
+        "USER appuser --create",
+        "RUN create-user appuser"
+      ],
+      "answer": "RUN adduser --disabled-password --gecos '' appuser"
+    },
+    {
+      "id": 25,
+      "question": "What is the primary benefit of using .dockerignore to exclude .git and node_modules from the build context?",
+      "options": [
+        "It prevents Docker from modifying those directories",
+        "It speeds up the build and reduces the build context size sent to the Docker daemon",
+        "It ensures those directories are backed up before building",
+        "It allows Docker to use those directories for caching"
+      ],
+      "answer": "It speeds up the build and reduces the build context size sent to the Docker daemon"
+    }
+  ]
+}

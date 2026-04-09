@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 4: Dockerfiles Part 1",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is a Dockerfile?",
+      "options": [
+        "A running container that serves an application",
+        "A text file with instructions for building a Docker image",
+        "A binary executable that Docker uses internally",
+        "A log file generated when a container starts"
+      ],
+      "answer": "A text file with instructions for building a Docker image"
+    },
+    {
+      "id": 2,
+      "question": "Which Dockerfile instruction specifies the base image to build upon?",
+      "options": [
+        "BASE",
+        "IMAGE",
+        "FROM",
+        "SOURCE"
+      ],
+      "answer": "FROM"
+    },
+    {
+      "id": 3,
+      "question": "What does the WORKDIR instruction do in a Dockerfile?",
+      "options": [
+        "Creates a new Docker volume",
+        "Sets the working directory inside the container for subsequent instructions",
+        "Changes the directory on the host machine",
+        "Specifies which directory to exclude from the build"
+      ],
+      "answer": "Sets the working directory inside the container for subsequent instructions"
+    },
+    {
+      "id": 4,
+      "question": "Which instruction copies files from the host machine into the Docker image?",
+      "options": [
+        "MOVE",
+        "ADD",
+        "COPY",
+        "TRANSFER"
+      ],
+      "answer": "COPY"
+    },
+    {
+      "id": 5,
+      "question": "What does the RUN instruction do during a Docker build?",
+      "options": [
+        "Starts the container after the build finishes",
+        "Executes a command during the image build process",
+        "Defines the default command when a container starts",
+        "Runs a health check on the container"
+      ],
+      "answer": "Executes a command during the image build process"
+    },
+    {
+      "id": 6,
+      "question": "What is the purpose of the CMD instruction in a Dockerfile?",
+      "options": [
+        "It executes a command during the build process",
+        "It specifies the default command to run when a container starts",
+        "It copies files into the image",
+        "It sets environment variables"
+      ],
+      "answer": "It specifies the default command to run when a container starts"
+    },
+    {
+      "id": 7,
+      "question": "What does the EXPOSE instruction do?",
+      "options": [
+        "Opens a port on the host machine automatically",
+        "Documents which port the application inside the container uses",
+        "Blocks all network traffic to the container",
+        "Maps a host port to a container port"
+      ],
+      "answer": "Documents which port the application inside the container uses"
+    },
+    {
+      "id": 8,
+      "question": "Which instruction sets environment variables in a Dockerfile?",
+      "options": [
+        "SET",
+        "VAR",
+        "ENV",
+        "DEFINE"
+      ],
+      "answer": "ENV"
+    },
+    {
+      "id": 9,
+      "question": "In the command 'docker build -t my-app:1.0 .', what does the '-t' flag do?",
+      "options": [
+        "Sets a timeout for the build",
+        "Tags the image with a name and version",
+        "Runs the build in test mode",
+        "Specifies the target platform"
+      ],
+      "answer": "Tags the image with a name and version"
+    },
+    {
+      "id": 10,
+      "question": "In the command 'docker build -t my-app:1.0 .', what does the '.' at the end represent?",
+      "options": [
+        "The current user's home directory",
+        "The build context — the directory containing the Dockerfile",
+        "A wildcard meaning all files",
+        "The root of the filesystem"
+      ],
+      "answer": "The build context — the directory containing the Dockerfile"
+    },
+    {
+      "id": 11,
+      "question": "What base image is used in the assignment's simple Python Dockerfile?",
+      "options": [
+        "python:3.12",
+        "python:latest",
+        "python:3.12-slim",
+        "ubuntu:22.04"
+      ],
+      "answer": "python:3.12-slim"
+    },
+    {
+      "id": 12,
+      "question": "What does the '--rm' flag do in 'docker run --rm hello-docker:1.0'?",
+      "options": [
+        "Runs the container in read-only mode",
+        "Automatically removes the container when it exits",
+        "Removes the image after the container stops",
+        "Restarts the container if it crashes"
+      ],
+      "answer": "Automatically removes the container when it exits"
+    },
+    {
+      "id": 13,
+      "question": "How do you pass an environment variable to a container at runtime?",
+      "options": [
+        "docker run --env-file variable",
+        "docker run -e APP_USER=\"Campbell\" image-name",
+        "docker run --set APP_USER=\"Campbell\" image-name",
+        "docker run --var APP_USER=\"Campbell\" image-name"
+      ],
+      "answer": "docker run -e APP_USER=\"Campbell\" image-name"
+    },
+    {
+      "id": 14,
+      "question": "Why is requirements.txt copied and installed BEFORE copying app.py in the Flask Dockerfile?",
+      "options": [
+        "Because app.py depends on requirements.txt at build time",
+        "So Docker can cache the dependency installation layer and skip it if only app.py changes",
+        "Because COPY instructions must be in alphabetical order",
+        "Because requirements.txt is larger and must be copied first"
+      ],
+      "answer": "So Docker can cache the dependency installation layer and skip it if only app.py changes"
+    },
+    {
+      "id": 15,
+      "question": "What does the '--no-cache-dir' flag do in 'pip install --no-cache-dir -r requirements.txt'?",
+      "options": [
+        "Forces pip to reinstall all packages",
+        "Prevents pip from saving downloaded packages to a cache, reducing image size",
+        "Disables Docker's layer caching",
+        "Installs packages without checking versions"
+      ],
+      "answer": "Prevents pip from saving downloaded packages to a cache, reducing image size"
+    },
+    {
+      "id": 16,
+      "question": "In 'docker run -d -p 5000:5000 --name my-flask flask-app:1.0', what does the '-d' flag do?",
+      "options": [
+        "Enables debug mode",
+        "Runs the container in detached mode (in the background)",
+        "Deletes the container after it stops",
+        "Downloads the image before running"
+      ],
+      "answer": "Runs the container in detached mode (in the background)"
+    },
+    {
+      "id": 17,
+      "question": "In '-p 5000:5000', what does the first '5000' represent?",
+      "options": [
+        "The container port",
+        "The host port",
+        "The process ID",
+        "The number of connections allowed"
+      ],
+      "answer": "The host port"
+    },
+    {
+      "id": 18,
+      "question": "Which command is used to view the logs of a running container named 'my-flask'?",
+      "options": [
+        "docker inspect my-flask",
+        "docker logs my-flask",
+        "docker output my-flask",
+        "docker show my-flask"
+      ],
+      "answer": "docker logs my-flask"
+    },
+    {
+      "id": 19,
+      "question": "What base image is used for the static website Dockerfile in the assignment?",
+      "options": [
+        "httpd:alpine",
+        "nginx:alpine",
+        "apache:latest",
+        "node:alpine"
+      ],
+      "answer": "nginx:alpine"
+    },
+    {
+      "id": 20,
+      "question": "Where must you copy an HTML file to serve it with the default Nginx configuration?",
+      "options": [
+        "/var/www/html/",
+        "/usr/share/nginx/html/",
+        "/etc/nginx/sites/",
+        "/opt/nginx/www/"
+      ],
+      "answer": "/usr/share/nginx/html/"
+    },
+    {
+      "id": 21,
+      "question": "What does it mean when Docker says 'CACHED' during a rebuild?",
+      "options": [
+        "The layer failed and Docker is retrying",
+        "Docker is reusing a previously built layer that has not changed",
+        "The image is being downloaded from Docker Hub",
+        "The layer is being compressed to save space"
+      ],
+      "answer": "Docker is reusing a previously built layer that has not changed"
+    },
+    {
+      "id": 22,
+      "question": "If you modify app.py but not requirements.txt, which layers are rebuilt?",
+      "options": [
+        "All layers from the beginning",
+        "Only the layers after the point where app.py is copied",
+        "Only the RUN pip install layer",
+        "No layers — the entire image is cached"
+      ],
+      "answer": "Only the layers after the point where app.py is copied"
+    },
+    {
+      "id": 23,
+      "question": "Which command lists all Docker images on the local machine?",
+      "options": [
+        "docker ps",
+        "docker images",
+        "docker list",
+        "docker containers"
+      ],
+      "answer": "docker images"
+    },
+    {
+      "id": 24,
+      "question": "What is the correct sequence to stop and remove a container named 'my-site'?",
+      "options": [
+        "docker rm my-site && docker stop my-site",
+        "docker kill my-site",
+        "docker stop my-site && docker rm my-site",
+        "docker delete my-site"
+      ],
+      "answer": "docker stop my-site && docker rm my-site"
+    },
+    {
+      "id": 25,
+      "question": "What does each instruction in a Dockerfile create in the resulting image?",
+      "options": [
+        "A new container",
+        "A new layer",
+        "A new volume",
+        "A new network"
+      ],
+      "answer": "A new layer"
+    }
+  ]
+}

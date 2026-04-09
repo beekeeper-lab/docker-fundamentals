@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 1: What Is Docker?",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is Docker primarily used for?",
+      "options": [
+        "Running applications in containers",
+        "Managing virtual machine hypervisors",
+        "Compiling source code into binaries",
+        "Replacing the operating system kernel"
+      ],
+      "answer": "Running applications in containers"
+    },
+    {
+      "id": 2,
+      "question": "What does a container virtualize?",
+      "options": [
+        "The hardware layer",
+        "The operating system",
+        "The network switch",
+        "The BIOS firmware"
+      ],
+      "answer": "The operating system"
+    },
+    {
+      "id": 3,
+      "question": "What does a virtual machine virtualize?",
+      "options": [
+        "The operating system",
+        "The hardware",
+        "The Docker daemon",
+        "The container runtime"
+      ],
+      "answer": "The hardware"
+    },
+    {
+      "id": 4,
+      "question": "How large are containers typically compared to virtual machines?",
+      "options": [
+        "Containers are measured in gigabytes; VMs in megabytes",
+        "Containers are measured in megabytes; VMs in gigabytes",
+        "Both are measured in gigabytes",
+        "Both are measured in megabytes"
+      ],
+      "answer": "Containers are measured in megabytes; VMs in gigabytes"
+    },
+    {
+      "id": 5,
+      "question": "How long does a container typically take to start compared to a VM?",
+      "options": [
+        "Containers take minutes; VMs take seconds",
+        "Both take minutes to start",
+        "Containers take seconds; VMs take minutes",
+        "Both take seconds to start"
+      ],
+      "answer": "Containers take seconds; VMs take minutes"
+    },
+    {
+      "id": 6,
+      "question": "What level of isolation do containers provide?",
+      "options": [
+        "Hardware-level isolation",
+        "Network-level isolation",
+        "Process-level isolation",
+        "BIOS-level isolation"
+      ],
+      "answer": "Process-level isolation"
+    },
+    {
+      "id": 7,
+      "question": "What level of isolation do virtual machines provide?",
+      "options": [
+        "Process-level isolation",
+        "Application-level isolation",
+        "Hardware-level isolation",
+        "Kernel-level isolation"
+      ],
+      "answer": "Hardware-level isolation"
+    },
+    {
+      "id": 8,
+      "question": "What do containers share with the host system?",
+      "options": [
+        "The guest operating system",
+        "The host kernel",
+        "The hypervisor",
+        "The BIOS"
+      ],
+      "answer": "The host kernel"
+    },
+    {
+      "id": 9,
+      "question": "What is a Docker image?",
+      "options": [
+        "A running instance of a container",
+        "A read-only template containing the OS, app, and dependencies",
+        "A virtual machine snapshot",
+        "A configuration file for the Docker daemon"
+      ],
+      "answer": "A read-only template containing the OS, app, and dependencies"
+    },
+    {
+      "id": 10,
+      "question": "What is a Docker container?",
+      "options": [
+        "A read-only template for creating images",
+        "A background service that manages images",
+        "A running instance of an image",
+        "A command-line tool for interacting with Docker"
+      ],
+      "answer": "A running instance of an image"
+    },
+    {
+      "id": 11,
+      "question": "What is the Docker daemon?",
+      "options": [
+        "The command-line interface for Docker",
+        "A background service that manages containers",
+        "A read-only image template",
+        "A virtual machine hypervisor"
+      ],
+      "answer": "A background service that manages containers"
+    },
+    {
+      "id": 12,
+      "question": "What is the name of the Docker daemon process?",
+      "options": [
+        "dockerctl",
+        "docker-engine",
+        "dockerd",
+        "docker-service"
+      ],
+      "answer": "dockerd"
+    },
+    {
+      "id": 13,
+      "question": "Using an OOP analogy, a Docker image is like a _____ and a container is like a _____.",
+      "options": [
+        "method and a function",
+        "class and an object",
+        "variable and a constant",
+        "loop and an iterator"
+      ],
+      "answer": "class and an object"
+    },
+    {
+      "id": 14,
+      "question": "What happens when you run 'docker run hello-world' and the image is not found locally?",
+      "options": [
+        "Docker throws an error and exits",
+        "Docker builds the image from source",
+        "Docker downloads the image from Docker Hub",
+        "Docker creates an empty container"
+      ],
+      "answer": "Docker downloads the image from Docker Hub"
+    },
+    {
+      "id": 15,
+      "question": "What command shows all Docker images on the system?",
+      "options": [
+        "docker list",
+        "docker images",
+        "docker show-images",
+        "docker catalog"
+      ],
+      "answer": "docker images"
+    },
+    {
+      "id": 16,
+      "question": "What command shows only currently running containers?",
+      "options": [
+        "docker ps -a",
+        "docker containers",
+        "docker ps",
+        "docker list --running"
+      ],
+      "answer": "docker ps"
+    },
+    {
+      "id": 17,
+      "question": "What flag must you add to 'docker ps' to show stopped containers as well?",
+      "options": [
+        "-s",
+        "-a",
+        "-d",
+        "--stopped"
+      ],
+      "answer": "-a"
+    },
+    {
+      "id": 18,
+      "question": "What does 'docker rm' do?",
+      "options": [
+        "Removes Docker images",
+        "Removes stopped containers",
+        "Restarts a container",
+        "Removes the Docker daemon"
+      ],
+      "answer": "Removes stopped containers"
+    },
+    {
+      "id": 19,
+      "question": "What does 'docker rmi' do?",
+      "options": [
+        "Removes stopped containers",
+        "Restarts a Docker image",
+        "Removes Docker images",
+        "Removes the Docker daemon"
+      ],
+      "answer": "Removes Docker images"
+    },
+    {
+      "id": 20,
+      "question": "What do the '-it' flags do when running 'docker run -it ubuntu bash'?",
+      "options": [
+        "-i installs packages and -t tests the container",
+        "-i enables interactive mode (keeps STDIN open) and -t allocates a terminal (TTY)",
+        "-i initializes the image and -t tags the container",
+        "-i inspects the container and -t terminates it after running"
+      ],
+      "answer": "-i enables interactive mode (keeps STDIN open) and -t allocates a terminal (TTY)"
+    },
+    {
+      "id": 21,
+      "question": "If you install curl inside an Ubuntu container and then start a new Ubuntu container, what happens to curl?",
+      "options": [
+        "Curl is available in the new container because it was saved to the image",
+        "Curl is not available because containers are ephemeral and changes do not persist",
+        "Curl is available only if Docker Hub cached the update",
+        "Curl must be uninstalled manually before starting a new container"
+      ],
+      "answer": "Curl is not available because containers are ephemeral and changes do not persist"
+    },
+    {
+      "id": 22,
+      "question": "What does the '-d' flag do in 'docker run -d nginx'?",
+      "options": [
+        "Deletes the container after it stops",
+        "Downloads the image without running it",
+        "Runs the container in detached mode (background)",
+        "Enables debug mode for the container"
+      ],
+      "answer": "Runs the container in detached mode (background)"
+    },
+    {
+      "id": 23,
+      "question": "In the command 'docker run -p 8080:80 nginx', what does '-p 8080:80' mean?",
+      "options": [
+        "Expose port 80 on the host and 8080 in the container",
+        "Map port 8080 on the host to port 80 in the container",
+        "Open ports 8080 through 80 on the container",
+        "Set the container process ID to 8080"
+      ],
+      "answer": "Map port 8080 on the host to port 80 in the container"
+    },
+    {
+      "id": 24,
+      "question": "What does the '--name' flag do in 'docker run --name my-nginx nginx'?",
+      "options": [
+        "Renames the Docker image",
+        "Assigns a hostname to the container's network interface",
+        "Gives the container a custom name",
+        "Tags the image with a new name"
+      ],
+      "answer": "Gives the container a custom name"
+    },
+    {
+      "id": 25,
+      "question": "What command stops a running container named 'my-nginx'?",
+      "options": [
+        "docker kill my-nginx",
+        "docker remove my-nginx",
+        "docker stop my-nginx",
+        "docker end my-nginx"
+      ],
+      "answer": "docker stop my-nginx"
+    }
+  ]
+}

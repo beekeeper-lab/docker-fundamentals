@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 6: Volumes and Persistence",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What happens to data inside a container when the container is removed?",
+      "options": [
+        "The data is automatically backed up to Docker Hub",
+        "The data is gone",
+        "The data is moved to the host filesystem",
+        "The data is saved to the Docker daemon cache"
+      ],
+      "answer": "The data is gone"
+    },
+    {
+      "id": 2,
+      "question": "What term describes the temporary nature of containers?",
+      "options": [
+        "Persistent",
+        "Immutable",
+        "Ephemeral",
+        "Static"
+      ],
+      "answer": "Ephemeral"
+    },
+    {
+      "id": 3,
+      "question": "Which two mechanisms does Docker provide for persisting data?",
+      "options": [
+        "Named volumes and bind mounts",
+        "Snapshots and backups",
+        "Images and layers",
+        "Networks and bridges"
+      ],
+      "answer": "Named volumes and bind mounts"
+    },
+    {
+      "id": 4,
+      "question": "What command creates a named Docker volume called 'my-data'?",
+      "options": [
+        "docker create volume my-data",
+        "docker volume create my-data",
+        "docker volume new my-data",
+        "docker new volume my-data"
+      ],
+      "answer": "docker volume create my-data"
+    },
+    {
+      "id": 5,
+      "question": "In the command 'docker run -v my-data:/app/data my-app', what does 'my-data' refer to?",
+      "options": [
+        "A host directory path",
+        "A named volume",
+        "A container name",
+        "An image tag"
+      ],
+      "answer": "A named volume"
+    },
+    {
+      "id": 6,
+      "question": "Who manages the storage location of a named volume?",
+      "options": [
+        "The user manually",
+        "The host operating system",
+        "Docker",
+        "The container application"
+      ],
+      "answer": "Docker"
+    },
+    {
+      "id": 7,
+      "question": "What is a bind mount?",
+      "options": [
+        "A Docker-managed storage area",
+        "A mapping of a specific host directory into the container",
+        "A network connection between containers",
+        "A read-only layer in a Docker image"
+      ],
+      "answer": "A mapping of a specific host directory into the container"
+    },
+    {
+      "id": 8,
+      "question": "In the command 'docker run -v $(pwd):/app my-app', what does '$(pwd)' represent?",
+      "options": [
+        "The container's working directory",
+        "The current host directory",
+        "The Docker volume name",
+        "The image's entrypoint path"
+      ],
+      "answer": "The current host directory"
+    },
+    {
+      "id": 9,
+      "question": "Which type of mount is best suited for development with live code editing?",
+      "options": [
+        "Named volume",
+        "Bind mount",
+        "tmpfs mount",
+        "Network mount"
+      ],
+      "answer": "Bind mount"
+    },
+    {
+      "id": 10,
+      "question": "Which type of mount is best suited for database persistent data?",
+      "options": [
+        "Bind mount",
+        "tmpfs mount",
+        "Named volume",
+        "Network share"
+      ],
+      "answer": "Named volume"
+    },
+    {
+      "id": 11,
+      "question": "What happens to the contents of a container directory when a bind mount is attached to it?",
+      "options": [
+        "The container directory contents are merged with the host directory",
+        "The host directory contents overwrite what was in the container directory",
+        "The container directory contents are copied to the host",
+        "Nothing changes; both directories remain independent"
+      ],
+      "answer": "The host directory contents overwrite what was in the container directory"
+    },
+    {
+      "id": 12,
+      "question": "What happens when a named volume is mounted to a container directory that already has data?",
+      "options": [
+        "The volume overwrites the container data",
+        "An error occurs",
+        "The volume is pre-populated with the container directory's existing data",
+        "The container directory is deleted"
+      ],
+      "answer": "The volume is pre-populated with the container directory's existing data"
+    },
+    {
+      "id": 13,
+      "question": "What command lists all Docker volumes on the system?",
+      "options": [
+        "docker volume show",
+        "docker volume ls",
+        "docker volumes",
+        "docker list volumes"
+      ],
+      "answer": "docker volume ls"
+    },
+    {
+      "id": 14,
+      "question": "What command shows detailed information about a specific volume?",
+      "options": [
+        "docker volume details pg-data",
+        "docker volume info pg-data",
+        "docker volume inspect pg-data",
+        "docker volume show pg-data"
+      ],
+      "answer": "docker volume inspect pg-data"
+    },
+    {
+      "id": 15,
+      "question": "What command removes a specific named volume?",
+      "options": [
+        "docker volume delete pg-data",
+        "docker volume rm pg-data",
+        "docker rm volume pg-data",
+        "docker volume remove pg-data"
+      ],
+      "answer": "docker volume rm pg-data"
+    },
+    {
+      "id": 16,
+      "question": "What command removes all unused Docker volumes?",
+      "options": [
+        "docker volume rm --all",
+        "docker volume clean",
+        "docker volume prune",
+        "docker volume purge"
+      ],
+      "answer": "docker volume prune"
+    },
+    {
+      "id": 17,
+      "question": "When using bind mounts for development, what happens when you edit a file on the host?",
+      "options": [
+        "You must rebuild the image for changes to take effect",
+        "You must restart the container for changes to take effect",
+        "The change is instantly visible inside the container",
+        "The change is queued until the container is stopped"
+      ],
+      "answer": "The change is instantly visible inside the container"
+    },
+    {
+      "id": 18,
+      "question": "In the command 'docker run -d -p 8080:80 -v $(pwd):/usr/share/nginx/html nginx', what is '/usr/share/nginx/html'?",
+      "options": [
+        "A host directory",
+        "The mount point inside the container where Nginx serves files",
+        "The Docker volume name",
+        "The Nginx configuration directory"
+      ],
+      "answer": "The mount point inside the container where Nginx serves files"
+    },
+    {
+      "id": 19,
+      "question": "What is the default data directory for PostgreSQL inside its official Docker image?",
+      "options": [
+        "/var/lib/postgres/data",
+        "/var/lib/postgresql/data",
+        "/opt/postgresql/data",
+        "/data/postgresql"
+      ],
+      "answer": "/var/lib/postgresql/data"
+    },
+    {
+      "id": 20,
+      "question": "If you run a PostgreSQL container without a volume, create a table, then remove and recreate the container, what happens to the table?",
+      "options": [
+        "The table persists because PostgreSQL saves data to disk",
+        "The table is lost because the container's filesystem was destroyed",
+        "The table is automatically backed up by Docker",
+        "The table is moved to a temporary volume"
+      ],
+      "answer": "The table is lost because the container's filesystem was destroyed"
+    },
+    {
+      "id": 21,
+      "question": "If you run a PostgreSQL container with a named volume on /var/lib/postgresql/data, remove the container, and start a new one with the same volume, what happens to the data?",
+      "options": [
+        "The data is lost because the container was removed",
+        "The data survives because it is stored in the volume, not the container",
+        "The data is corrupted because two containers used the same volume",
+        "The data must be manually restored from a backup"
+      ],
+      "answer": "The data survives because it is stored in the volume, not the container"
+    },
+    {
+      "id": 22,
+      "question": "What does the '--rm' flag do in 'docker run --rm -v app-data:/data alpine cat /data/message.txt'?",
+      "options": [
+        "Removes the volume after the container exits",
+        "Removes the image after the container exits",
+        "Automatically removes the container when it exits",
+        "Removes all stopped containers before running"
+      ],
+      "answer": "Automatically removes the container when it exits"
+    },
+    {
+      "id": 23,
+      "question": "Can multiple containers mount the same named volume simultaneously?",
+      "options": [
+        "No, only one container can use a volume at a time",
+        "Yes, multiple containers can share the same volume",
+        "Only if the volume is set to shared mode",
+        "Only if the containers are on the same network"
+      ],
+      "answer": "Yes, multiple containers can share the same volume"
+    },
+    {
+      "id": 24,
+      "question": "Which is more portable across different host machines: named volumes or bind mounts?",
+      "options": [
+        "Bind mounts, because they use absolute paths",
+        "Named volumes, because they work everywhere without host-specific paths",
+        "Both are equally portable",
+        "Neither is portable; data must be manually transferred"
+      ],
+      "answer": "Named volumes, because they work everywhere without host-specific paths"
+    },
+    {
+      "id": 25,
+      "question": "Can you remove a volume that is currently in use by a running container?",
+      "options": [
+        "Yes, Docker removes it immediately",
+        "Yes, but only with the --force flag",
+        "No, you must stop and remove the container first",
+        "No, but Docker will queue the removal for later"
+      ],
+      "answer": "No, you must stop and remove the container first"
+    }
+  ]
+}

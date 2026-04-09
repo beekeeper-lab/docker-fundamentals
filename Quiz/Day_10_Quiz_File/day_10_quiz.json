@@ -1,0 +1,282 @@
+{
+  "quiz_title": "Day 10: Docker Hub and Registries",
+  "passing_score": 20,
+  "total_questions": 25,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is Docker Hub?",
+      "options": [
+        "A Docker container orchestration tool",
+        "The default public registry for Docker images",
+        "A local image build cache",
+        "A Docker networking plugin"
+      ],
+      "answer": "The default public registry for Docker images"
+    },
+    {
+      "id": 2,
+      "question": "Which command logs you into Docker Hub from the CLI?",
+      "options": [
+        "docker auth",
+        "docker connect",
+        "docker login",
+        "docker hub login"
+      ],
+      "answer": "docker login"
+    },
+    {
+      "id": 3,
+      "question": "What is the full image naming convention in Docker?",
+      "options": [
+        "username/repository:tag",
+        "registry/username/repository:tag",
+        "registry:tag/repository",
+        "repository/username@tag"
+      ],
+      "answer": "registry/username/repository:tag"
+    },
+    {
+      "id": 4,
+      "question": "Why does 'nginx:alpine' not include a username in its image name?",
+      "options": [
+        "It is stored locally only",
+        "Alpine images never need a username",
+        "It is an official image maintained by Docker",
+        "The username is hidden for security"
+      ],
+      "answer": "It is an official image maintained by Docker"
+    },
+    {
+      "id": 5,
+      "question": "Which prefix indicates an image is hosted on GitHub Container Registry?",
+      "options": [
+        "github.io/",
+        "ghcr.io/",
+        "gcr.io/",
+        "hub.github.com/"
+      ],
+      "answer": "ghcr.io/"
+    },
+    {
+      "id": 6,
+      "question": "What does the 'latest' tag represent in Docker image tagging?",
+      "options": [
+        "The oldest available version of the image",
+        "A locked, immutable release version",
+        "The most recent build, and it is mutable",
+        "A tag reserved for base images only"
+      ],
+      "answer": "The most recent build, and it is mutable"
+    },
+    {
+      "id": 7,
+      "question": "In semantic versioning tags, what does the tag '1.0' typically point to?",
+      "options": [
+        "The first ever build of the image",
+        "The latest patch release in the 1.0.x series",
+        "An alias for the 'latest' tag",
+        "A deprecated version of the image"
+      ],
+      "answer": "The latest patch release in the 1.0.x series"
+    },
+    {
+      "id": 8,
+      "question": "Which command verifies your Docker Hub username after logging in?",
+      "options": [
+        "docker whoami",
+        "docker info | grep Username",
+        "docker hub status",
+        "docker config show"
+      ],
+      "answer": "docker info | grep Username"
+    },
+    {
+      "id": 9,
+      "question": "What does 'docker tag my-app user/my-app:1.0' do?",
+      "options": [
+        "Renames the image from my-app to user/my-app:1.0",
+        "Creates a new tag user/my-app:1.0 pointing to the same image as my-app",
+        "Pushes my-app to Docker Hub under user/my-app:1.0",
+        "Deletes the original my-app image and replaces it"
+      ],
+      "answer": "Creates a new tag user/my-app:1.0 pointing to the same image as my-app"
+    },
+    {
+      "id": 10,
+      "question": "When you create multiple tags for the same image, what do they share?",
+      "options": [
+        "Nothing; each tag creates a separate copy",
+        "The same Image ID",
+        "The same container name",
+        "The same running container instance"
+      ],
+      "answer": "The same Image ID"
+    },
+    {
+      "id": 11,
+      "question": "Which command pushes an image to Docker Hub?",
+      "options": [
+        "docker upload user/my-app:1.0",
+        "docker push user/my-app:1.0",
+        "docker publish user/my-app:1.0",
+        "docker send user/my-app:1.0"
+      ],
+      "answer": "docker push user/my-app:1.0"
+    },
+    {
+      "id": 12,
+      "question": "What happens when you run 'docker run' with an image that does not exist locally?",
+      "options": [
+        "Docker returns an error and exits",
+        "Docker automatically pulls the image from the registry and runs it",
+        "Docker creates an empty image with that name",
+        "Docker prompts you to build the image first"
+      ],
+      "answer": "Docker automatically pulls the image from the registry and runs it"
+    },
+    {
+      "id": 13,
+      "question": "Which command removes a local image?",
+      "options": [
+        "docker delete",
+        "docker rm",
+        "docker rmi",
+        "docker remove-image"
+      ],
+      "answer": "docker rmi"
+    },
+    {
+      "id": 14,
+      "question": "What is the purpose of the '--no-cache-dir' flag when running pip install in a Dockerfile?",
+      "options": [
+        "It installs packages without checking for updates",
+        "It avoids storing downloaded package files, reducing image size",
+        "It forces pip to use a specific cache directory",
+        "It disables SSL verification during downloads"
+      ],
+      "answer": "It avoids storing downloaded package files, reducing image size"
+    },
+    {
+      "id": 15,
+      "question": "Why should you use a specific base image tag instead of 'latest' in a Dockerfile?",
+      "options": [
+        "The 'latest' tag is slower to pull",
+        "Specific tags ensure reproducible builds since 'latest' can change",
+        "The 'latest' tag is not supported by Docker Hub",
+        "Specific tags use less disk space"
+      ],
+      "answer": "Specific tags ensure reproducible builds since 'latest' can change"
+    },
+    {
+      "id": 16,
+      "question": "What does the Dockerfile instruction 'USER appuser' accomplish?",
+      "options": [
+        "Creates a new Linux user named appuser",
+        "Sets the container to run subsequent commands as appuser instead of root",
+        "Grants appuser admin privileges in the container",
+        "Logs into Docker Hub as appuser"
+      ],
+      "answer": "Sets the container to run subsequent commands as appuser instead of root"
+    },
+    {
+      "id": 17,
+      "question": "Why should dependencies be installed before copying application code in a Dockerfile?",
+      "options": [
+        "It is required by Docker syntax rules",
+        "It takes advantage of Docker layer caching so dependencies are not reinstalled on every code change",
+        "It ensures the application code is never included in the image",
+        "It prevents dependency conflicts"
+      ],
+      "answer": "It takes advantage of Docker layer caching so dependencies are not reinstalled on every code change"
+    },
+    {
+      "id": 18,
+      "question": "What does 'docker system prune -a' do?",
+      "options": [
+        "Removes only stopped containers",
+        "Removes all unused images, containers, and networks",
+        "Deletes the Docker daemon configuration",
+        "Removes only dangling images"
+      ],
+      "answer": "Removes all unused images, containers, and networks"
+    },
+    {
+      "id": 19,
+      "question": "What does the environment variable PYTHONDONTWRITEBYTECODE=1 do in a Docker container?",
+      "options": [
+        "Prevents Python from running compiled code",
+        "Prevents Python from writing .pyc bytecode files",
+        "Disables Python's import system",
+        "Forces Python to use interpreted mode only"
+      ],
+      "answer": "Prevents Python from writing .pyc bytecode files"
+    },
+    {
+      "id": 20,
+      "question": "What does the environment variable PYTHONUNBUFFERED=1 do?",
+      "options": [
+        "Disables Python's garbage collector",
+        "Ensures Python output is sent directly to the terminal without buffering",
+        "Prevents Python from using stdin",
+        "Limits Python's memory usage"
+      ],
+      "answer": "Ensures Python output is sent directly to the terminal without buffering"
+    },
+    {
+      "id": 21,
+      "question": "What does the EXPOSE instruction in a Dockerfile do?",
+      "options": [
+        "Opens the port on the host machine",
+        "Documents which port the containerized application listens on",
+        "Publishes the port to the host automatically",
+        "Blocks all traffic on other ports"
+      ],
+      "answer": "Documents which port the containerized application listens on"
+    },
+    {
+      "id": 22,
+      "question": "How can you run two versions of the same image side by side on different ports?",
+      "options": [
+        "Use the same -p port mapping for both containers",
+        "Map each container to a different host port using -p, e.g., -p 5000:5000 and -p 5001:5000",
+        "Run both containers without any port mapping",
+        "Docker does not support running two versions simultaneously"
+      ],
+      "answer": "Map each container to a different host port using -p, e.g., -p 5000:5000 and -p 5001:5000"
+    },
+    {
+      "id": 23,
+      "question": "What command can be used to scan a Docker image for vulnerabilities?",
+      "options": [
+        "docker scan --deep",
+        "docker scout quickview",
+        "docker inspect --vulnerabilities",
+        "docker audit"
+      ],
+      "answer": "docker scout quickview"
+    },
+    {
+      "id": 24,
+      "question": "How can you verify that a Docker image runs as a non-root user?",
+      "options": [
+        "docker ps --user",
+        "docker inspect <image> --format='{{.Config.User}}'",
+        "docker run --check-user <image>",
+        "docker image user <image>"
+      ],
+      "answer": "docker inspect <image> --format='{{.Config.User}}'"
+    },
+    {
+      "id": 25,
+      "question": "What is the purpose of a .dockerignore file?",
+      "options": [
+        "It lists images that should not be pulled from Docker Hub",
+        "It specifies files and directories to exclude from the build context",
+        "It prevents certain containers from starting",
+        "It defines environment variables to ignore during build"
+      ],
+      "answer": "It specifies files and directories to exclude from the build context"
+    }
+  ]
+}

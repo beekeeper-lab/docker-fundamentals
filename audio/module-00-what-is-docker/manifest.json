@@ -1,0 +1,79 @@
+[
+  {
+    "index": 1,
+    "module": "module-00-what-is-docker",
+    "audio_file": "01_module-00-what-is-docker.mp3",
+    "text": "Docker is a platform for running applications in containers, which are lightweight, isolated environments that package your code with everything it needs to run. Think of a container as a self-contained box with your application, its libraries, dependencies, and configuration all bundled together. No more \"it works on my machine\" problems.",
+    "size_bytes": 371191
+  },
+  {
+    "index": 2,
+    "module": "module-00-what-is-docker",
+    "audio_file": "02_module-00-what-is-docker.mp3",
+    "text": "Containers and virtual machines both provide isolation, but they work very differently. A virtual machine virtualizes the hardware and runs a full guest operating system, which makes it heavy \u2014 gigabytes in size and minutes to start. A container virtualizes the operating system instead, sharing the host kernel while isolating the process. This makes containers tiny, fast, and efficient.",
+    "size_bytes": 444752
+  },
+  {
+    "index": 3,
+    "module": "module-00-what-is-docker",
+    "audio_file": "03_module-00-what-is-docker.mp3",
+    "text": "Docker has a simple client-server architecture. You type commands into the Docker CLI, which sends them to the Docker Daemon running in the background. The daemon manages images and containers. An image is like a class in object-oriented programming \u2014 it's a read-only template. A container is like an object \u2014 it's a running instance of that image.",
+    "size_bytes": 384566
+  },
+  {
+    "index": 4,
+    "module": "module-00-what-is-docker",
+    "audio_file": "04_module-00-what-is-docker.mp3",
+    "text": "Let's get Docker installed on your machine. The steps vary by operating system, but the goal is the same \u2014 get the Docker daemon running so you can start launching containers. If you're on Linux, you'll install Docker Engine directly. On Mac or Windows, you'll use Docker Desktop, which bundles everything together.",
+    "size_bytes": 334829
+  },
+  {
+    "index": 5,
+    "module": "module-00-what-is-docker",
+    "audio_file": "05_module-00-what-is-docker.mp3",
+    "text": "Now let's make sure everything is working by running your very first container. The hello-world image is Docker's built-in smoke test \u2014 it pulls a tiny image, runs it, and prints a message confirming your installation is set up correctly.",
+    "size_bytes": 224906
+  },
+  {
+    "index": 6,
+    "module": "module-00-what-is-docker",
+    "audio_file": "06_module-00-what-is-docker.mp3",
+    "text": "Now that you've run your first container, let's see what Docker left behind. The docker images command shows downloaded images, and docker ps shows running containers. Add the dash-a flag to also see stopped containers. Then you'll clean up by removing the container and image, leaving your system tidy.",
+    "size_bytes": 295959
+  },
+  {
+    "index": 7,
+    "module": "module-00-what-is-docker",
+    "audio_file": "07_module-00-what-is-docker.mp3",
+    "text": "Good practice means cleaning up after yourself. Docker containers and images stick around on disk until you explicitly remove them. Let's remove the hello-world container and image so your system stays tidy. This cleanup habit will save you disk space as you work through more modules.",
+    "size_bytes": 319782
+  },
+  {
+    "index": 8,
+    "module": "module-00-what-is-docker",
+    "audio_file": "08_module-00-what-is-docker.mp3",
+    "text": "Let's get hands-on with a real container. You're going to launch an interactive Ubuntu environment, explore it, install software, then exit and start a new one to prove that containers are ephemeral \u2014 each one starts fresh from the image.",
+    "size_bytes": 227831
+  },
+  {
+    "index": 9,
+    "module": "module-00-what-is-docker",
+    "audio_file": "09_module-00-what-is-docker.mp3",
+    "text": "Now let's do something practical \u2014 run a real web server. You'll launch Nginx in detached mode, map a port from your host into the container, and access it in your browser. This is the pattern you'll use constantly with Docker: run a service, map a port, and connect to it.",
+    "size_bytes": 327306
+  },
+  {
+    "index": 10,
+    "module": "module-00-what-is-docker",
+    "audio_file": "10_module-00-what-is-docker.mp3",
+    "text": "When you're done with a container, you stop it first, then remove it. Stopping sends a graceful shutdown signal, and removing deletes the container from your system. You'll do this constantly as you work with Docker.",
+    "size_bytes": 207769
+  },
+  {
+    "index": 11,
+    "module": "module-00-what-is-docker",
+    "audio_file": "11_module-00-what-is-docker.mp3",
+    "text": "That wraps up your first module. You've installed Docker, run your first container, explored an interactive Ubuntu environment, and launched a web server. These are the building blocks for everything that follows. Make sure you capture your terminal output before moving on.",
+    "size_bytes": 285092
+  }
+]
