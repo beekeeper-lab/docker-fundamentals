@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:15:18",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A host machine (laptop) with three doors on its side, labeled 8080, 8081, and 8082. Each door has a tunnel leading to a separate Nginx container, each listening on port 80 internally. All three containers are identical but isolated. Arrows show requests coming to different host ports and reaching different containers. The mood is organized and clear.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: port numbers\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "port-mapping-multi.png",
+  "generation_time_ms": 22657,
+  "usage": {
+    "prompt_tokens": 158,
+    "candidates_tokens": 1631,
+    "total_tokens": 2029
+  }
+}

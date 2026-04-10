@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:14:35",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Two-row comparison. Top row \"No Volume\": PostgreSQL container with data (table showing a row), then container removed (poof), then new container with empty database and red error message \"relation does not exist.\" Bottom row \"With Volume\": PostgreSQL container with data, then container removed (poof) but a volume cylinder remains, then new container reconnects to volume and data is intact with green checkmark. The mood is a cautionary tale with a happy resolution.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: \"No Volume\" / \"With Volume\" labels, error message\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "database-persistence.png",
+  "generation_time_ms": 23303,
+  "usage": {
+    "prompt_tokens": 181,
+    "candidates_tokens": 1537,
+    "total_tokens": 2138
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:12:14",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A factory with two rooms connected by a conveyor belt. Room 1 \"Build Stage\" is messy with heavy tools, compilers, source code papers scattered around. A large crate labeled \"500 MB\" sits there. The conveyor belt carries only a tiny package (the compiled binary) to Room 2 \"Runtime Stage\" which is clean, minimal, and organized. A small box labeled \"50 MB\" sits there. The mood is clever and efficient \u2014 leave the mess behind, ship only what matters.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: stage labels and size comparisons\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "hero-multistage.png",
+  "generation_time_ms": 21896,
+  "usage": {
+    "prompt_tokens": 182,
+    "candidates_tokens": 1461,
+    "total_tokens": 1876
+  }
+}

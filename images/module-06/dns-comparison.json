@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:15:40",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Two panels. Left panel \"Default Bridge\": two containers try to talk. Container A says \"Hey server1!\" but gets a confused \"???\" response and a red X. A note says \"must use IP: 172.17.0.2\". Right panel \"Custom Bridge\": same two containers, but now a friendly DNS character in the middle translates names to IPs. Container A says \"Hey server1!\" and DNS routes it correctly with a green checkmark. The mood contrasts frustration with ease.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: container names and DNS labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "dns-comparison.png",
+  "generation_time_ms": 22016,
+  "usage": {
+    "prompt_tokens": 184,
+    "candidates_tokens": 1755,
+    "total_tokens": 2238
+  }
+}

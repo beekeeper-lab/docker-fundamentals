@@ -14,6 +14,8 @@
 > **See:** Examples of common image naming conventions from Docker Hub.
 > **Feel:** Comfortable reading and understanding any image reference you encounter.
 
+![Docker images are built in layers](../images/module-01/hero-image-layers.png)
+
 > 🎙️ An image is a layered, read-only template identified by a registry, repository, and tag. For example, python colon 3.12 dash slim means the Python image, version 3.12, in the slim variant. Tags let you pick exactly the version and size you need. Understanding tags is critical because pulling the wrong variant can mean the difference between a 50 megabyte image and a 1 gigabyte image.
 
 An image is a layered, read-only template. Images are identified by:
@@ -79,6 +81,8 @@ You'll see a dramatic size difference:
 - `python:3.12-slim` — ~150 MB (Debian without extras)
 - `python:3.12-alpine` — ~50 MB (Alpine Linux, minimal)
 
+![Image size varies dramatically by variant](../images/module-01/image-size-comparison.png)
+
 > 🎙️ The docker inspect command reveals everything Docker knows about an image — its layers, environment variables, entry point, and more. You can also use format strings to pull out specific fields, which is handy for scripting.
 
 ### Task B: Inspect an Image
@@ -140,6 +144,8 @@ docker pull python:3.11-slim
 docker run python:3.11-slim python3 -c "import sys; print(f'Python {sys.version}')"
 ```
 
+![Multiple language versions running simultaneously](../images/module-01/multiple-versions.png)
+
 Two different Python versions, no conflicts, no installing anything on your system.
 
 ## Container Naming and Listing
@@ -197,6 +203,8 @@ docker rm web-server api-server
 > **Feel:** In control of how containers behave at runtime.
 
 > 🎙️ Docker gives you fine-grained control over container behavior at runtime. You can inject environment variables, set the working directory, and tell Docker to automatically clean up the container when it exits. These flags are things you'll use in almost every docker run command.
+
+![Container runtime flags give you control](../images/module-01/container-flags.png)
 
 ### Task I: Environment Variables
 

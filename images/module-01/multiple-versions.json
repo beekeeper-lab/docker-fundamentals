@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:08:51",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A single laptop or server at the bottom. Three containers float above it, each with a different language logo and version: Python 3.12 (blue), Python 3.11 (slightly different blue), Node.js 20 (green). Each container has a happy face and they wave at each other but have clear walls between them. A speech bubble says \"No conflicts!\" The mood is cheerful, showing peaceful coexistence.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: version labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "multiple-versions.png",
+  "generation_time_ms": 21569,
+  "usage": {
+    "prompt_tokens": 164,
+    "candidates_tokens": 1489,
+    "total_tokens": 1961
+  }
+}

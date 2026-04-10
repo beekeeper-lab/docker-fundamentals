@@ -14,6 +14,8 @@
 > **See:** A side-by-side comparison of named volumes and bind mounts with concrete use cases.
 > **Feel:** Motivated to always plan a persistence strategy before running stateful containers.
 
+![Data disappears without volumes, survives with them](../images/module-05/hero-persistence.png)
+
 > 🎙️ Containers are ephemeral — when you remove a container, its data is gone. This is great for stateless applications, but terrible for databases, file uploads, or anything that needs to survive a restart. Docker provides two solutions: named volumes, which Docker manages for you, and bind mounts, which map a specific directory from your host into the container.
 
 Containers are **ephemeral** — when you remove a container, its data is gone. Docker provides two ways to persist data:
@@ -47,6 +49,8 @@ docker run -v $(pwd):/app my-app
 | Pre-populated | Yes (from image) | No (overwrites) |
 | Use case | Databases, persistent data | Development, config |
 | Portability | Works everywhere | Host-path specific |
+
+![Named volumes vs bind mounts](../images/module-05/volumes-vs-binds.png)
 
 > 💡 **Remember this one thing:** Named volumes for production data (databases, uploads). Bind mounts for development (live code editing). Don't mix them up — bind mounts overwrite what's in the image, while named volumes preserve it.
 
@@ -138,6 +142,8 @@ curl http://localhost:8080
 
 The change is **instant** — no rebuild, no restart. The container sees the host file directly. This is why bind mounts are essential for development.
 
+![Live editing through bind mounts](../images/module-05/live-editing.png)
+
 ### Task G: Clean Up
 
 ```bash
@@ -197,6 +203,8 @@ docker exec db-with-vol psql -U postgres -c "SELECT * FROM test;"
 ```
 
 The data survived! The volume persists independently of the container.
+
+![Database with volume keeps data safe](../images/module-05/database-persistence.png)
 
 ## Volume Management
 

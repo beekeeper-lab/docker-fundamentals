@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:08:29",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Three shipping crates in a row, all labeled \"Python 3.12\" but dramatically different sizes. Left: an enormous crate labeled \"full\" with \"~1 GB\" and overflowing with tools. Middle: a medium box labeled \"slim\" with \"~150 MB\" looking tidy. Right: a tiny compact package labeled \"alpine\" with \"~50 MB\" looking minimal and sleek. A developer character looks between them with a thought bubble showing a balance scale weighing size vs features.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: size labels and variant names\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "image-size-comparison.png",
+  "generation_time_ms": 20306,
+  "usage": {
+    "prompt_tokens": 178,
+    "candidates_tokens": 1373,
+    "total_tokens": 1859
+  }
+}

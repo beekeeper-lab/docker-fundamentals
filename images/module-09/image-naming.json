@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:19:18",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A large image name \"ghcr.io/myuser/my-app:1.0.0\" is broken into segments with colored brackets. Each segment has a label and example: Registry (ghcr.io, or \"Docker Hub if omitted\"), Username (myuser, or \"official if omitted\"), Repository (my-app), Tag (1.0.0). Below, three example images show the pattern: \"nginx:alpine\" (official), \"myuser/demo:1.0\" (personal), \"ghcr.io/owner/repo:latest\" (GitHub). The mood is decoder/reference style.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: segment labels and examples\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "image-naming.png",
+  "generation_time_ms": 25174,
+  "usage": {
+    "prompt_tokens": 208,
+    "candidates_tokens": 1700,
+    "total_tokens": 2256
+  }
+}

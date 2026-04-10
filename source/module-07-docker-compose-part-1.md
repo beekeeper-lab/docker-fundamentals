@@ -16,6 +16,8 @@
 
 > 🎙️ Docker Compose lets you define and run multi-container applications with a single YAML file. Instead of running multiple docker run commands with networks and volumes and environment variables, you describe everything declaratively in a docker-compose.yml file. One command — docker compose up — brings the entire stack to life. One command — docker compose down — tears it all down cleanly.
 
+![From manual commands to a single Compose file](../images/module-07/hero-compose.png)
+
 Docker Compose lets you define and run **multi-container applications** with a single YAML file. Instead of running multiple `docker run` commands with networks and volumes, you describe everything in `docker-compose.yml` and start it with one command.
 
 ### Basic Structure
@@ -44,6 +46,8 @@ services:
 volumes:
   db-data:
 ```
+
+![Docker Compose YAML file anatomy](../images/module-07/compose-yaml-anatomy.png)
 
 > 🎙️ Here are the commands you'll use every day with Docker Compose. You don't need to memorize all of them right now — just know that "up" starts everything, "down" stops everything, and "ps" shows you what's running. Those three will get you through most situations.
 
@@ -269,6 +273,8 @@ docker compose logs frontend
 > 🎯 **Teach:** How to add a database service to a Compose stack with volumes and environment variables.
 > **See:** PostgreSQL running alongside your app, queryable via docker compose exec.
 > **Feel:** Impressed by how a few lines of YAML add a fully functional database to your stack.
+
+![Three-tier web stack with Compose](../images/module-07/three-tier-stack.png)
 
 > 🎙️ Let's add PostgreSQL to our stack. This is where you see the real power of Compose — adding a service is just a few lines of YAML. You'll add the database, give it a named volume for persistence, pass credentials through environment variables, and connect it to the API. The API can reach the database at hostname "db" because Compose handles the networking.
 

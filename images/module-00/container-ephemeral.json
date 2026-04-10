@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:07:29",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Two identical shipping containers side by side, both created from the same blueprint image above them. Container 1 has a small \"curl\" package icon inside it with a checkmark. Container 2 is freshly created and empty inside, with a question mark where the package would be. A speech bubble from Container 2 says \"curl? never heard of it.\" An arrow shows Container 1 being removed and Container 2 starting fresh.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: minimal labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "container-ephemeral.png",
+  "generation_time_ms": 23733,
+  "usage": {
+    "prompt_tokens": 162,
+    "candidates_tokens": 1463,
+    "total_tokens": 1885
+  }
+}

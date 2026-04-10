@@ -521,25 +521,33 @@ def generate_quiz_html(module_num, module_slug):
               <span>{html_mod.escape(opt)}</span>
             </label>\n'''
 
-        questions_html.append(f'''<div class="quiz-question" data-answer="{html_mod.escape(q['answer'])}">
+        questions_html.append(f'''<div class="quiz-question" data-answer="{html_mod.escape(q['answer'])}" style="display:none;">
           <div class="quiz-question-number">Question {qid}</div>
           <div class="quiz-question-text">{html_mod.escape(q['question'])}</div>
           <div class="quiz-options">{opts}</div>
-          <div class="quiz-feedback"></div>
+          <div class="quiz-feedback-text"></div>
         </div>''')
 
     return f'''<h2 id="quiz">Knowledge Check: {html_mod.escape(title)}</h2>
 <div class="quiz-container">
+  <p class="quiz-meta">{total} questions &middot; {passing} to pass &middot; 45 seconds per question</p>
+  <div class="quiz-status-bar">
+    <span id="quizStatusScore">Score: 0 / 0</span>
+    <span id="quizStatusProgress">0 of {total} answered</span>
+    <span id="quizTimer" class="quiz-timer">45s</span>
+  </div>
+  <div class="quiz-progress-track"><div class="quiz-progress-fill" id="quizProgressFill" style="width:0%"></div></div>
   <script type="application/json" id="quizData">{quiz_json}</script>
-  <form id="quizForm" onsubmit="return false;">
+  <div id="quizForm">
     {''.join(questions_html)}
-    <button type="button" id="quizSubmitBtn" class="quiz-submit-btn">Submit Answers</button>
-  </form>
+  </div>
+  <button type="button" class="quiz-action-btn" id="quizActionBtn" disabled>Submit Answer</button>
   <div id="quizResults" class="quiz-results">
     <div id="quizScore" class="quiz-score"></div>
+    <div id="quizScorePct" class="quiz-pct"></div>
     <div id="quizLabel" class="quiz-label"></div>
     <div id="quizDetail" class="quiz-detail"></div>
-    <button type="button" id="quizRetryBtn" class="quiz-retry-btn">Try Again</button>
+    <button type="button" id="quizRetryBtn" class="quiz-retry-btn">Retake Quiz</button>
   </div>
 </div>'''
 

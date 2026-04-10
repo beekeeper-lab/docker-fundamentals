@@ -22,6 +22,8 @@ Created → Running → Paused → Running → Stopped → Removed
            └────────── Restarted ───────────────────┘
 ```
 
+![Container lifecycle state machine](../images/module-02/hero-lifecycle.png)
+
 ### Management Commands
 
 | Command | Purpose |
@@ -140,6 +142,8 @@ docker stop log-demo && docker rm log-demo
 
 > 🎙️ Docker exec is one of your most powerful tools. It lets you run any command inside a running container without stopping it. You can check configuration files, run diagnostics, or open a full interactive shell. Think of it as SSH-ing into your container, except it's built right into Docker.
 
+![Docker exec reaches into running containers](../images/module-02/docker-exec.png)
+
 ### Task G: Run Commands with `docker exec`
 
 ```bash
@@ -184,6 +188,8 @@ The file was modified inside the running container. But remember — this change
 > **Feel:** Able to exchange files with containers without rebuilding images.
 
 > 🎙️ Docker cp lets you copy files between your host machine and a container in both directions. This is useful for pulling configuration files out of a container to inspect them, or pushing custom files into a running container without rebuilding the image.
+
+![Copying files between host and container](../images/module-02/docker-cp.png)
 
 ### Task J: Copy Files Between Host and Container
 
@@ -238,6 +244,8 @@ docker container prune
 `prune` removes ALL stopped containers. Answer `y` to confirm.
 
 > 🎙️ Docker system df is like the du command for Docker. It shows you exactly how much disk space your images, containers, and volumes are consuming. If things are getting out of hand, docker system prune is your nuclear option — it removes all stopped containers, unused networks, and dangling images in one shot.
+
+![Clean up unused Docker resources](../images/module-02/system-cleanup.png)
 
 ### Task L: System Cleanup
 

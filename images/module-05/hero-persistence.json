@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:13:18",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Split scene. Left panel labeled \"Without Volume\": a container explodes and documents, database records, and files fall into a dark void. A speech bubble cries \"My data!\" Right panel labeled \"With Volume\": the same container explodes but all the data is safely stored in a glowing vault/safe labeled \"Volume\" that stands independently. A speech bubble says \"Still here!\" The mood contrasts loss with security.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: \"Without Volume\" / \"With Volume\" labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "hero-persistence.png",
+  "generation_time_ms": 21753,
+  "usage": {
+    "prompt_tokens": 165,
+    "candidates_tokens": 1552,
+    "total_tokens": 2005
+  }
+}

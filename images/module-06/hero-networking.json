@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:14:55",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A bird's eye view of four neighborhoods representing network types. \"Bridge\": houses along a street, they can see each other but only by address numbers. \"Host\": a house sitting directly on a major highway with no fences. \"None\": a house on a remote island with no roads. \"Custom Bridge\": a gated community with a directory board at the entrance where houses can look up each other by name. Each neighborhood is labeled clearly. The mood is architectural and organized.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: network type labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "hero-networking.png",
+  "generation_time_ms": 19981,
+  "usage": {
+    "prompt_tokens": 173,
+    "candidates_tokens": 1493,
+    "total_tokens": 1933
+  }
+}

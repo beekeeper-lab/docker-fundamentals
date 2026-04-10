@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:16:24",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Split scene. Left \"Before Compose\": a frazzled developer juggling multiple long command strings (docker run -d -p --name --network...) that tangle around them like spaghetti. Multiple terminals are open. Right \"After Compose\": the same developer relaxed, holding a single clean document labeled \"docker-compose.yml.\" Three containers run peacefully behind them, connected with neat lines. The mood contrasts chaos with simplicity.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: \"Before\" / \"After\" labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "hero-compose.png",
+  "generation_time_ms": 23096,
+  "usage": {
+    "prompt_tokens": 165,
+    "candidates_tokens": 1458,
+    "total_tokens": 1946
+  }
+}

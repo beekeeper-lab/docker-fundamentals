@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:17:45",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A timeline flowing left to right. Database container starts with a yellow \"Starting\" status and a doctor character running health checks (stethoscope). After several checks, status turns green \"Healthy.\" Only then does the API container start up, with an arrow from the healthy database to the API's start. Below, a crossed-out bad approach: \"sleep 5 && start\" with a red X. The mood contrasts reliable vs fragile startup.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: status labels and timeline markers\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "health-check-startup.png",
+  "generation_time_ms": 21663,
+  "usage": {
+    "prompt_tokens": 167,
+    "candidates_tokens": 1512,
+    "total_tokens": 1903
+  }
+}

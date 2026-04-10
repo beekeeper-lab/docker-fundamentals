@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:18:09",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A building with floors. Ground floor \"Always On\" has API and DB containers brightly lit and active. Upper floors have doors with signs: \"debug\" floor has Adminer behind a locked door, \"cache\" floor has Redis behind another locked door. A developer holds keys labeled \"--profile debug\" and \"--profile cache.\" When a key is used, that floor lights up. The mood shows selective activation \u2014 lean by default, extensible on demand.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: profile names and service labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "profiles.png",
+  "generation_time_ms": 24423,
+  "usage": {
+    "prompt_tokens": 168,
+    "candidates_tokens": 1699,
+    "total_tokens": 2170
+  }
+}

@@ -14,6 +14,8 @@
 > **See:** Inline variables, env_file references, and shell variable substitution in a Compose file.
 > **Feel:** Aware of the options so you can choose the right approach for each situation.
 
+![Three ways to configure environment variables](../images/module-08/hero-env-vars.png)
+
 > 🎙️ Managing configuration is one of the most important parts of any deployment. Docker Compose gives you three ways to set environment variables: inline in the YAML file, from an external env file, and through shell variable substitution. The .env file approach is the most common because it keeps secrets out of your docker-compose.yml, which you can safely commit to version control.
 
 Three ways to set environment variables in Compose:
@@ -197,6 +199,8 @@ docker compose down
 > **See:** A database transitioning from "starting" to "healthy" while the API waits to launch.
 > **Feel:** Confident that your services start in the right order without fragile sleep workarounds.
 
+![Health checks ensure reliable startup order](../images/module-08/health-check-startup.png)
+
 > 🎙️ Health checks let Docker monitor whether a service is actually ready, not just running. A database container might be running but still initializing. With a health check, Docker can tell the difference. And with condition service_healthy in depends_on, your API won't start until the database is truly ready to accept connections. This eliminates the fragile "sleep 5 and hope" pattern.
 
 ### Health Checks
@@ -239,6 +243,8 @@ The `api` service won't start until `db` is healthy because of `condition: servi
 > 🎯 **Teach:** How Compose profiles let you define optional services that only start on demand.
 > **See:** Debug and admin services that appear only when you activate their profile.
 > **Feel:** Empowered to keep your default stack lean while having extra tools a flag away.
+
+![Profiles activate optional services on demand](../images/module-08/profiles.png)
 
 > 🎙️ Profiles let you define optional services that only start when you ask for them. This is perfect for development tools, debug utilities, or cache services that you don't always need. A service without a profile always starts. A service with a profile only starts when you pass the dash-dash-profile flag. This keeps your default stack lean while making extra tools available on demand.
 
@@ -302,6 +308,8 @@ docker compose down
 > 🎯 **Teach:** How restart policies provide automatic recovery and resource limits prevent runaway containers.
 > **See:** A killed container restarting itself, and memory/CPU caps applied to a service.
 > **Feel:** Prepared to make your Compose services resilient and production-safe.
+
+![Restart policies and resource limits](../images/module-08/restart-policies.png)
 
 > 🎙️ In production, you want services that recover automatically from crashes. Restart policies tell Docker what to do when a container exits. The "unless-stopped" policy restarts containers on failure and on system reboot, but respects a manual stop. Resource limits prevent a single service from consuming all available memory or CPU on the host.
 

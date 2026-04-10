@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:07:05",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A developer sitting at a laptop labeled \"Docker CLI\" with a speech bubble saying a command. An arrow goes to a friendly engine character labeled \"Docker Daemon.\" The daemon has two shelves: one with blueprint documents labeled \"Images\" and one with small running machines labeled \"Containers.\" An arrow shows an image being used to create a container. The mood is friendly and explanatory.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: minimal labels (CLI, Daemon, Images, Containers)\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "docker-architecture.png",
+  "generation_time_ms": 19493,
+  "usage": {
+    "prompt_tokens": 159,
+    "candidates_tokens": 1338,
+    "total_tokens": 1713
+  }
+}

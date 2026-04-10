@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:13:49",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Two setups side by side. Left \"Named Volume\": Docker engine manages a storage locker behind the scenes, container connects to it with a clean interface, developer doesn't see where data lives. Right \"Bind Mount\": a visible cable runs from a specific folder on the developer's laptop directly into the container, files are visible and editable on both sides. Labels highlight key differences: \"Docker manages\" vs \"You manage\", \"Production\" vs \"Development.\"\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: type labels and key differences\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "volumes-vs-binds.png",
+  "generation_time_ms": 30175,
+  "usage": {
+    "prompt_tokens": 171,
+    "candidates_tokens": 1947,
+    "total_tokens": 2455
+  }
+}

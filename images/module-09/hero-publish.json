@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:18:53",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A developer at a laptop pushes an image (shown as a package with a tag) upward to a cloud labeled \"Docker Hub\" (with a whale logo). The cloud warehouse stores many images. Other developers around the world (shown as small figures at different laptops) pull images down from the cloud. Arrows show \"docker push\" going up and \"docker pull\" coming down. The mood is global and collaborative.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: \"docker push\" / \"docker pull\" labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "hero-publish.png",
+  "generation_time_ms": 20982,
+  "usage": {
+    "prompt_tokens": 166,
+    "candidates_tokens": 1409,
+    "total_tokens": 1799
+  }
+}

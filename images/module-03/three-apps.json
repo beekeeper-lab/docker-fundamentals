@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:11:52",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A display shelf with three completed Docker images shown as product boxes. Left: \"hello-docker:1.0\" with a Python snake logo and \"CLI App\" label. Middle: \"flask-app:1.0\" with a flask/beaker icon and \"Web API\" label. Right: \"my-site:1.0\" with an Nginx logo and \"Static Site\" label. A developer stands proudly in front of the shelf. A banner reads \"You built these!\" The mood is celebratory and encouraging.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: image names and type labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "three-apps.png",
+  "generation_time_ms": 20490,
+  "usage": {
+    "prompt_tokens": 187,
+    "candidates_tokens": 1381,
+    "total_tokens": 1880
+  }
+}

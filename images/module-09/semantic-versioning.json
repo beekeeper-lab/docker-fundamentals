@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:19:41",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A timeline with two release points. At release 1.0.0: four labels (1.0.0, 1.0, 1, latest) all point to the same image. At release 1.1.0: the 1.0.0 and 1.0 labels stay on the old image (immutable), while \"1\" and \"latest\" move to point at the new image. The old image is labeled \"still available\" and the new one \"now default.\" Arrows show which tags moved and which didn't. The mood is organized version management.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: version tags and movement arrows\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "semantic-versioning.png",
+  "generation_time_ms": 23055,
+  "usage": {
+    "prompt_tokens": 201,
+    "candidates_tokens": 1561,
+    "total_tokens": 2046
+  }
+}

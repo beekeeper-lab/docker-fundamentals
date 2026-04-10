@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:12:57",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A large blueprint-style document showing a Dockerfile. Callout bubbles with icons point to different lines: a pin icon at \"FROM python:3.12-slim\" says \"Specific tag, not latest\"; a shield icon at \"USER appuser\" says \"Non-root for security\"; a rocket icon at the COPY order says \"Dependencies first for caching\"; a broom icon at \"--no-cache-dir\" says \"Keep image clean.\" The mood is professional and thorough \u2014 a pre-flight checklist.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: callout text for each practice\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "best-practices.png",
+  "generation_time_ms": 22103,
+  "usage": {
+    "prompt_tokens": 184,
+    "candidates_tokens": 1615,
+    "total_tokens": 2037
+  }
+}

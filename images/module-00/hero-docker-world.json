@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:06:26",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A friendly cartoon whale carrying colorful shipping containers on its back, sailing across a calm ocean toward a harbor. The containers are labeled with tiny icons representing apps (a gear, a flask, a database cylinder). The harbor has small server buildings. The mood is optimistic and adventurous.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: minimal or none\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "hero-docker-world.png",
+  "generation_time_ms": 18700,
+  "usage": {
+    "prompt_tokens": 131,
+    "candidates_tokens": 1322,
+    "total_tokens": 1657
+  }
+}

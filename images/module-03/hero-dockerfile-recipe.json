@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:11:05",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A kitchen scene where a developer wearing a chef hat holds a recipe card labeled \"Dockerfile.\" The recipe has steps: FROM (pick a base ingredient), COPY (add your ingredients), RUN (mix and cook), CMD (serve). An oven labeled \"docker build\" has a finished layer cake labeled \"my-app:1.0\" coming out of it. The mood is warm, creative, and approachable.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: instruction labels on recipe steps\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "hero-dockerfile-recipe.png",
+  "generation_time_ms": 23073,
+  "usage": {
+    "prompt_tokens": 161,
+    "candidates_tokens": 1418,
+    "total_tokens": 1971
+  }
+}
