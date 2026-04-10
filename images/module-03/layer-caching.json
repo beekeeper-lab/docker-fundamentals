@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:11:31",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Two build pipelines side by side. Left pipeline labeled \"Slow Rebuild\": layers stack up with ALL layers rebuilding (red flashing), a clock shows 2 minutes. Right pipeline labeled \"Fast Rebuild\": bottom layers show \"CACHED\" stamps (green checkmarks), only the top app layer rebuilds, clock shows 5 seconds. The key difference highlighted: \"Copy requirements FIRST, app code LAST.\" A developer on the right looks happy, developer on left looks impatient.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: CACHED labels, time indicators\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "layer-caching.png",
+  "generation_time_ms": 26427,
+  "usage": {
+    "prompt_tokens": 177,
+    "candidates_tokens": 1863,
+    "total_tokens": 2275
+  }
+}

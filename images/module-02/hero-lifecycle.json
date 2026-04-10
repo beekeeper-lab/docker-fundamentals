@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:09:38",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A circular railway track with stations at different points. Stations are labeled: \"Created\" (starting station), \"Running\" (busy active station with green light), \"Paused\" (frozen station with snowflake), \"Stopped\" (red light station), \"Removed\" (exit gate). Small train cars (containers) move between stations. Track segments are labeled with commands: start, stop, pause, unpause, kill, restart, rm. The mood is playful and organized.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: state names and command labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "hero-lifecycle.png",
+  "generation_time_ms": 25681,
+  "usage": {
+    "prompt_tokens": 173,
+    "candidates_tokens": 1845,
+    "total_tokens": 2376
+  }
+}

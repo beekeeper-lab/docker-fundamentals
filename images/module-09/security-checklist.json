@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:20:03",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A clipboard styled as a pilot's pre-flight checklist, held by a developer. Items listed with checkboxes: \"Specific base tag (not latest)\", \"Non-root USER\", \"--no-cache-dir with pip\", \".dockerignore present\", \"PYTHONDONTWRITEBYTECODE=1\", \"Dependencies before app code\", \"EXPOSE port documented\", \"Semantic version tags.\" A stamp at the bottom reads \"CLEARED FOR LAUNCH.\" The mood is professional, thorough, and final \u2014 the capstone of the course.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: checklist items\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "security-checklist.png",
+  "generation_time_ms": 21771,
+  "usage": {
+    "prompt_tokens": 185,
+    "candidates_tokens": 1460,
+    "total_tokens": 1895
+  }
+}

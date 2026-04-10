@@ -14,6 +14,8 @@
 > **See:** A comparison table of bridge, host, none, and custom bridge networks.
 > **Feel:** Clear about which network type fits each situation.
 
+![Four Docker network types](../images/module-06/hero-networking.png)
+
 > 🎙️ Docker provides several network types. The default bridge network connects all containers but doesn't support DNS, so containers can only find each other by IP address. Custom bridge networks add DNS resolution, so containers can find each other by name. The host network removes isolation entirely, and the none network disables networking. For almost all use cases, you want a custom bridge network.
 
 | Type | Description |
@@ -55,6 +57,8 @@ docker run --network my-net --name web my-web
 > **Feel:** Comfortable mapping any container port to any host port without conflicts.
 
 > 🎙️ Port mapping lets you expose container services to your host machine. You can map any host port to any container port. This means you can run three Nginx containers on ports 8080, 8081, and 8082, all serving port 80 internally. Capital P maps all exposed ports to random host ports, which is useful for avoiding conflicts.
+
+![Multiple containers on different host ports](../images/module-06/port-mapping-multi.png)
 
 > 🎙️ In this first task, you'll run three separate Nginx containers, each mapped to a different host port. This shows how multiple containers can all listen on the same internal port without any conflict, because each one gets its own isolated network namespace.
 
@@ -139,6 +143,8 @@ docker exec server2 sh -c 'curl -s http://server1 2>&1 || echo "Cannot resolve h
 
 DNS resolution does NOT work on the default bridge network.
 
+![Default bridge has no DNS, custom bridge does](../images/module-06/dns-comparison.png)
+
 ```bash
 docker stop server1 server2 && docker rm server1 server2
 ```
@@ -174,6 +180,8 @@ docker exec frontend curl -s http://api
 It works! Custom bridge networks provide automatic DNS resolution between containers. This is the standard way to connect services.
 
 > 🎙️ Network isolation is just as important as connectivity. By placing containers on separate custom networks, you can ensure they cannot communicate with each other at all. This is a key security feature — your frontend network doesn't need to talk directly to your database network, for example.
+
+![Containers on different networks are isolated](../images/module-06/network-isolation.png)
 
 ### Task G: Isolate Networks
 

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:08:09",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A tall stack of semi-transparent colorful layers, like a geological cross-section or fancy layer cake. Bottom layer is thick and labeled \"Base OS (Debian)\", middle layers are progressively thinner labeled \"Python Runtime\", \"pip packages\", and top thin layer labeled \"Your App Code.\" A magnifying glass examines one layer. The stack has a tag hanging off it reading \"python:3.12-slim\". The mood is curious and educational.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: layer labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "hero-image-layers.png",
+  "generation_time_ms": 19943,
+  "usage": {
+    "prompt_tokens": 166,
+    "candidates_tokens": 1344,
+    "total_tokens": 1770
+  }
+}

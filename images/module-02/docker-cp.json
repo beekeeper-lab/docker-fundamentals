@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:10:20",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A laptop on the left labeled \"Host\" and a shipping container on the right labeled \"Container.\" Files (shown as paper documents with icons) fly between them on two curved arrows. Top arrow goes left-to-right labeled \"docker cp file container:/path\" and bottom arrow goes right-to-left labeled \"docker cp container:/path file.\" The mood is dynamic, showing easy file exchange.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: direction labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "docker-cp.png",
+  "generation_time_ms": 22715,
+  "usage": {
+    "prompt_tokens": 157,
+    "candidates_tokens": 1664,
+    "total_tokens": 2025
+  }
+}

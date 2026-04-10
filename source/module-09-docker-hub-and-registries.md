@@ -14,6 +14,8 @@
 > **See:** The registry/username/repository:tag naming convention and a tagging strategy table.
 > **Feel:** Clear about how images are named, versioned, and discovered on Docker Hub.
 
+![Publishing images to Docker Hub](../images/module-09/hero-publish.png)
+
 > 🎙️ Docker Hub is the default public registry for Docker images. Every time you've run docker pull nginx or docker run python, you've been downloading from Docker Hub. Now it's your turn to push images there. You'll create an account, tag your images with your username, and push them so anyone in the world can pull and run your applications.
 
 [Docker Hub](https://hub.docker.com) is the default public registry for Docker images. It's where `nginx`, `python`, `postgres`, and thousands of other images come from.
@@ -28,6 +30,8 @@ Examples:
 - `nginx:alpine` — Official image (no username)
 - `yourusername/my-app:1.0` — Your image
 - `ghcr.io/owner/repo:latest` — GitHub Container Registry
+
+![Image naming convention breakdown](../images/module-09/image-naming.png)
 
 > 🎙️ Understanding the image naming convention is essential. The full name includes the registry, your username, the repository name, and a tag. When you omit the registry, Docker assumes Docker Hub. When you omit the username, Docker assumes it's an official image. Tags let you version your images so users can pin to exactly the release they need.
 
@@ -200,6 +204,8 @@ Docker pulls it from Docker Hub and runs it. Press `Ctrl+C` to stop.
 > **See:** Two image versions running side by side on different ports.
 > **Feel:** In command of a professional release workflow using semantic versioning.
 
+![Semantic versioning and tag relationships](../images/module-09/semantic-versioning.png)
+
 > 🎙️ Software evolves, and your images should evolve with proper versioning. When you release a new version, build the image, tag it with the new version number, update the latest tag to point to it, and push all the tags. Users pinned to 1.0.0 keep getting 1.0.0. Users on latest get your newest code. This is semantic versioning in action.
 
 ### Task G: Release a New Version
@@ -280,6 +286,8 @@ Review your image against these best practices:
 - [ ] Dependencies installed before copying app code (layer caching)
 - [ ] `EXPOSE` documents the port
 - [ ] Uses semantic version tags (1.0.0, 1.1.0)
+
+![Docker image security checklist](../images/module-09/security-checklist.png)
 
 > 🎙️ You've completed the full Docker image lifecycle — from building and tagging to pushing, pulling, updating, and scanning. Before wrapping up, clean everything off your local machine. The docker system prune command with the dash a flag removes all unused images, containers, and networks in one shot.
 

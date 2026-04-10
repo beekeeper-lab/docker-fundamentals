@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:07:49",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A laptop on the left with \"Port 8080\" labeled on it. A colorful bridge or tunnel connects it to a shipping container on the right with \"Port 80\" labeled on it and an Nginx logo inside. A small browser window floats above the laptop showing a welcome page. Arrows show the request flowing from browser to host port to container port. The bridge is labeled \"-p 8080:80\".\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: port numbers and -p flag label\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "port-mapping.png",
+  "generation_time_ms": 20064,
+  "usage": {
+    "prompt_tokens": 171,
+    "candidates_tokens": 1361,
+    "total_tokens": 1764
+  }
+}

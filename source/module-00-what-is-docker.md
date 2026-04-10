@@ -14,6 +14,8 @@
 > **See:** A concise definition of containers and the problem they solve.
 > **Feel:** Curious about how Docker eliminates environment inconsistencies.
 
+![Docker delivers applications in containers](../images/module-00/hero-docker-world.png)
+
 > 🎙️ Docker is a platform for running applications in containers, which are lightweight, isolated environments that package your code with everything it needs to run. Think of a container as a self-contained box with your application, its libraries, dependencies, and configuration all bundled together. No more "it works on my machine" problems.
 
 Docker is a platform for running applications in **containers** — lightweight, isolated environments that package your code with everything it needs to run (libraries, dependencies, config).
@@ -36,6 +38,8 @@ Docker is a platform for running applications in **containers** — lightweight,
 
 A VM virtualizes the **hardware** (runs a full OS). A container virtualizes the **operating system** (shares the host kernel, isolates the process).
 
+![Containers vs Virtual Machines architecture](../images/module-00/containers-vs-vms.png)
+
 > 💡 **Remember this one thing:** Containers share the host kernel and isolate at the process level, making them fast and lightweight. VMs run entire operating systems, making them heavier but more fully isolated.
 
 ## Docker Architecture
@@ -53,6 +57,8 @@ Docker Daemon (dockerd)
     ↓ manages
 Images → Containers
 ```
+
+![Docker client-server architecture](../images/module-00/docker-architecture.png)
 
 - **Image** — A read-only template (like a class in OOP). Contains the OS, your app, and dependencies.
 - **Container** — A running instance of an image (like an object). Isolated, ephemeral.
@@ -220,6 +226,8 @@ Exit:
 exit
 ```
 
+![Containers start fresh every time](../images/module-00/container-ephemeral.png)
+
 > 💡 **Remember this one thing:** Containers are ephemeral. Each container starts fresh from the image. Any changes you make inside a container are lost when it's removed, unless you use volumes (covered in Module 6).
 
 ## Running a Web Server
@@ -240,6 +248,8 @@ Flags:
 - `-d` — Detached mode (runs in background)
 - `-p 8080:80` — Map port 8080 on your machine to port 80 in the container
 - `--name my-nginx` — Give the container a name
+
+![Port mapping connects host to container](../images/module-00/port-mapping.png)
 
 Check it's running:
 

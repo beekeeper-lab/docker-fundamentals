@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:06:45",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Side-by-side comparison of two architectural stacks. Left side labeled \"Virtual Machine\": tall heavy stack with layers for Hardware, Hypervisor, Guest OS (shown as a thick heavy block), and a small App on top. Right side labeled \"Container\": shorter lighter stack with Hardware, Host OS, Docker Engine (thin layer), and multiple small App boxes sitting directly on it. The VM side looks heavy and overloaded, the container side looks nimble and efficient. Use visual weight and color to emphasize the difference.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: minimal labels only (VM, Container, OS, App)\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "containers-vs-vms.png",
+  "generation_time_ms": 19437,
+  "usage": {
+    "prompt_tokens": 188,
+    "candidates_tokens": 1400,
+    "total_tokens": 1818
+  }
+}

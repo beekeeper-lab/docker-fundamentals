@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:17:23",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A container in the center with three incoming pipes. Pipe 1 \"Inline\" comes from a YAML document with values written directly. Pipe 2 \".env File\" comes from a secret document with a lock icon (kept out of version control). Pipe 3 \"Shell\" comes from a terminal with ${VAR} syntax. All three pipes merge into the container's \"environment\" intake. The mood is organized and shows three valid approaches.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: pipe labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "hero-env-vars.png",
+  "generation_time_ms": 19173,
+  "usage": {
+    "prompt_tokens": 164,
+    "candidates_tokens": 1362,
+    "total_tokens": 1753
+  }
+}

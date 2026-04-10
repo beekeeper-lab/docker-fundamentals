@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:09:12",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A shipping container with a control panel on its side, like a mixing board or dashboard. Each knob or switch is labeled with a Docker flag: \"-e\" (environment dial), \"--rm\" (self-destruct toggle), \"-w\" (working directory compass), \"-d\" (background/detach switch), \"-p\" (port mapping slider). A developer adjusts the knobs with a thoughtful expression. The mood is playful and empowering.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: flag labels on knobs\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "container-flags.png",
+  "generation_time_ms": 21738,
+  "usage": {
+    "prompt_tokens": 165,
+    "candidates_tokens": 1351,
+    "total_tokens": 1883
+  }
+}

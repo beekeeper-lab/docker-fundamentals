@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:09:57",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A running shipping container with an engine humming (motion lines). A side access door is open, and a developer reaches inside with a wrench and magnifying glass. Inside the container you can see files, processes, and a terminal. The container keeps running with a green status light. A label says \"docker exec\" on the door. The mood is practical and reassuring \u2014 you can inspect without breaking things.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: \"docker exec\" label\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "docker-exec.png",
+  "generation_time_ms": 19472,
+  "usage": {
+    "prompt_tokens": 158,
+    "candidates_tokens": 1331,
+    "total_tokens": 1693
+  }
+}

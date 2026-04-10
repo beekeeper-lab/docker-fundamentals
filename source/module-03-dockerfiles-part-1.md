@@ -14,6 +14,8 @@
 > **See:** A reference table of FROM, WORKDIR, COPY, RUN, CMD, EXPOSE, and ENV.
 > **Feel:** Ready to read and write Dockerfiles with confidence.
 
+![A Dockerfile is a recipe for building images](../images/module-03/hero-dockerfile-recipe.png)
+
 > 🎙️ A Dockerfile is a text file with instructions for building a Docker image. Think of it as a recipe: each instruction adds a layer to the image. FROM sets the base image, WORKDIR sets your working directory, COPY brings files in from your host, RUN executes commands during the build, and CMD sets what runs when the container starts. These five instructions cover ninety percent of what you'll need.
 
 A **Dockerfile** is a text file with instructions for building a Docker image. Each instruction creates a layer in the image.
@@ -171,6 +173,8 @@ CMD ["python", "app.py"]
 
 > **Key detail:** We copy and install `requirements.txt` BEFORE copying `app.py`. This means Docker can cache the dependency installation layer. If you only change `app.py`, Docker skips the `pip install` step on rebuild.
 
+![Layer caching makes rebuilds fast](../images/module-03/layer-caching.png)
+
 > 🎙️ Time to build and run your Flask app. Notice the dash d flag, which runs the container in detached mode so it stays running in the background. The dash p flag maps port 5000 on your host to port 5000 inside the container, so you can access the web app from your browser or curl.
 
 ### Task E: Build and Run the Flask App
@@ -260,6 +264,8 @@ docker stop my-site && docker rm my-site
 > 🎯 **Teach:** How Docker's layer caching works and why instruction order matters.
 > **See:** A rebuild where cached layers are skipped and only changed layers are rebuilt.
 > **Feel:** Motivated to structure Dockerfiles for maximum cache efficiency.
+
+![Three containerized applications built in this module](../images/module-03/three-apps.png)
 
 > 🎙️ One of Docker's most important features is layer caching. When you rebuild an image, Docker checks each instruction against its cache. If nothing changed, it reuses the cached layer. But the moment one layer changes, every layer after it must be rebuilt. That's why instruction order matters so much in your Dockerfiles.
 

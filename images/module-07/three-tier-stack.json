@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:17:04",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A vertical three-tier architecture. Top tier: browser sending request to Nginx container (labeled \"Frontend / Reverse Proxy\"). Middle tier: Flask container (labeled \"API\") receiving proxied requests from Nginx. Bottom tier: PostgreSQL container (labeled \"Database\") with a volume cylinder attached. Arrows flow down from browser through each tier. A surrounding box labeled \"docker-compose.yml\" wraps all three tiers. The mood is architectural and professional.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: tier labels and service names\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "three-tier-stack.png",
+  "generation_time_ms": 20369,
+  "usage": {
+    "prompt_tokens": 169,
+    "candidates_tokens": 1363,
+    "total_tokens": 1847
+  }
+}

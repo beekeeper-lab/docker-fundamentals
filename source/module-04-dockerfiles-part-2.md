@@ -14,6 +14,8 @@
 > **See:** A side-by-side comparison of a bloated Dockerfile versus an optimized one.
 > **Feel:** Aware that small Dockerfile changes can have a big impact on image size.
 
+![Multi-stage builds leave build tools behind](../images/module-04/hero-multistage.png)
+
 > 🎙️ Every RUN, COPY, and ADD instruction creates a new layer in your image. More layers mean larger images and slower builds. The solution is to combine related commands into single RUN instructions. Instead of three separate RUN lines for apt-get update, install, and clean, combine them into one. This can dramatically reduce your image size because intermediate files don't get stored in separate layers.
 
 Every `RUN`, `COPY`, and `ADD` instruction creates a new layer. Fewer layers = smaller images.
@@ -217,6 +219,8 @@ docker stop flask-ms
 > **See:** A .dockerignore file that excludes secrets, caches, and development artifacts.
 > **Feel:** Secure knowing sensitive files won't accidentally end up in your images.
 
+![Dockerignore keeps unwanted files out of your image](../images/module-04/dockerignore.png)
+
 > 🎙️ A .dockerignore file tells Docker which files to exclude from the build context. Without one, Docker sends everything in your project directory to the daemon, including your git history, virtual environments, node modules, and secrets. A good dockerignore file makes your builds faster and your images more secure.
 
 Like `.gitignore`, this tells Docker which files to exclude from the build context:
@@ -283,6 +287,8 @@ docker run --rm ignore-test sh -c "ls .env 2>&1 || echo '.env not found (ignored
 > 🎯 **Teach:** How to combine all the optimization techniques into a production-ready Dockerfile.
 > **See:** A best-practices Dockerfile with non-root user, caching optimization, and security flags.
 > **Feel:** Confident that your images are production-quality.
+
+![Production-ready Dockerfile best practices](../images/module-04/best-practices.png)
 
 > 🎙️ Let's put everything together. A production-ready Dockerfile should use a specific base image tag, run as a non-root user, optimize layer caching, suppress Python bytecode generation, and document the port with EXPOSE. This is the template you should use for every Python application you containerize.
 

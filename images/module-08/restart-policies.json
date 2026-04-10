@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:18:32",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A container falls over (crash), but a spring mechanism labeled \"restart: unless-stopped\" bounces it back upright automatically. A sequence shows: running \u2192 crash \u2192 bounce back \u2192 running again. Next to it, a separate gauge/dashboard shows CPU and Memory dials with limits marked: \"256M memory max\" and \"0.5 CPU max.\" The mood is resilient and controlled \u2014 things crash, but Docker handles it.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: policy name and resource limits\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "restart-policies.png",
+  "generation_time_ms": 22415,
+  "usage": {
+    "prompt_tokens": 166,
+    "candidates_tokens": 1551,
+    "total_tokens": 1998
+  }
+}

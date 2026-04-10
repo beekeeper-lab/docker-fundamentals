@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:12:35",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A project folder spilling out files. A bouncer character stands at a gate labeled \"docker build.\" Files approach the gate: app.py and requirements.txt (green, smiling) get waved through. Files like .env (with a SECRET stamp), .git (heavy folder), __pycache__ (dusty), and node_modules (enormous) are blocked with a red hand. The bouncer holds a clipboard labeled \".dockerignore.\" The mood is humorous security \u2014 keeping the riffraff out.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: file names on the files\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "dockerignore.png",
+  "generation_time_ms": 20931,
+  "usage": {
+    "prompt_tokens": 181,
+    "candidates_tokens": 1448,
+    "total_tokens": 1903
+  }
+}

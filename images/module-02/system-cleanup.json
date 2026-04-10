@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:10:42",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Split scene. Left side: a messy workshop with stopped containers (boxes with X marks), dangling images (faded blueprints), unused networks (disconnected cables) piled up. A gauge shows \"disk usage: HIGH.\" Right side: the same workshop after cleanup, tidy and organized, gauge shows \"disk usage: LOW.\" A broom labeled \"docker system prune\" sweeps between the two sides. The mood is satisfying, like a before/after cleaning.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: \"before\" and \"after\" labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "system-cleanup.png",
+  "generation_time_ms": 21503,
+  "usage": {
+    "prompt_tokens": 171,
+    "candidates_tokens": 1501,
+    "total_tokens": 1906
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-09T17:14:12",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A developer types on a laptop, editing index.html. A glowing connection (bind mount) links the laptop's folder to a running Nginx container. The container's web page updates instantly \u2014 shown as a browser window changing from \"Hello\" to \"Updated!\" in real-time. A clock icon shows \"0 seconds\" for the update. No rebuild or restart step visible. The mood is magical and productive.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nAspect ratio: 16:9\nBackground: white\nText in image: minimal, showing the instant update\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "live-editing.png",
+  "generation_time_ms": 23524,
+  "usage": {
+    "prompt_tokens": 165,
+    "candidates_tokens": 1350,
+    "total_tokens": 1925
+  }
+}
