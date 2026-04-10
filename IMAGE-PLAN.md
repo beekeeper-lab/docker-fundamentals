@@ -1,6 +1,6 @@
 # Image Plan
 
-Total proposed images: 43 (38 generated, 5 not parsed from plan)
+Total images: 38 (all generated)
 
 ## Generation Cost Log
 
