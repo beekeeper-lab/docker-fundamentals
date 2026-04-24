@@ -277,6 +277,8 @@ docker network ls
 
 Save a file named `Day_07_Output.md` in this folder containing the terminal output from each task.
 
+> 🎙️ For submission, capture the full sequence — multiple containers on different host ports, the DNS failure on the default bridge, and the DNS success on your custom network. The two-service application where containers find each other by name is the capstone of this module, so make sure that output is clear. Remember to tear down every network and container you created.
+
 ### Grading Criteria
 
 | Criteria | Points |

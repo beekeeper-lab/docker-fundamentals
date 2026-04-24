@@ -624,3 +624,466 @@ Total images: 38 (all generated)
   Background: white
   Text in image: checklist items
   Avoid: photorealistic, dark, scary, complex UI screenshots
+
+---
+
+## Coverage Gaps — To Generate (Show-Don't-Tell)
+
+Audit on 2026-04-22 identified 28 H2 pages lacking images. Per "show-don't-tell," each page should have at least one illustration. New entries below follow the same Head First / editorial-illustration style as the existing set.
+
+Estimated generation cost: **~$3.92** (28 images × $0.14/image, using `gemini-3-pro-image-preview`). Do NOT generate until cost is pre-approved.
+
+### Module 00: What Is Docker
+
+#### Image 6: install-paths
+- **File**: `images/module-00/install-paths.png`
+- **Page**: 4 (Install Docker)
+- **Placement**: after the OS-specific install instructions
+- **Description**: Three installation paths branching from a single "Install Docker" signpost — Linux (Docker Engine package), macOS (Docker Desktop DMG with whale logo), Windows (Docker Desktop installer). All converge on a happy "docker version" terminal at the bottom.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A single signpost labeled "Install Docker" with three arrows pointing to different platforms. Left arrow: a Linux penguin next to a package icon labeled "Docker Engine." Middle arrow: an Apple logo next to a whale-logo DMG icon labeled "Docker Desktop." Right arrow: a Windows logo next to a whale-logo installer labeled "Docker Desktop." All three paths converge at the bottom into a single terminal window displaying "docker version → OK" with a green checkmark. The mood is welcoming — three doors, same destination.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: platform labels and "docker version OK"
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 7: docker-toolbox
+- **File**: `images/module-00/docker-toolbox.png`
+- **Page**: 5 (Explore Docker Commands)
+- **Placement**: after the initial docker ps / docker images explanation
+- **Description**: A developer's toolbox labeled "docker" with four essential tools laid out — "images" (a stack of blueprints), "ps" (a magnifying glass over running processes), "rm" (a trash can), "rmi" (a shredder for blueprints). Introduces the core command vocabulary as a unified toolkit.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: An open toolbox with a whale logo on the lid, labeled "docker." Four tools laid out neatly inside, each with a tag: a stack of blueprint papers tagged "images" (list downloaded images), a magnifying glass over small processes tagged "ps" (list containers), a trash bin tagged "rm" (remove container), and a shredder tagged "rmi" (remove image). A developer's hand reaches in to pick a tool. The mood is organized and inviting.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: tool-name tags
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 8: module-00-checklist
+- **File**: `images/module-00/module-00-checklist.png`
+- **Page**: 8 (Submission)
+- **Placement**: after the Submission paragraph, before the grading table
+- **Description**: A friendly completion card listing the four artifacts required for Day 1 submission — terminal output, image list, container list, Nginx proof — each with a checkbox. A small whale mascot gives a thumbs-up.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A completion card styled like a boarding pass or receipt. Items with checkboxes: "Terminal output captured", "docker images listed", "docker ps -a listed", "Nginx accessed in browser/curl", "Cleanup complete." A small friendly whale mascot gives a thumbs-up next to the card. A stamp reads "DAY 1 COMPLETE." The mood is celebratory and encouraging.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: checklist items and "DAY 1 COMPLETE" stamp
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+### Module 01: Images and Containers
+
+#### Image 5: tag-anatomy
+- **File**: `images/module-01/tag-anatomy.png`
+- **Page**: 2 (Tags and Variants)
+- **Placement**: after the tag variant explanation
+- **Description**: The image name `python:3.12-slim` decomposed into labeled parts. Repository, major.minor version, and variant suffix each highlighted with a caption. Sample variants shown as tiny badges: `latest`, `slim`, `alpine`, `3.12.0`.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A large text label "python:3.12-slim" with brackets separating each part. "python" labeled "Repository" with a snake icon. "3.12" labeled "Version" with a tag icon. "slim" labeled "Variant" with a slim box icon. Below, four small badges show variant options: latest (shining star), slim (trim box), alpine (tiny mountain package), 3.12.0 (exact-version pin). The mood is decoder-ring, showing you how to read a tag.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: segment labels and variant names
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 6: container-naming
+- **File**: `images/module-01/container-naming.png`
+- **Page**: 5 (Container Naming and Listing)
+- **Placement**: after the docker run --name demonstration
+- **Description**: Two containers side by side. Left has a random Docker-generated name ("quirky_einstein") with a confused look. Right has a clean custom name ("my-web") with a proud label. Both sit on a dashboard showing `docker ps` output.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: Two shipping containers side by side on a platform. Left container has a random-name sticker reading "quirky_einstein" with a shrug emoji. Right container has a clean nameplate reading "my-web" with a proud smile. Above them, a terminal window shows "docker ps" listing both. An arrow points from the "--name" flag to the right container. The mood contrasts random vs intentional naming.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: container names and --name flag
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 7: module-01-checklist
+- **File**: `images/module-01/module-01-checklist.png`
+- **Page**: 7 (Submission)
+- **Placement**: after the Submission paragraph
+- **Description**: A completion card listing Day 2 artifacts — three image variants pulled, multi-language containers run, flags demonstrated, cleanup done. Small whale mascot celebrates.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A completion card with checkboxes: "Python full/slim/alpine variants pulled and compared", "Python 3.12 and 3.11 run simultaneously", "--name, -e, --rm, -w flags demonstrated", "Containers cleaned up." A friendly whale mascot stamps "DAY 2 COMPLETE" on the card. The mood is celebratory.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: checklist items and stamp
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+### Module 02: Container Management
+
+#### Image 5: start-stop-restart
+- **File**: `images/module-02/start-stop-restart.png`
+- **Page**: 2 (Start, Stop, and Restart)
+- **Placement**: after the start/stop/restart command introduction
+- **Description**: A container with three control buttons on its side — a green play (start), a red square (stop), a blue circular arrow (restart). Small status light changes color for each action. Demonstrates the three primary lifecycle commands as physical controls.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A shipping container with a control panel on its side. Three large buttons clearly labeled: a green triangle "start", a red square "stop", a blue circular arrow "restart." A small status light above the panel glows green when running, red when stopped. A developer's hand hovers over the buttons. The mood is tactile and empowering — you control the container state.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: button labels
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 6: docker-logs
+- **File**: `images/module-02/docker-logs.png`
+- **Page**: 3 (Logs)
+- **Placement**: after the docker logs introduction
+- **Description**: A container with a paper tape streaming out of a slot labeled "stdout/stderr." The tape is full of log entries flowing into a developer's terminal. Flags `--tail`, `--since`, `-f` shown as filter funnels along the tape's path.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A shipping container with a slot on its side labeled "stdout/stderr." A long paper tape streams out, full of colorful log lines. The tape passes through three labeled funnels: "--tail N" (shows last N lines), "--since 10m" (shows recent), "-f" (shows live stream with a looping arrow). The tape ends at a developer's terminal window. The mood is analytical and investigative.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: slot label and flag names
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 7: module-02-checklist
+- **File**: `images/module-02/module-02-checklist.png`
+- **Page**: 7 (Submission)
+- **Placement**: after the Submission paragraph
+- **Description**: Day 3 completion card with lifecycle, logs, exec, cp, and prune artifacts checked off.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A completion card with checkboxes: "Start/stop/pause/restart demonstrated", "Logs captured with --tail, --since, -f", "exec used for commands and interactive shell", "docker cp used both directions", "docker system prune run." Whale mascot stamps "DAY 3 COMPLETE." Mood: celebratory.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: checklist items and stamp
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+### Module 03: Dockerfiles Part 1
+
+#### Image 4: first-dockerfile
+- **File**: `images/module-03/first-dockerfile.png`
+- **Page**: 2 (Your First Dockerfile)
+- **Placement**: after the first Dockerfile example
+- **Description**: A hand holding a freshly written Dockerfile while an oven labeled "docker build -t" bakes a small Python image. Steam rises from the oven in the shape of "hello-docker:1.0".
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A developer's hand holds a short Dockerfile with lines FROM, WORKDIR, COPY, RUN, CMD. The Dockerfile slides into an oven labeled "docker build -t hello-docker:1.0 ." A fresh image (shown as a small glowing box labeled "hello-docker:1.0") sits on a cooling rack with steam rising. The mood is warm and satisfying — your first image, fresh out of the oven.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: Dockerfile snippet and image tag
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 5: static-site-alpine
+- **File**: `images/module-03/static-site-alpine.png`
+- **Page**: 4 (A Static Website)
+- **Placement**: after the two-line Nginx Dockerfile
+- **Description**: A tiny lightweight container labeled "nginx:alpine — 23 MB" holding a single HTML file, serving it to a browser. Contrasts the size with a heavy "nginx full" container for emphasis.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A small, sleek shipping container with an Nginx logo and a tag reading "nginx:alpine — 23 MB." Inside it holds a single HTML file labeled "index.html." An arrow shows it serving a browser window with "Hello from Docker!" text. Next to it, a bulky heavy container labeled "nginx full — 140 MB" looks slow and overweight by comparison. Small mountains in the background nod to Alpine. The mood contrasts lean vs heavy.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: size labels and HTML filename
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 6: module-03-checklist
+- **File**: `images/module-03/module-03-checklist.png`
+- **Page**: 6 (Submission)
+- **Placement**: after the Submission paragraph
+- **Description**: Day 4 completion card — three Dockerfiles, three images, layer caching demo, cleanup.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A completion card with checkboxes: "Python script Dockerfile built", "Flask app Dockerfile with cached dependencies", "Static Nginx site Dockerfile", "Layer caching rebuild demonstrated", "All three images in docker images." Whale mascot stamps "DAY 4 COMPLETE." Mood: celebratory.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: checklist items and stamp
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+### Module 04: Dockerfiles Part 2
+
+#### Image 4: multistage-handoff
+- **File**: `images/module-04/multistage-handoff.png`
+- **Page**: 2 (Multi-Stage Builds)
+- **Placement**: after the Java multi-stage Dockerfile example
+- **Description**: A worker in the "builder" stage compiles source code into a single .class file, then hands it off through a one-way window to a minimal JRE runtime stage. The build tools, source code, and JDK all stay behind.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: Two rooms side by side separated by a small window. Left room "Stage 1: builder" labeled "eclipse-temurin:21-jdk" is cluttered with JDK tools, .java source files, and compilation smoke. A worker hands a single small file labeled "Hello.class" through the window. Right room "Stage 2: runtime" labeled "eclipse-temurin:21-jre-alpine" is clean and minimal with just the .class file on a shelf and a "java Hello" command running. Size labels: "Stage 1: 700 MB" / "Final image: 180 MB." The mood is clever and efficient.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: stage labels, size comparison, filename
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 5: module-04-checklist
+- **File**: `images/module-04/module-04-checklist.png`
+- **Page**: 5 (Submission)
+- **Placement**: after the Submission paragraph
+- **Description**: Day 5 completion card covering layer optimization, multi-stage, dockerignore, non-root.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A completion card with checkboxes: "Layers compared with docker history", "Java multi-stage build shrunk from 700MB to 180MB", "Python multi-stage build", ".dockerignore excluded secrets", "USER appuser (non-root) confirmed with whoami." Whale mascot stamps "DAY 5 COMPLETE." Mood: celebratory.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: checklist items and stamp
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+### Module 05: Volumes and Persistence
+
+#### Image 5: named-volume-lifecycle
+- **File**: `images/module-05/named-volume-lifecycle.png`
+- **Page**: 2 (Named Volumes)
+- **Placement**: after the docker volume create / inspect sequence
+- **Description**: A named volume shown as a padlocked storage locker managed by a friendly Docker daemon. Two containers connect and disconnect from it while the data stays put. `/var/lib/docker/volumes/...` path visible but managed.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A storage locker with a "my-data" nameplate, managed by a small Docker daemon character holding a clipboard. Two containers approach one at a time with cables — container A plugs in, writes a file, unplugs (poof, gone). Container B plugs into the same locker, reads the file intact. Below, a small label "/var/lib/docker/volumes/my-data/_data" shows where Docker stores it. The mood is dependable and curated.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: volume name and path
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 6: volume-prune
+- **File**: `images/module-05/volume-prune.png`
+- **Page**: 5 (Volume Management)
+- **Placement**: after docker volume prune
+- **Description**: Orphaned volumes (disconnected from containers) being swept up by a `docker volume prune` broom. Attached volumes stay safe. Contrasts good housekeeping with reckless deletion.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A yard with several storage cylinders. Three cylinders are connected by cables to running containers (safe, green checkmarks). Two cylinders sit disconnected, faded, labeled "orphan." A broom labeled "docker volume prune" sweeps the orphan volumes away into a trash bin while leaving the connected ones untouched. The mood is tidy and careful — housekeeping without harm.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: orphan/safe labels, prune command
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 7: module-05-checklist
+- **File**: `images/module-05/module-05-checklist.png`
+- **Page**: 6 (Submission)
+- **Placement**: after the Submission paragraph
+- **Description**: Day 6 completion card — volumes, binds, database persistence proofs.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A completion card with checkboxes: "Named volume created and inspected", "Data survives container removal", "Bind mount live-editing demonstrated", "Postgres WITHOUT volume — data lost", "Postgres WITH volume — data safe." Whale mascot stamps "DAY 6 COMPLETE." Mood: celebratory.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: checklist items and stamp
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+### Module 06: Networking
+
+#### Image 5: two-service-app
+- **File**: `images/module-06/two-service-app.png`
+- **Page**: 5 (Multi-Container Application)
+- **Placement**: after the Flask API + client walkthrough
+- **Description**: A Flask API container and a client container inside a fenced custom network. The client curls "http://api-service:5000" and the DNS inside the network resolves it cleanly. Shows service discovery by name.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A fenced enclosure labeled "app-network" with a DNS directory post at the gate. Inside: a Flask API container labeled "api-service:5000" and a client container. The client shouts "curl http://api-service:5000/hello" and the DNS post routes the request. A response "Hello from Flask!" flies back. The mood is friendly service discovery — containers find each other by name.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: network name, service name, URL
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 6: network-cleanup
+- **File**: `images/module-06/network-cleanup.png`
+- **Page**: 6 (Cleanup)
+- **Placement**: after the cleanup commands
+- **Description**: A developer systematically stops containers, removes them, and deletes custom networks. A "before" messy yard transitions to an "after" tidy one.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: Split scene. Left "Before": a cluttered yard with running containers tangled in network cables. Right "After": the same yard clean and empty, just a green grass lawn and "docker network ls" showing only default networks. Between them, a developer character swings a broom labeled "docker stop && rm && network rm." The mood is satisfying cleanup.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: before/after labels and cleanup commands
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 7: module-06-checklist
+- **File**: `images/module-06/module-06-checklist.png`
+- **Page**: 7 (Submission)
+- **Placement**: after the Submission paragraph
+- **Description**: Day 7 completion card covering port mapping, DNS, isolation, two-service demo.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A completion card with checkboxes: "Three Nginx containers on ports 8080/8081/8082", "Default bridge DNS failure shown", "Custom network DNS works", "Network isolation verified", "Two-service app communicating by name." Whale mascot stamps "DAY 7 COMPLETE." Mood: celebratory.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: checklist items and stamp
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+### Module 07: Docker Compose Part 1
+
+#### Image 4: compose-up-flow
+- **File**: `images/module-07/compose-up-flow.png`
+- **Page**: 2 (Your First Compose File)
+- **Placement**: after the "docker compose up -d" introduction
+- **Description**: A single `docker compose up -d` command triggers a cascade: a network is created, volumes mount, and containers spawn in order. Four small stages show the progression.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A developer types "docker compose up -d" at a terminal. An arrow flows from the terminal through four quick scenes: (1) a network bubble forms labeled "default network created", (2) a volume cylinder appears labeled "volume created", (3) a container pops into existence, (4) the container lights up with "healthy" status. All four mini-scenes are inside a frame labeled "docker-compose.yml." The mood is magical, one-command orchestration.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: step labels
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 5: nginx-flask-proxy
+- **File**: `images/module-07/nginx-flask-proxy.png`
+- **Page**: 3 (Multi-Service Application)
+- **Placement**: after the Nginx reverse-proxy configuration
+- **Description**: Nginx container receives an incoming HTTP request, routes `/api/*` to the Flask container by service name, and serves static files directly. Two arrows show the split routing.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A browser sends a request to an Nginx container labeled "frontend:80." Nginx splits the request into two paths: (1) "/api/hello" goes to a Flask container labeled "api:5000" via a service-name arrow, (2) "/index.html" is served directly from Nginx's static files. Both containers live inside a single frame labeled "docker-compose.yml." The mood is architectural — reverse proxy clarity.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: service names, URLs, paths
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 6: module-07-checklist
+- **File**: `images/module-07/module-07-checklist.png`
+- **Page**: 5 (Submission)
+- **Placement**: after the Submission paragraph
+- **Description**: Day 8 completion card — Compose basics, multi-service, database stack.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A completion card with checkboxes: "Single-service compose up/ps/logs/down", "Nginx + Flask multi-service app", "Reverse proxy /api → api service by name", "PostgreSQL added with depends_on and volume", "exec into db to run SQL queries." Whale mascot stamps "DAY 8 COMPLETE." Mood: celebratory.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: checklist items and stamp
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+### Module 08: Docker Compose Part 2
+
+#### Image 5: env-file-swap
+- **File**: `images/module-08/env-file-swap.png`
+- **Page**: 2 (Environment Variables and .env Files)
+- **Placement**: after the `.env.production` swap demonstration
+- **Description**: The same `docker-compose.yml` pulls from two different `.env` files — `.env` (development) and `.env.production` — yielding dramatically different running configurations from the same stack.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A single document labeled "docker-compose.yml" in the center. Two different env files float on either side: left ".env" (dev values like DEBUG=true), right ".env.production" (prod values like DEBUG=false). An arrow labeled "--env-file" connects whichever is chosen. Below, two alternate container worlds show the resulting services running with different config badges. The mood is flexible configuration — one stack, many environments.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: file names and --env-file flag
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 6: module-08-checklist
+- **File**: `images/module-08/module-08-checklist.png`
+- **Page**: 6 (Submission)
+- **Placement**: after the Submission paragraph
+- **Description**: Day 9 completion card — env files, health checks, profiles, restart policies.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A completion card with checkboxes: ".env file wired into compose", "Swapped to .env.production", "Health check + depends_on condition: service_healthy", "Profiles used to start Adminer/Redis on demand", "Restart policy and resource limits set." Whale mascot stamps "DAY 9 COMPLETE." Mood: celebratory.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: checklist items and stamp
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+### Module 09: Docker Hub and Registries
+
+#### Image 5: docker-login
+- **File**: `images/module-09/docker-login.png`
+- **Page**: 2 (Docker Hub Account)
+- **Placement**: after the signup + docker login sequence
+- **Description**: A developer at a terminal runs `docker login`, a key icon flies up to the Docker Hub cloud, a padlock opens. Visualizes authentication as a key-to-lock pairing.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A developer at a terminal types "docker login." A key icon with their username floats up into a cloud labeled "Docker Hub." A padlock on the cloud clicks open with a green checkmark. A small credentials file labeled "~/.docker/config.json" appears near the terminal, showing the saved token. The mood is welcoming and secure.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: "docker login" command and cloud label
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 6: tag-and-push
+- **File**: `images/module-09/tag-and-push.png`
+- **Page**: 3 (Build, Tag, and Push)
+- **Placement**: after the three-tag workflow
+- **Description**: One image with three tags (`1.0.0`, `1.0`, `latest`) being uploaded together to Docker Hub. Emphasizes that tags are labels pointing at the same underlying image.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A single Docker image shown as a colorful box, with three luggage tags dangling from it labeled "1.0.0", "1.0", and "latest." An arrow shows the image being uploaded to a Docker Hub cloud via "docker push myuser/my-app --all-tags." All three tags ride along together. Below, a small note: "Same image, three labels." The mood is clarifying — tags are pointers.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: tag names and push command
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 7: pull-and-run
+- **File**: `images/module-09/pull-and-run.png`
+- **Page**: 4 (Pull and Run from Docker Hub)
+- **Placement**: after the `docker pull` / `docker run` sequence
+- **Description**: A developer somewhere in the world runs `docker pull myuser/my-app:1.0.0` and instantly has a working app. Shows the consumer side of the registry — the whole point of publishing.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A different developer at a laptop labeled "somewhere in the world" runs "docker pull myuser/my-app:1.0.0 && docker run -p 8000:8000 myuser/my-app:1.0.0." An arrow shows the image being pulled from a Docker Hub cloud. A container spins up and a browser window shows the running app with "Hello from Campbell's Docker Hub image!" The mood is global — your work is now usable by anyone.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: pull/run commands and greeting
+  Avoid: photorealistic, dark, scary, complex UI screenshots
+
+#### Image 8: module-09-checklist
+- **File**: `images/module-09/module-09-checklist.png`
+- **Page**: 7 (Submission)
+- **Placement**: after the Submission paragraph
+- **Description**: Day 10 (final day!) completion card — account, tags, push, pull, versioning, security.
+- **Status**: Pending
+- **Prompt**:
+  Goal: editorial illustration for a programming textbook
+  Scene: A grand completion card labeled "COURSE COMPLETE" with checkboxes: "Docker Hub account + login", "Multiple tags on one image", "Pushed to Docker Hub", "Pulled + ran from Docker Hub", "Version 1.0.0 and 1.1.0 side by side", "Security checklist complete." A confetti cannon fires above the card. The whale mascot holds a diploma labeled "Docker Fundamentals — Day 10." Mood: triumphant, final module.
+  Style: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational
+  Aspect ratio: 16:9
+  Background: white
+  Text in image: checklist items, COURSE COMPLETE banner, diploma text
+  Avoid: photorealistic, dark, scary, complex UI screenshots

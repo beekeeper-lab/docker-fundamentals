@@ -244,6 +244,8 @@ docker volume prune
 
 Save a file named `Day_06_Output.md` in this folder containing the terminal output from each task.
 
+> 🎙️ The most important piece of this submission is the database demonstration — the side-by-side proof that data disappears without a volume and survives with one. Capture both sequences in your output file. Also include your bind mount live-editing demo so I can see the change reflected instantly. Clean up all volumes and containers before you wrap up.
+
 ### Grading Criteria
 
 | Criteria | Points |

@@ -355,6 +355,8 @@ The `-v` flag removes named volumes too. Without it, `db-data` persists for next
 
 Save a file named `Day_08_Output.md` in this folder containing terminal output and your `docker-compose.yml` files.
 
+> 🎙️ Include every docker-compose.yml you wrote in this module — the single Nginx service, the Nginx-and-Flask stack, and the full version with PostgreSQL added. Paste the terminal output showing docker compose up, ps, and logs for each. The reverse proxy test, where Nginx forwards to the API by service name, is a favorite question on the quiz, so make sure that output is in your file.
+
 ### Grading Criteria
 
 | Criteria | Points |

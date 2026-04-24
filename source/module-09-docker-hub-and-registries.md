@@ -303,6 +303,8 @@ This removes all unused images, containers, and networks. Use with caution in pr
 
 Save a file named `Day_10_Output.md` in this folder containing terminal output and a link to your Docker Hub repository.
 
+> 🎙️ This is the final submission for the Docker course — congratulations on making it this far. Include the link to your public Docker Hub repository so I can pull your image myself. Capture the push, the pull-and-run, the version update, and the two versions running side by side. Confirm you completed the full security checklist. You now have a containerized application published to the world.
+
 ### Grading Criteria
 
 | Criteria | Points |

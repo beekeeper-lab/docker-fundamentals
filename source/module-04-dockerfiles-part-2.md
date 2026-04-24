@@ -351,6 +351,8 @@ It should print `appuser`, not `root`.
 
 Save a file named `Day_05_Output.md` in this folder containing the terminal output and all Dockerfiles.
 
+> 🎙️ For this submission, include every Dockerfile you wrote — the layer comparison pair, the Java multi-stage, the Python multi-stage, and the final best-practices one. Paste the docker history output so I can see the layer sizes, and include the before-and-after image sizes for the multi-stage builds. The non-root user demonstration is worth the most points, so don't forget to show that whoami prints appuser.
+
 ### Grading Criteria
 
 | Criteria | Points |

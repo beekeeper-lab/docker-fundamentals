@@ -303,6 +303,8 @@ docker images | grep -E "(hello-docker|flask-app|my-site)"
 
 Save a file named `Day_04_Output.md` in this folder containing the terminal output from each task. Include the Dockerfiles you wrote.
 
+> 🎙️ Here's your checklist for submission. Capture the terminal output from every task, and paste in the Dockerfiles you wrote — the simple Python one, the Flask one, and the static Nginx one. The grading rubric rewards the layer caching demonstration and proof that all three images appear in your images list. Take a minute to clean up any stray containers before you zip everything up.
+
 ### Grading Criteria
 
 | Criteria | Points |

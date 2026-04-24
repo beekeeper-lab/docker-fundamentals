@@ -369,6 +369,8 @@ docker compose down -v
 
 Save a file named `Day_09_Output.md` in this folder containing terminal output and your `docker-compose.yml` and `.env` files.
 
+> 🎙️ For submission, include both your dot-env file and your dot-env dot production file so I can see that you swapped configurations cleanly. Capture the health check transitioning from starting to healthy, and the proof that your API waited for the database before starting. Show the profile commands starting Adminer and Redis on demand. Bring everything down with compose down dash v before you zip up the results.
+
 ### Grading Criteria
 
 | Criteria | Points |

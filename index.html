@@ -233,25 +233,43 @@ function toggleTheme() {
     }
   } catch(e) {}
 
-  // Update quiz badges from localStorage
+  // Update quiz badges from per-module localStorage keys written by
+  // the new quiz runtime:
+  //   docker_quiz_<slug>_best ("score/total")
+  //   docker_quiz_<slug>_attempts (int)
+  //   docker_quiz_<slug>_last (YYYY-MM-DD)
+  var QUIZ_PASSING = {"module-00-what-is-docker": 20, "module-01-images-and-containers": 20, "module-02-container-management": 20, "module-03-dockerfiles-part-1": 20, "module-04-dockerfiles-part-2": 20, "module-05-volumes-and-persistence": 20, "module-06-networking": 20, "module-07-docker-compose-part-1": 20, "module-08-docker-compose-part-2": 20, "module-09-docker-hub-and-registries": 20};
   try {
-    var results = JSON.parse(localStorage.getItem('docker-fund-quiz-results') || '{}');
     document.querySelectorAll('.module-card[data-module-slug]').forEach(function(card) {
       var slug = card.dataset.moduleSlug;
       var badge = card.querySelector('[data-quiz-badge]');
       var scoreLine = card.querySelector('[data-quiz-score]');
-      if (results[slug] && badge) {
-        var r = results[slug];
-        if (r.passed) {
-          badge.className = 'quiz-badge passed';
-          badge.textContent = 'Passed';
-        } else {
-          badge.className = 'quiz-badge failed';
-          badge.textContent = 'Retry';
-        }
-        if (scoreLine) {
-          scoreLine.textContent = r.score + '/' + r.total + ' (' + Math.round(r.score/r.total*100) + '%)';
-        }
+      if (!badge) return;
+      var bestRaw = localStorage.getItem('docker_quiz_' + slug + '_best');
+      var attempts = parseInt(localStorage.getItem('docker_quiz_' + slug + '_attempts') || '0', 10);
+      var last = localStorage.getItem('docker_quiz_' + slug + '_last') || '';
+      if (!bestRaw) return;
+      var parts = bestRaw.split('/');
+      var score = parseInt(parts[0], 10);
+      var total = parseInt(parts[1], 10);
+      var passing = QUIZ_PASSING[slug];
+      var passed = (typeof passing === 'number') ? (score >= passing) : null;
+      if (passed === true) {
+        badge.className = 'quiz-badge passed';
+        badge.textContent = 'Passed';
+      } else if (passed === false) {
+        badge.className = 'quiz-badge failed';
+        badge.textContent = 'Retry';
+      } else {
+        badge.className = 'quiz-badge failed';
+        badge.textContent = 'Attempted';
+      }
+      if (scoreLine) {
+        var pct = total ? Math.round(score/total*100) : 0;
+        var line = score + '/' + total + ' (' + pct + '%)';
+        if (attempts) line += ' · ' + attempts + ' attempt' + (attempts === 1 ? '' : 's');
+        if (last) line += ' · ' + last;
+        scoreLine.textContent = line;
       }
     });
   } catch(e) {}
