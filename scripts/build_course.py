@@ -351,17 +351,9 @@ def embed_images(html_text, module_name):
             img_path = ROOT / src
 
         if img_path.exists():
-            ext = img_path.suffix.lower()
-            mime = {
-                ".png": "image/png",
-                ".jpg": "image/jpeg",
-                ".jpeg": "image/jpeg",
-                ".gif": "image/gif",
-                ".svg": "image/svg+xml",
-                ".webp": "image/webp",
-            }.get(ext, "image/png")
-
-            b64 = base64.b64encode(img_path.read_bytes()).decode()
+            raw = img_path.read_bytes()
+            mime = _sniff_image_mime(raw, img_path.suffix)
+            b64 = base64.b64encode(raw).decode()
             return full_tag.replace(src, f"data:{mime};base64,{b64}")
 
         return full_tag
@@ -369,16 +361,50 @@ def embed_images(html_text, module_name):
     return re.sub(r'<img[^>]+src="([^"]+)"', replace_img, html_text)
 
 
+def _sniff_image_mime(data: bytes, ext: str) -> str:
+    """Detect image MIME from magic bytes; fall back to extension.
+
+    Gemini-generated files often carry a `.png` extension but hold JPEG bytes.
+    Trusting the extension produces broken <img> tags that browsers silently
+    refuse to render. Sniff instead.
+    """
+    if data.startswith(b"\x89PNG\r\n\x1a\n"):
+        return "image/png"
+    if data[:3] == b"\xff\xd8\xff":
+        return "image/jpeg"
+    if data[:6] in (b"GIF87a", b"GIF89a"):
+        return "image/gif"
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return "image/webp"
+    if data.lstrip().startswith(b"<svg") or data.lstrip().startswith(b"<?xml"):
+        return "image/svg+xml"
+    return {
+        "png": "image/png", "jpg": "image/jpeg", "jpeg": "image/jpeg",
+        "gif": "image/gif", "svg": "image/svg+xml", "webp": "image/webp",
+    }.get(ext.lstrip(".").lower(), "application/octet-stream")
+
+
 def embed_audio(html_text, module_name):
-    """Embed narration audio as base64 into narration blocks."""
-    # Look for audio files for this module
+    """Embed narration audio as base64 into narration blocks.
+
+    Scoped replacement: finds each <div class="narration-block"> opening,
+    walks forward with balanced <div>/</div> depth tracking to locate its
+    matching close, and inserts the <audio> tag immediately before that
+    close. Narration blocks are paired with manifest entries by 1-based
+    index in document order.
+
+    Contrast with the earlier implementation, which ran
+    `re.sub(r'(</div>\\s*</div>)', ...)` against the ENTIRE document and
+    targeted the Nth match by a counter: any stray nested </div></div> pair
+    in markdown-rendered HTML (callout blocks, nested content, etc.) could
+    pull the audio out of a narration-block context.
+    """
     module_slug = module_name.replace(".md", "")
     audio_dir = AUDIO / module_slug
 
     if not audio_dir.exists():
         return html_text
 
-    # Check for manifest
     manifest_path = audio_dir / "manifest.json"
     if not manifest_path.exists():
         return html_text
@@ -386,32 +412,101 @@ def embed_audio(html_text, module_name):
     import json
     manifest = json.loads(manifest_path.read_text())
 
-    # For each narration block, try to find matching audio
-    narration_blocks = re.findall(r'<div class="narration-block">', html_text)
+    # Support both shapes:
+    #   - list of entries (Docker's current manifest format)
+    #   - {"entries": [...]} (legacy/alternative shape)
+    if isinstance(manifest, dict):
+        entries = manifest.get("entries", [])
+    else:
+        entries = manifest
 
-    for i, entry in enumerate(manifest.get("entries", [])):
-        audio_file = audio_dir / entry.get("file", "")
-        if audio_file.exists():
-            b64 = base64.b64encode(audio_file.read_bytes()).decode()
-            audio_tag = f'<audio controls preload="none"><source src="data:audio/mpeg;base64,{b64}" type="audio/mpeg"></audio>'
+    # Index manifest entries by 1-based `index` for O(1) lookup per block.
+    by_index = {}
+    for entry in entries:
+        idx = entry.get("index")
+        if isinstance(idx, int):
+            by_index[idx] = entry
 
-            # Insert audio tag into the i-th narration block
-            count = 0
-            def insert_audio(m):
-                nonlocal count
-                if count == i:
-                    count += 1
-                    return m.group(0) + audio_tag
-                count += 1
-                return m.group(0)
+    if not by_index:
+        return html_text
 
-            html_text = re.sub(
-                r'(</div>\s*</div>)',
-                insert_audio,
-                html_text,
-            )
+    open_tag = '<div class="narration-block">'
+    div_open_re = re.compile(r'<div\b[^>]*>')
+    div_close_re = re.compile(r'</div\s*>')
 
-    return html_text
+    def find_matching_close(text, start):
+        """Return the index of the </div> that closes the narration-block
+        opening at `start`, or -1 if unbalanced. Tracks div depth across
+        arbitrary nested content (callout blocks, paragraphs, etc.).
+        """
+        depth = 1
+        pos = start + len(open_tag)
+        while pos < len(text):
+            next_open = div_open_re.search(text, pos)
+            next_close = div_close_re.search(text, pos)
+            if not next_close:
+                return -1
+            if next_open and next_open.start() < next_close.start():
+                depth += 1
+                pos = next_open.end()
+            else:
+                depth -= 1
+                if depth == 0:
+                    return next_close.start()
+                pos = next_close.end()
+        return -1
+
+    out = []
+    cursor = 0
+    narration_counter = 0
+
+    while True:
+        open_at = html_text.find(open_tag, cursor)
+        if open_at == -1:
+            out.append(html_text[cursor:])
+            break
+
+        close_at = find_matching_close(html_text, open_at)
+        if close_at == -1:
+            # Malformed block; bail out gracefully.
+            out.append(html_text[cursor:])
+            break
+
+        narration_counter += 1
+        block = html_text[open_at:close_at]
+        close_tag = "</div>"
+
+        out.append(html_text[cursor:open_at])
+
+        entry = by_index.get(narration_counter)
+        # Skip embedding if no entry, no file on disk, or audio already
+        # inlined by process_narration_blocks (don't double-embed).
+        should_embed = False
+        audio_tag = ""
+        if entry and "<audio" not in block:
+            audio_filename = entry.get("audio_file") or entry.get("file", "")
+            if audio_filename:
+                audio_file = audio_dir / audio_filename
+                if audio_file.exists():
+                    b64 = base64.b64encode(audio_file.read_bytes()).decode()
+                    audio_tag = (
+                        '<audio controls preload="none">'
+                        f'<source src="data:audio/mpeg;base64,{b64}" '
+                        'type="audio/mpeg"></audio>'
+                    )
+                    should_embed = True
+
+        if should_embed:
+            out.append(block)
+            out.append(audio_tag)
+            out.append(close_tag)
+        else:
+            out.append(block)
+            out.append(close_tag)
+
+        cursor = close_at + len(close_tag)
+
+    return "".join(out)
 
 
 def paginate(html_text):
@@ -467,25 +562,29 @@ def build_toc(html_text, num_pages):
 
 
 def build_module_nav(module_idx):
-    """Build previous/next module navigation links."""
+    """Build previous/next module navigation links.
+
+    Returns a (prev_link, next_link) tuple of HTML <a> snippets, since the
+    canonical shared template uses separate {{PREV_LINK}} and {{NEXT_LINK}}
+    placeholders rather than a single combined nav block.
+    """
     all_modules = ALL_MODULES
-    parts = []
 
     if module_idx > 0:
         prev_mod = all_modules[module_idx - 1]
         prev_file = prev_mod["file"].replace(".md", ".html")
-        parts.append(f'<a href="{prev_file}">← {prev_mod["short"]}: {prev_mod["title"]}</a>')
+        prev_link = f'<a href="{prev_file}">← {prev_mod["short"]}: {prev_mod["title"]}</a>'
     else:
-        parts.append('<a href="../index.html">← Course Home</a>')
+        prev_link = '<a href="../index.html">← Course Home</a>'
 
     if module_idx < len(all_modules) - 1:
         next_mod = all_modules[module_idx + 1]
         next_file = next_mod["file"].replace(".md", ".html")
-        parts.append(f'<a href="{next_file}">{next_mod["short"]}: {next_mod["title"]} →</a>')
+        next_link = f'<a href="{next_file}">{next_mod["short"]}: {next_mod["title"]} →</a>'
     else:
-        parts.append('<a href="../index.html">Course Home →</a>')
+        next_link = '<a href="../index.html">Course Home →</a>'
 
-    return "\n".join(parts)
+    return prev_link, next_link
 
 
 def resolve_quiz_json(source_filename: str) -> Path | None:
@@ -575,21 +674,26 @@ def build_module(module_info, module_idx, template, embed=True):
     # up inside <main> but outside of any .page-section wrapper.
     paginated_html += quiz_data_script
 
-    # Build module navigation
-    module_nav = build_module_nav(module_idx)
+    # Build module navigation (split into prev/next for canonical template)
+    prev_link, next_link = build_module_nav(module_idx)
 
-    # Extract title from H1
+    # Extract title from H1 (used as fallback if module_info short/title aren't combined)
     h1_match = re.search(r'<h1[^>]*>(.*?)</h1>', body_html)
-    title = re.sub(r'<[^>]+>', '', h1_match.group(1)) if h1_match else module_info["title"]
+    h1_title = re.sub(r'<[^>]+>', '', h1_match.group(1)) if h1_match else module_info["title"]
 
-    # Fill template
+    # Canonical shared template uses {{TITLE}} for the document <title>.
+    # Combine the module short label and title to preserve the previous
+    # "Module 3: Container Management" display, falling back to the H1.
+    page_title = f'{module_info["short"]}: {module_info["title"]}' if module_info.get("short") else h1_title
+
+    # Fill template -- canonical scheme: {{TITLE}}, {{TOC}}, {{BODY}},
+    # {{PREV_LINK}}, {{NEXT_LINK}}.
     output = template
-    output = output.replace("{{MODULE_TITLE}}", title)
-    output = output.replace("{{MODULE_SHORT}}", module_info["short"])
+    output = output.replace("{{TITLE}}", page_title)
     output = output.replace("{{TOC}}", toc)
-    output = output.replace("{{CONTENT}}", paginated_html)
-    output = output.replace("{{MODULE_NAV}}", module_nav)
-    output = output.replace("{{MODULE_FILE}}", module_info["file"].replace(".md", ""))
+    output = output.replace("{{BODY}}", paginated_html)
+    output = output.replace("{{PREV_LINK}}", prev_link)
+    output = output.replace("{{NEXT_LINK}}", next_link)
 
     # Write output
     out_file = HTML_OUT / module_info["file"].replace(".md", ".html")
