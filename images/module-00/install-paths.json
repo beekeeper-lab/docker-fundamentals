@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-24T22:02:13",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A single signpost labeled \"Install Docker\" with three arrows pointing to different platforms. Left arrow: a Linux penguin next to a package icon labeled \"Docker Engine.\" Middle arrow: an Apple logo next to a whale-logo DMG icon labeled \"Docker Desktop.\" Right arrow: a Windows logo next to a whale-logo installer labeled \"Docker Desktop.\" All three paths converge at the bottom into a single terminal window displaying \"docker version \u2192 OK\" with a green checkmark. The mood is welcoming \u2014 three doors, same destination.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: platform labels and \"docker version OK\"\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "install-paths.png",
+  "generation_time_ms": 19801,
+  "usage": {
+    "prompt_tokens": 178,
+    "candidates_tokens": 1388,
+    "total_tokens": 1777
+  }
+}

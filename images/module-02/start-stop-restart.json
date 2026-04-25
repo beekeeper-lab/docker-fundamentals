@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-24T22:03:57",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A shipping container with a control panel on its side. Three large buttons clearly labeled: a green triangle \"start\", a red square \"stop\", a blue circular arrow \"restart.\" A small status light above the panel glows green when running, red when stopped. A developer's hand hovers over the buttons. The mood is tactile and empowering \u2014 you control the container state.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: button labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "start-stop-restart.png",
+  "generation_time_ms": 21001,
+  "usage": {
+    "prompt_tokens": 142,
+    "candidates_tokens": 1363,
+    "total_tokens": 1837
+  }
+}

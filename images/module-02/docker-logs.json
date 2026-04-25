@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-24T22:04:15",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A shipping container with a slot on its side labeled \"stdout/stderr.\" A long paper tape streams out, full of colorful log lines. The tape passes through three labeled funnels: \"--tail N\" (shows last N lines), \"--since 10m\" (shows recent), \"-f\" (shows live stream with a looping arrow). The tape ends at a developer's terminal window. The mood is analytical and investigative.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: slot label and flag names\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "docker-logs.png",
+  "generation_time_ms": 17464,
+  "usage": {
+    "prompt_tokens": 157,
+    "candidates_tokens": 1340,
+    "total_tokens": 1745
+  }
+}

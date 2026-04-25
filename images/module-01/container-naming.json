@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-24T22:03:17",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Two shipping containers side by side on a platform. Left container has a random-name sticker reading \"quirky_einstein\" with a shrug emoji. Right container has a clean nameplate reading \"my-web\" with a proud smile. Above them, a terminal window shows \"docker ps\" listing both. An arrow points from the \"--name\" flag to the right container. The mood contrasts random vs intentional naming.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: container names and --name flag\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "container-naming.png",
+  "generation_time_ms": 20523,
+  "usage": {
+    "prompt_tokens": 155,
+    "candidates_tokens": 1527,
+    "total_tokens": 1928
+  }
+}

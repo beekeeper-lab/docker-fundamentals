@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-24T22:03:36",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A completion card with checkboxes: \"Python full/slim/alpine variants pulled and compared\", \"Python 3.12 and 3.11 run simultaneously\", \"--name, -e, --rm, -w flags demonstrated\", \"Containers cleaned up.\" A friendly whale mascot stamps \"DAY 2 COMPLETE\" on the card. The mood is celebratory.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: checklist items and stamp\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "module-01-checklist.png",
+  "generation_time_ms": 19771,
+  "usage": {
+    "prompt_tokens": 141,
+    "candidates_tokens": 1409,
+    "total_tokens": 1733
+  }
+}

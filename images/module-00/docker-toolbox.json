@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-24T22:02:33",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: An open toolbox with a whale logo on the lid, labeled \"docker.\" Four tools laid out neatly inside, each with a tag: a stack of blueprint papers tagged \"images\" (list downloaded images), a magnifying glass over small processes tagged \"ps\" (list containers), a trash bin tagged \"rm\" (remove container), and a shredder tagged \"rmi\" (remove image). A developer's hand reaches in to pick a tool. The mood is organized and inviting.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: tool-name tags\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "docker-toolbox.png",
+  "generation_time_ms": 19223,
+  "usage": {
+    "prompt_tokens": 165,
+    "candidates_tokens": 1340,
+    "total_tokens": 1791
+  }
+}

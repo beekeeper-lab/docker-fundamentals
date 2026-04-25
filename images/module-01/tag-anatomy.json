@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-24T22:02:56",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A large text label \"python:3.12-slim\" with brackets separating each part. \"python\" labeled \"Repository\" with a snake icon. \"3.12\" labeled \"Version\" with a tag icon. \"slim\" labeled \"Variant\" with a slim box icon. Below, four small badges show variant options: latest (shining star), slim (trim box), alpine (tiny mountain package), 3.12.0 (exact-version pin). The mood is decoder-ring, showing you how to read a tag.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: segment labels and variant names\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "tag-anatomy.png",
+  "generation_time_ms": 20073,
+  "usage": {
+    "prompt_tokens": 183,
+    "candidates_tokens": 1577,
+    "total_tokens": 2043
+  }
+}

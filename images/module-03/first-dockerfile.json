@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-24T22:04:51",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A developer's hand holds a short Dockerfile with lines FROM, WORKDIR, COPY, RUN, CMD. The Dockerfile slides into an oven labeled \"docker build -t hello-docker:1.0 .\" A fresh image (shown as a small glowing box labeled \"hello-docker:1.0\") sits on a cooling rack with steam rising. The mood is warm and satisfying \u2014 your first image, fresh out of the oven.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: Dockerfile snippet and image tag\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "first-dockerfile.png",
+  "generation_time_ms": 18359,
+  "usage": {
+    "prompt_tokens": 160,
+    "candidates_tokens": 1342,
+    "total_tokens": 1719
+  }
+}
