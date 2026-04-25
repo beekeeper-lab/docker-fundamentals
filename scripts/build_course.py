@@ -531,30 +531,48 @@ def paginate(html_text):
 
 
 def build_toc(html_text, num_pages):
-    """Build sidebar TOC from H2 and H3 headings, grouped by page."""
-    groups = []  # list of (page_idx, h2_title, [h3_titles])
-    page_idx = -1
+    """Build sidebar TOC from H2 and H3 headings, grouped by page.
+
+    Emits anchor hrefs (`#<heading-id>`) so the template's TOC click
+    handler can locate the target heading and switch to its page. Tracks
+    page indices that match `paginate()`'s output: paginate splits on
+    `<h2>` boundaries, so anything before the first H2 (the H1 + intro)
+    becomes page-section 0. The first H2 therefore lives on page 1, the
+    second on page 2, and so on. Initialize `page_idx` at 0 and bump on
+    every H2 to align with paginate.
+    """
+    groups = []  # list of (page_idx, h2_title, h2_id, [(h3_title, h3_id)])
+    page_idx = 0  # paginate reserves page 0 for the H1+intro
+
+    h2_re = re.compile(r'<h2[^>]*?id="([^"]+)"[^>]*>(.*?)</h2>')
+    h3_re = re.compile(r'<h3[^>]*?id="([^"]+)"[^>]*>(.*?)</h3>')
 
     for line in html_text.split("\n"):
-        h2_match = re.search(r'<h2[^>]*>(.*?)</h2>', line)
-        h3_match = re.search(r'<h3[^>]*>(.*?)</h3>', line)
+        h2_match = h2_re.search(line)
+        h3_match = h3_re.search(line)
 
         if h2_match:
             page_idx += 1
-            title = re.sub(r'<[^>]+>', '', h2_match.group(1))
-            groups.append((page_idx, title, []))
-        elif h3_match and page_idx >= 0 and groups:
-            title = re.sub(r'<[^>]+>', '', h3_match.group(1))
-            groups[-1][2].append(title)
+            h2_id = h2_match.group(1)
+            title = re.sub(r'<[^>]+>', '', h2_match.group(2))
+            groups.append((page_idx, title, h2_id, []))
+        elif h3_match and groups:
+            h3_id = h3_match.group(1)
+            title = re.sub(r'<[^>]+>', '', h3_match.group(2))
+            groups[-1][3].append((title, h3_id))
 
     toc_html = []
-    for page_num, h2_title, h3_titles in groups:
+    for page_num, h2_title, h2_id, h3_entries in groups:
         toc_html.append(f'<li class="toc-page-group" data-toc-page="{page_num}">')
-        toc_html.append(f'  <a href="#" data-page="{page_num}" class="toc-h2-link">{h2_title}</a>')
-        if h3_titles:
+        toc_html.append(
+            f'  <a href="#{h2_id}" data-page="{page_num}" class="toc-h2-link">{h2_title}</a>'
+        )
+        if h3_entries:
             toc_html.append('  <ul class="toc-subsections">')
-            for h3 in h3_titles:
-                toc_html.append(f'    <li><a href="#" data-page="{page_num}" class="toc-h3-link">{h3}</a></li>')
+            for h3_title, h3_id in h3_entries:
+                toc_html.append(
+                    f'    <li><a href="#{h3_id}" data-page="{page_num}" class="toc-h3-link">{h3_title}</a></li>'
+                )
             toc_html.append('  </ul>')
         toc_html.append('</li>')
 
