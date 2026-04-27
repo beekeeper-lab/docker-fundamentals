@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:36:32",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A completion card with checkboxes: \"Layers compared with docker history\", \"Java multi-stage build shrunk from 700MB to 180MB\", \"Python multi-stage build\", \".dockerignore excluded secrets\", \"USER appuser (non-root) confirmed with whoami.\" Whale mascot stamps \"DAY 5 COMPLETE.\" Mood: celebratory.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: checklist items and stamp\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "module-04-checklist.png",
+  "generation_time_ms": 18278,
+  "usage": {
+    "prompt_tokens": 141,
+    "candidates_tokens": 1388,
+    "total_tokens": 1766
+  }
+}

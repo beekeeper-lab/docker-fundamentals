@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:35:06",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A completion card styled like a boarding pass or receipt. Items with checkboxes: \"Terminal output captured\", \"docker images listed\", \"docker ps -a listed\", \"Nginx accessed in browser/curl\", \"Cleanup complete.\" A small friendly whale mascot gives a thumbs-up next to the card. A stamp reads \"DAY 1 COMPLETE.\" The mood is celebratory and encouraging.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: checklist items and \"DAY 1 COMPLETE\" stamp\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "module-00-checklist.png",
+  "generation_time_ms": 17462,
+  "usage": {
+    "prompt_tokens": 150,
+    "candidates_tokens": 1389,
+    "total_tokens": 1808
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:37:14",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A yard with several storage cylinders. Three cylinders are connected by cables to running containers (safe, green checkmarks). Two cylinders sit disconnected, faded, labeled \"orphan.\" A broom labeled \"docker volume prune\" sweeps the orphan volumes away into a trash bin while leaving the connected ones untouched. The mood is tidy and careful \u2014 housekeeping without harm.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: orphan/safe labels, prune command\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "volume-prune.png",
+  "generation_time_ms": 19911,
+  "usage": {
+    "prompt_tokens": 140,
+    "candidates_tokens": 1381,
+    "total_tokens": 1724
+  }
+}

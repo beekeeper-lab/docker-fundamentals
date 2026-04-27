@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:40:39",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A developer at a terminal types \"docker login.\" A key icon with their username floats up into a cloud labeled \"Docker Hub.\" A padlock on the cloud clicks open with a green checkmark. A small credentials file labeled \"~/.docker/config.json\" appears near the terminal, showing the saved token. The mood is welcoming and secure.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: \"docker login\" command and cloud label\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "docker-login.png",
+  "generation_time_ms": 20092,
+  "usage": {
+    "prompt_tokens": 141,
+    "candidates_tokens": 1392,
+    "total_tokens": 1724
+  }
+}

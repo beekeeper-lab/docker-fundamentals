@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:38:37",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A completion card with checkboxes: \"Three Nginx containers on ports 8080/8081/8082\", \"Default bridge DNS failure shown\", \"Custom network DNS works\", \"Network isolation verified\", \"Two-service app communicating by name.\" Whale mascot stamps \"DAY 7 COMPLETE.\" Mood: celebratory.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: checklist items and stamp\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "module-06-checklist.png",
+  "generation_time_ms": 19436,
+  "usage": {
+    "prompt_tokens": 137,
+    "candidates_tokens": 1354,
+    "total_tokens": 1827
+  }
+}

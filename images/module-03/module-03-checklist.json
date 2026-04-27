@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:35:48",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A completion card with checkboxes: \"Python script Dockerfile built\", \"Flask app Dockerfile with cached dependencies\", \"Static Nginx site Dockerfile\", \"Layer caching rebuild demonstrated\", \"All three images in docker images.\" Whale mascot stamps \"DAY 4 COMPLETE.\" Mood: celebratory.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: checklist items and stamp\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "module-03-checklist.png",
+  "generation_time_ms": 18572,
+  "usage": {
+    "prompt_tokens": 125,
+    "candidates_tokens": 1392,
+    "total_tokens": 1774
+  }
+}

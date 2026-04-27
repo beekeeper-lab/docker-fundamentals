@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:41:40",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A grand completion card labeled \"COURSE COMPLETE\" with checkboxes: \"Docker Hub account + login\", \"Multiple tags on one image\", \"Pushed to Docker Hub\", \"Pulled + ran from Docker Hub\", \"Version 1.0.0 and 1.1.0 side by side\", \"Security checklist complete.\" A confetti cannon fires above the card. The whale mascot holds a diploma labeled \"Docker Fundamentals \u2014 Day 10.\" Mood: triumphant, final module.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: checklist items, COURSE COMPLETE banner, diploma text\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "module-09-checklist.png",
+  "generation_time_ms": 20371,
+  "usage": {
+    "prompt_tokens": 170,
+    "candidates_tokens": 1415,
+    "total_tokens": 1871
+  }
+}

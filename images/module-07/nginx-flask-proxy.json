@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:39:19",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A browser sends a request to an Nginx container labeled \"frontend:80.\" Nginx splits the request into two paths: (1) \"/api/hello\" goes to a Flask container labeled \"api:5000\" via a service-name arrow, (2) \"/index.html\" is served directly from Nginx's static files. Both containers live inside a single frame labeled \"docker-compose.yml.\" The mood is architectural \u2014 reverse proxy clarity.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: service names, URLs, paths\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "nginx-flask-proxy.png",
+  "generation_time_ms": 20352,
+  "usage": {
+    "prompt_tokens": 168,
+    "candidates_tokens": 1390,
+    "total_tokens": 1872
+  }
+}

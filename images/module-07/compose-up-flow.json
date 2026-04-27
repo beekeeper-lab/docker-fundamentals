@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:38:58",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A developer types \"docker compose up -d\" at a terminal. An arrow flows from the terminal through four quick scenes: (1) a network bubble forms labeled \"default network created\", (2) a volume cylinder appears labeled \"volume created\", (3) a container pops into existence, (4) the container lights up with \"healthy\" status. All four mini-scenes are inside a frame labeled \"docker-compose.yml.\" The mood is magical, one-command orchestration.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: step labels\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "compose-up-flow.png",
+  "generation_time_ms": 21244,
+  "usage": {
+    "prompt_tokens": 165,
+    "candidates_tokens": 1476,
+    "total_tokens": 1889
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:38:18",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Split scene. Left \"Before\": a cluttered yard with running containers tangled in network cables. Right \"After\": the same yard clean and empty, just a green grass lawn and \"docker network ls\" showing only default networks. Between them, a developer character swings a broom labeled \"docker stop && rm && network rm.\" The mood is satisfying cleanup.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: before/after labels and cleanup commands\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "network-cleanup.png",
+  "generation_time_ms": 22173,
+  "usage": {
+    "prompt_tokens": 141,
+    "candidates_tokens": 1473,
+    "total_tokens": 1859
+  }
+}

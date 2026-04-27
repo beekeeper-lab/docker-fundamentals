@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:41:20",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A different developer at a laptop labeled \"somewhere in the world\" runs \"docker pull myuser/my-app:1.0.0 && docker run -p 8000:8000 myuser/my-app:1.0.0.\" An arrow shows the image being pulled from a Docker Hub cloud. A container spins up and a browser window shows the running app with \"Hello from Campbell's Docker Hub image!\" The mood is global \u2014 your work is now usable by anyone.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: pull/run commands and greeting\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "pull-and-run.png",
+  "generation_time_ms": 20652,
+  "usage": {
+    "prompt_tokens": 177,
+    "candidates_tokens": 1383,
+    "total_tokens": 1910
+  }
+}

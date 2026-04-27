@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:35:29",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A small, sleek shipping container with an Nginx logo and a tag reading \"nginx:alpine \u2014 23 MB.\" Inside it holds a single HTML file labeled \"index.html.\" An arrow shows it serving a browser window with \"Hello from Docker!\" text. Next to it, a bulky heavy container labeled \"nginx full \u2014 140 MB\" looks slow and overweight by comparison. Small mountains in the background nod to Alpine. The mood contrasts lean vs heavy.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: size labels and HTML filename\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "static-site-alpine.png",
+  "generation_time_ms": 23221,
+  "usage": {
+    "prompt_tokens": 165,
+    "candidates_tokens": 1604,
+    "total_tokens": 2019
+  }
+}

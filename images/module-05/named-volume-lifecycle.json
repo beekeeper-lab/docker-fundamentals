@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:36:54",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A storage locker with a \"my-data\" nameplate, managed by a small Docker daemon character holding a clipboard. Two containers approach one at a time with cables \u2014 container A plugs in, writes a file, unplugs (poof, gone). Container B plugs into the same locker, reads the file intact. Below, a small label \"/var/lib/docker/volumes/my-data/_data\" shows where Docker stores it. The mood is dependable and curated.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: volume name and path\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "named-volume-lifecycle.png",
+  "generation_time_ms": 22449,
+  "usage": {
+    "prompt_tokens": 166,
+    "candidates_tokens": 1395,
+    "total_tokens": 2074
+  }
+}

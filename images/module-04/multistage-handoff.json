@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:36:13",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: Two rooms side by side separated by a small window. Left room \"Stage 1: builder\" labeled \"eclipse-temurin:21-jdk\" is cluttered with JDK tools, .java source files, and compilation smoke. A worker hands a single small file labeled \"Hello.class\" through the window. Right room \"Stage 2: runtime\" labeled \"eclipse-temurin:21-jre-alpine\" is clean and minimal with just the .class file on a shelf and a \"java Hello\" command running. Size labels: \"Stage 1: 700 MB\" / \"Final image: 180 MB.\" The mood is clever and efficient.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: stage labels, size comparison, filename\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "multistage-handoff.png",
+  "generation_time_ms": 25766,
+  "usage": {
+    "prompt_tokens": 212,
+    "candidates_tokens": 1536,
+    "total_tokens": 2123
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:37:56",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A fenced enclosure labeled \"app-network\" with a DNS directory post at the gate. Inside: a Flask API container labeled \"api-service:5000\" and a client container. The client shouts \"curl http://api-service:5000/hello\" and the DNS post routes the request. A response \"Hello from Flask!\" flies back. The mood is friendly service discovery \u2014 containers find each other by name.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: network name, service name, URL\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "two-service-app.png",
+  "generation_time_ms": 21137,
+  "usage": {
+    "prompt_tokens": 161,
+    "candidates_tokens": 1415,
+    "total_tokens": 1846
+  }
+}

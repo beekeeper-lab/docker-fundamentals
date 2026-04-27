@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:39:58",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A single document labeled \"docker-compose.yml\" in the center. Two different env files float on either side: left \".env\" (dev values like DEBUG=true), right \".env.production\" (prod values like DEBUG=false). An arrow labeled \"--env-file\" connects whichever is chosen. Below, two alternate container worlds show the resulting services running with different config badges. The mood is flexible configuration \u2014 one stack, many environments.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: file names and --env-file flag\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "env-file-swap.png",
+  "generation_time_ms": 21532,
+  "usage": {
+    "prompt_tokens": 163,
+    "candidates_tokens": 1806,
+    "total_tokens": 2211
+  }
+}

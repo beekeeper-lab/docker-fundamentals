@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-04-25T10:40:59",
+  "model": "gemini-3-pro-image-preview",
+  "prompt": "Goal: editorial illustration for a programming textbook\nScene: A single Docker image shown as a colorful box, with three luggage tags dangling from it labeled \"1.0.0\", \"1.0\", and \"latest.\" An arrow shows the image being uploaded to a Docker Hub cloud via \"docker push myuser/my-app --all-tags.\" All three tags ride along together. Below, a small note: \"Same image, three labels.\" The mood is clarifying \u2014 tags are pointers.\nStyle: Head First book illustration style, clean lines, slightly whimsical and humorous, warm colors, educational\nAspect ratio: 16:9\nBackground: white\nText in image: tag names and push command\nAvoid: photorealistic, dark, scary, complex UI screenshots",
+  "output_file": "tag-and-push.png",
+  "generation_time_ms": 20093,
+  "usage": {
+    "prompt_tokens": 159,
+    "candidates_tokens": 1392,
+    "total_tokens": 1808
+  }
+}
